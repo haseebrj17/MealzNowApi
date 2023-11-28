@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using static FoodsNow.Core.Enum.Enums;
+using static MealzNow.Core.Enum.Enums;
 
 namespace MealzNow.Db.Models
 {
@@ -103,6 +103,10 @@ namespace MealzNow.Db.Models
         public string Day { get; set; }
 
         [Required]
+        [JsonProperty("dayId")]
+        public Guid DayId { get; set; }
+
+        [Required]
         [JsonProperty("productByTiming")]
         public List<ProductByTiming> ProductByTiming { get; set; } = new List<ProductByTiming>();
     }
@@ -111,11 +115,19 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("timeOfDay")]
-        public Timings Timings { get; set; }
+        public string timeOfDay { get; set; }
+
+        [Required]
+        [JsonProperty("timeOfDayId")]
+        public Guid timeOfDayId { get; set; }
 
         [Required]
         [JsonProperty("deliveryTimings")]
         public DateTime DeliveryTimings { get; set; }
+
+        [Required]
+        [JsonProperty("deliveryTimingsId")]
+        public Guid DeliveryTimingsId { get; set; }
 
         [Required]
         [JsonProperty("name")]

@@ -1,4 +1,4 @@
-﻿namespace FoodsNow.Core.Enum
+﻿namespace MealzNow.Core.Enum
 {
     public class Enums
     {

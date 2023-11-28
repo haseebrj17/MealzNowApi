@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 
 namespace MealzNow.Db.Repositories
 {
-    public class ClientRepository
+    public interface IClientRepository
     {
-        
+
+    }
+    partial class ClientRepository : IClientRepository
+    {
+
     }
 }

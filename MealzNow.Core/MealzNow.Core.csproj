@@ -8,9 +8,15 @@
 
   <ItemGroup>
     <None Remove="Enum\" />
+    <None Remove="Dto\" />
+    <None Remove="RequestModels\" />
+    <None Remove="ResponseModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enum\" />
+    <Folder Include="Dto\" />
+    <Folder Include="RequestModels\" />
+    <Folder Include="ResponseModels\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

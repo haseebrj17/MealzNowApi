@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MealzNow.Db.Models
 {
-    // Wrapper class for multiple countries
     public class CountriesWrapper
     {
         [JsonProperty("country")]
@@ -34,7 +33,6 @@ namespace MealzNow.Db.Models
         public List<CityName> Cities { get; set; } = new List<CityName>();
     }
 
-    // Separate class for city names
     public class CityName : BaseEntity
     {
         [Required]

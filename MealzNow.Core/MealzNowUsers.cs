@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using static FoodsNow.Core.Enum.Enums;
+using static MealzNow.Core.Enum.Enums;
 
 namespace FoodsNow.Core
 {
@@ -20,6 +20,6 @@ namespace FoodsNow.Core
 
         // Partition key (assuming email address is unique)
         [JsonProperty("partitionKey")]
-        public string PartitionKey => ContactNumber;
+        public string PartitionKey => EmailAdress;
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using static FoodsNow.Core.Enum.Enums;
+using static MealzNow.Core.Enum.Enums;
 
 namespace MealzNow.Db.Models
 {

@@ -19,7 +19,6 @@ public class MealzNowDataBaseContext : DbContext
     public DbSet<Category> Categories { get; set; }
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Packages> Packages { get; set; }
-    public DbSet<ProductOutline> ProductOutlines { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -61,8 +60,5 @@ public class MealzNowDataBaseContext : DbContext
 
         modelBuilder.Entity<Packages>().HasKey(e => e.Id);
         modelBuilder.Entity<Packages>().ToContainer("Packages").HasPartitionKey(p => p.Id);
-
-        modelBuilder.Entity<ProductOutline>().HasKey(e => e.Id);
-        modelBuilder.Entity<ProductOutline>().ToContainer("ProductOutlines").HasPartitionKey(p => p.Id);
     }
 }

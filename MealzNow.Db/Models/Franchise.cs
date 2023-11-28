@@ -59,6 +59,10 @@ namespace MealzNow.Db.Models
         public string CityName { get; set; }
 
         [Required]
+        [JsonProperty("stateId")]
+        public Guid StateId { get; set; }
+
+        [Required]
         [JsonProperty("stateName")]
         public string StateName { get; set; }
 
@@ -70,6 +74,17 @@ namespace MealzNow.Db.Models
 
         [JsonProperty("dishOfDay")]
         public List<DishOfDay> DishOfDay { get; set; } = new List<DishOfDay>();
+
+        [JsonProperty("banner")]
+        public List<Banner> Banner { get; set; } = new List<Banner>();
+
+        [Required]
+        [JsonProperty("franchiseSetting")]
+        public List<FranchiseSetting> FranchiseSetting { get; set; } = new List<FranchiseSetting>();
+
+        [Required]
+        [JsonProperty("productOutline")]
+        public List<ProductOutline> ProductOutline { get; set; } = new List<ProductOutline>();
     }
 
     public class FranchiseTiming
@@ -144,5 +159,91 @@ namespace MealzNow.Db.Models
 
         [JsonProperty("categoryId")]
         public Guid? CategoryId { get; set; }
+    }
+
+    public class FranchiseSetting : BaseEntity
+    {
+        [Required]
+        [JsonProperty("mealsPerDay")]
+        public List<MealsPerDay> MealsPerDay { get; set; } = new List<MealsPerDay>();
+
+        [Required]
+        [JsonProperty("servingDays")]
+        public List<ServingDays> ServingDays { get; set; } = new List<ServingDays>();
+
+        [Required]
+        [JsonProperty("servingTimings")]
+        public List<ServingTimings> ServingTimings { get; set; } = new List<ServingTimings>();
+    }
+
+    public class MealsPerDay : BaseEntity
+    {
+        [Required]
+        [JsonProperty("title")]
+        public string Title { get; set; }
+
+        [Required]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [JsonProperty("discount")]
+        public int Discount { get; set; }
+    }
+
+    public class ServingDays : BaseEntity
+    {
+        [Required]
+        [JsonProperty("name")]
+        public string Name { get; set; }
+    }
+
+    public class ServingTimings : BaseEntity
+    {
+        [Required]
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [Required]
+        [JsonProperty("servingTime")]
+        public List<ServingTime> ServingTime { get; set; } = new List<ServingTime>();
+    }
+
+    public class ServingTime : BaseEntity
+    {
+        [Required]
+        [JsonProperty("slotStart")]
+        public DateTime SlotStart { get; set; }
+
+        [Required]
+        [JsonProperty("slotEnd")]
+        public DateTime SlotEnd { get; set; }
+    }
+
+    public class ProductOutline : BaseEntity
+    {
+        [Required]
+        [JsonProperty("title")]
+        public string Title { get; set; }
+
+        [Required]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [Required]
+        [JsonProperty("icon")]
+        public string Icon { get; set; }
+
+        [Required]
+        [JsonProperty("productInclusion")]
+        public List<ProductInclusion> ProductInclusion { get; set; } = new List<ProductInclusion>();
+    }
+
+    public class ProductInclusion : BaseEntity
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("icon")]
+        public string Icon { get; set; }
     }
 }
