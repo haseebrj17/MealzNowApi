@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ofUD4KVaQ70iC/OW6a7luPHjTnCRqra4MvSWCjyozqpf01LdrF0CAKr9IgLfUwNZXRyKxaa9gJSs3ZhvpTzQTQ==",
+  "success": true,
+  "projectFilePath": "/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Core/MealzNow.Core.csproj",
+  "expectedPackageFiles": [
+    "/Users/haseebrajpoot/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

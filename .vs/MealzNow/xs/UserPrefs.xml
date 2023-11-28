@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{420AF5FC-E127-4010-946F-A92400DB905B}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MealzNow.MobApi/Program.cs">
+    <Files>
+      <File FileName="MealzNow.MobApi/MealzNowApi.cs" Line="35" Column="2" />
+      <File FileName="MealzNow.MobApi/host.json" Line="1" Column="1" />
+      <File FileName="MealzNow.MobApi/Program.cs" Line="30" Column="14" />
+      <File FileName="MealzNow.MobApi/local.settings.json" Line="8" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MealzNow" expanded="True">
+            <Node name="MealzNow" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+            <Node name="MealzNow.Core" expanded="True" />
+            <Node name="MealzNow.Db" expanded="True" />
+            <Node name="MealzNow.Services" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MealzNow PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>
