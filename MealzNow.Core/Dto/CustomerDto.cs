@@ -1,36 +1,24 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+using static MealzNow.Core.Enum.Enums;
 
-namespace MealzNow.Db.Models
+namespace MealzNow.Core.Dto
 {
-    public class Customer : BaseEntity
+    public class CustomerDto
     {
-        [Required]
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         [JsonProperty("fullName")]
         public string FullName { get; set; }
 
-        [Required]
         [JsonProperty("emailAddress")]
         public string EmailAddress { get; set; }
 
-        [Required]
-        [JsonProperty("password")]
-        public string Password { get; set; }
-
-        [Required]
         [JsonProperty("contactNumber")]
         public string ContactNumber { get; set; }
-
-        [Required]
-        [JsonProperty("verificationCode")]
-        public string VerificationCode { get; set; }
-
-        [JsonProperty("isActive")]
-        public bool IsActive { get; set; }
-
-        [JsonProperty("isDeleted")]
-        public bool IsDeleted { get; set; }
 
         [JsonProperty("isNumberVerified")]
         public bool IsNumberVerified { get; set; }
@@ -38,36 +26,29 @@ namespace MealzNow.Db.Models
         [JsonProperty("isEmailVerified")]
         public bool IsEmailVerified { get; set; }
 
-        [JsonProperty("CustomerAddress")]
-        public List<CustomerAddress> CustomerAddress { get; set; } = new List<CustomerAddress>();
+        [JsonProperty("customerAddress")]
+        public List<CustomerAddressDto> CustomerAddress { get; set; }
 
-        [JsonProperty("Preference")]
-        public Preference Preference { get; set; }
+        [JsonProperty("preference")]
+        public PreferenceDto Preference { get; set; }
 
         [JsonProperty("customerProductOutline")]
-        public CustomerProductOutline CustomerProductOutline { get; set; }
+        public List<CustomerProductOutlineDto> CustomerProductOutline { get; set; }
 
-        [JsonProperty("CustomerOrderedPackage")]
-        public CustomerOrderedPackage CustomerOrderedPackage { get; set; }
+        [JsonProperty("customerOrderedPackage")]
+        public CustomerOrderedPackageDto CustomerOrderedPackage { get; set; }
 
-        [JsonProperty("CustomerPromo")]
-        public CustomerPromo CustomerPromo { get; set; }
+        [JsonProperty("customerPromo")]
+        public CustomerPromoDto CustomerPromo { get; set; }
 
-        [JsonProperty("CustomerPayment")]
-        public CustomerPayment CustomerPayment { get; set; }
-
-        [JsonProperty("customerPassword")]
-        public CustomerPassword CustomerPassword { get; set; }
-
-        [JsonProperty("CustomerDevice")]
-        public List<CustomerDevice> CustomerDevice { get; set; } = new List<CustomerDevice>();
+        [JsonProperty("customerPayment")]
+        public CustomerPromoDto CustomerPayment { get; set; }
     }
 
-    public class CustomerAddress : BaseEntity
+    public class CustomerAddressDto
     {
-        [Required]
         [JsonProperty("streetAddress")]
-        public string StreetAddress { get; set; }
+        public string? StreetAddress { get; set; }
 
         [JsonProperty("house")]
         public string? House { get; set; }
@@ -93,46 +74,23 @@ namespace MealzNow.Db.Models
         [JsonProperty("tag")]
         public string? Tag { get; set; }
 
-        [Required]
         [JsonProperty("latitude")]
         public decimal Latitude { get; set; }
 
-        [Required]
         [JsonProperty("longitude")]
         public decimal Longitude { get; set; }
-
-        [JsonProperty("cityId")]
-        public Guid CityId { get; set; }
     }
 
-    public class CustomerDevice : BaseEntity
-    {
-        [JsonProperty("deviceId")]
-        public string DeviceId { get; set; }
-
-        [JsonProperty("isActive")]
-        public bool IsActive { get; set; }
-    }
-
-    public class CustomerPassword : BaseEntity
-    {
-        [JsonProperty("hash")]
-        public string Hash { get; set; }
-
-        [JsonProperty("salt")]
-        public string Salt { get; set; }
-    }
-
-    public class Preference : BaseEntity
+    public class PreferenceDto
     {
         [JsonProperty("preferredCategories")]
-        public List<PreferredCategories> PreferredCategories { get; set; } = new List<PreferredCategories>();
+        public List<PreferredCategoriesDto> PreferredCategories { get; set; }
 
         [JsonProperty("preferredSubCategories")]
-        public List<PreferredSubCategories> PreferredSubCategories { get; set; } = new List<PreferredSubCategories>();
+        public List<PreferredSubCategoriesDto> PreferredSubCategories { get; set; }
     }
 
-    public class PreferredCategories : BaseEntity
+    public class PreferredCategoriesDto
     {
         [JsonProperty("categoryId")]
         public Guid CategoryId { get; set; }
@@ -141,7 +99,7 @@ namespace MealzNow.Db.Models
         public string CategoryName { get; set; }
     }
 
-    public class PreferredSubCategories : BaseEntity
+    public class PreferredSubCategoriesDto
     {
         [JsonProperty("subCategoryId")]
         public Guid SubCategoryId { get; set; }
@@ -150,30 +108,35 @@ namespace MealzNow.Db.Models
         public string SubCategoryName { get; set; }
     }
 
-    public class CustomerProductOutline : BaseEntity
+    public class CustomerProductOutlineDto
     {
-        [Required]
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("outlineId")]
+        public Guid OutlineId { get; set; }
+    }
+
+
+    public class CustomerProductOutline
+    {
         [JsonProperty("title")]
         public string Title { get; set; }
 
-        [Required]
         [JsonProperty("description")]
         public string Description { get; set; }
 
-        [Required]
         [JsonProperty("icon")]
         public string Icon { get; set; }
 
-        [Required]
         [JsonProperty("outlineId")]
         public Guid OutlineId { get; set; }
 
-        [Required]
         [JsonProperty("customerProductInclusion")]
         public List<CustomerProductInclusion> CustomerProductInclusion { get; set; } = new List<CustomerProductInclusion>();
     }
 
-    public class CustomerProductInclusion : BaseEntity
+    public class CustomerProductInclusion
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -184,4 +147,42 @@ namespace MealzNow.Db.Models
         [JsonProperty("productInclusionId")]
         public Guid ProductInclusionId { get; set; }
     }
+
+    public class CustomerOrderedPackageDto
+    {
+        [JsonProperty("packageId")]
+        public Guid PackageId { get; set; }
+
+        [JsonProperty("packageName")]
+        public string PackageName { get; set; }
+
+        [JsonProperty("totalNumberOfMeals")]
+        public int TotalNumberOfMeals { get; set; }
+
+        [JsonProperty("numberOfDays")]
+        public int NumberOfDays { get; set; }
+    }
+
+    public class CustomerPaymentDto
+    {
+        [JsonProperty("paymentType")]
+        public string PaymentType { get; set; }
+
+        [JsonProperty("orderType")]
+        public OrderType OrderType { get; set; }
+    }
+
+    public class CustomerPromoDto
+    {
+        [JsonProperty("type")]
+        public string Type { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("percent")]
+        public string Percent { get; set; }
+    }
+
+
 }

@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json
+﻿using Newtonsoft.Json;
 
 namespace MealzNow.Core.Dto
 {
-    public class FranchiseMainDto
+    public class FranchiseDto
     {
         [JsonProperty("id")]
         public Guid Id { get; set; }

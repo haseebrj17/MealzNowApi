@@ -52,7 +52,7 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("isActive")]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         [Required]
         [JsonProperty("membershipValidityDate")]

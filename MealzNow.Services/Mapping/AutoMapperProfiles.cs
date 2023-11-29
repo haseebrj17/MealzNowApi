@@ -11,11 +11,23 @@ namespace MealzNow.Services.Mapping
         public AutoMapperProfiles()
         {
 
-            CreateMap<Category, CategoryDto>();
+            CreateMap<Countries, CountriesDto>();
 
             CreateMap<Franchise, FranchiseDto>();
 
+            CreateMap<FranchiseDto, Franchise>();
+
+            CreateMap<Category, CategoryDto>();
+
+            CreateMap<Category, CategoryOutlineDto>();
+
             CreateMap<Product, ProductDto>();
+
+            CreateMap<ProductDto, Product>();
+
+            CreateMap<Packages, PackageDto>();
+
+            CreateMap<PackageDto, Packages>();
 
             CreateMap<CustomerDto, Customer>();
 

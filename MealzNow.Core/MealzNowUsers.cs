@@ -1,25 +1,32 @@
 ﻿using Newtonsoft.Json;
 using static MealzNow.Core.Enum.Enums;
 
-namespace FoodsNow.Core
+namespace MealzNow.Core
 {
-    public class CurrentAppUser
+    public class MealzNowUsers
     {
-        // Cosmos DB requires an 'id' property (lowercase)
         [JsonProperty("id")]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Id { get; set; }
 
-        // Other properties
+        [JsonProperty("franchiseId")]
         public Guid? FranchiseId { get; set; }
-        public string FullName { get; set; }
-        public string EmailAdress { get; set; }
-        public string? Password { get; set; }
-        public string ContactNumber { get; set; }
-        public string? VerificationCode { get; set; }
-        public UserRole? UserRole { get; set; }
 
-        // Partition key (assuming email address is unique)
-        [JsonProperty("partitionKey")]
-        public string PartitionKey => EmailAdress;
+        [JsonProperty("fullName")]
+        public string FullName { get; set; }
+
+        [JsonProperty("emailAddress")]
+        public string EmailAddress { get; set; }
+
+        [JsonProperty("password")]
+        public string? Password { get; set; }
+
+        [JsonProperty("contactNumber")]
+        public string ContactNumber { get; set; }
+
+        [JsonProperty("verificationCode")]
+        public string? VerificationCode { get; set; }
+
+        [JsonProperty("userRole")]
+        public UserRole? UserRole { get; set; }
     }
 }

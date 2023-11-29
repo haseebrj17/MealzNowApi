@@ -42,5 +42,9 @@ namespace MealzNow.Db.Models
         [Required]
         [JsonProperty("price")]
         public decimal Price { get; set; }
+
+        [Required]
+        [JsonProperty("isActive")]
+        public bool IsActive { get; set; } = true;
     }
 }

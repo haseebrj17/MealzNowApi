@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FoodsNow.Services
+namespace MealzNow.Services
 {
     public static class ServicesRegistrationExtensions
     {

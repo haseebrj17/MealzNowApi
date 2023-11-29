@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
 
-namespace MealzNow.Db.Models
+namespace MealzNow.Core.Dto
 {
-    public class CountriesWrapper
+    public class Countries
     {
         [JsonProperty("country")]
-        public List<Country> Countries { get; set; } = new List<Country>();
+        public List<Country> Country { get; set; } = new List<Country>();
     }
 
-    public class Country : BaseEntity
+    public class Country
     {
-        [Required]
-        [StringLength(100)]
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -22,10 +18,8 @@ namespace MealzNow.Db.Models
         public List<State> States { get; set; } = new List<State>();
     }
 
-    public class State : BaseEntity
+    public class State
     {
-        [Required]
-        [StringLength(100)]
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -33,11 +27,10 @@ namespace MealzNow.Db.Models
         public List<CityName> Cities { get; set; } = new List<CityName>();
     }
 
-    public class CityName : BaseEntity
+    public class CityName
     {
-        [Required]
-        [StringLength(100)]
         [JsonProperty("name")]
         public string Name { get; set; }
     }
 }
+
