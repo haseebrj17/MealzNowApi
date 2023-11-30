@@ -19,7 +19,7 @@ namespace MealzNow.Services.Services
         private readonly IJwtTokenManager _jwtTokenManager;
 
         public FranchiseService(IMapper mapper, IFranchiseRepository franchiseRepository,
-                 IJwtTokenManager jwtTokenManager)
+                    IJwtTokenManager jwtTokenManager)
         {
             _mapper = mapper;
             _franchiseRepository = franchiseRepository;
