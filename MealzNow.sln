@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1706.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealzNow", "MealzNow.MobApi\MealzNow.csproj", "{420AF5FC-E127-4010-946F-A92400DB905B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealzNow.MobApi", "MealzNow.MobApi\MealzNow.MobApi.csproj", "{420AF5FC-E127-4010-946F-A92400DB905B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealzNow.Core", "MealzNow.Core\MealzNow.Core.csproj", "{1E3722C8-9E86-44CB-AE95-F7AC65BB5CB0}"
 EndProject

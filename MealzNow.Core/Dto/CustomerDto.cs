@@ -9,7 +9,7 @@ namespace MealzNow.Core.Dto
     public class CustomerDto
     {
         [JsonProperty("id")]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
 
         [JsonProperty("fullName")]
         public string FullName { get; set; }
@@ -43,6 +43,10 @@ namespace MealzNow.Core.Dto
 
         [JsonProperty("customerPayment")]
         public CustomerPromoDto CustomerPayment { get; set; }
+
+        public string? Code { get; set; }
+
+        public UserRole? UserRole { get; set; }
     }
 
     public class CustomerAddressDto
