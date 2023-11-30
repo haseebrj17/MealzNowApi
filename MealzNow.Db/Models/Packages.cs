@@ -46,5 +46,9 @@ namespace MealzNow.Db.Models
         [Required]
         [JsonProperty("isActive")]
         public bool IsActive { get; set; } = true;
+
+        [Required]
+        [JsonProperty("franchiseId")]
+        public Guid FranchiseId { get; set; }
     }
 }

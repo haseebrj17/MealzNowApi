@@ -35,8 +35,8 @@ namespace MealzNow.Core.Dto
         [JsonProperty("customerProductOutline")]
         public List<CustomerProductOutlineDto> CustomerProductOutline { get; set; }
 
-        [JsonProperty("customerOrderedPackage")]
-        public CustomerOrderedPackageDto CustomerOrderedPackage { get; set; }
+        [JsonProperty("customerPackageDto")]
+        public CustomerPackageDto CustomerPackageDto { get; set; }
 
         [JsonProperty("customerPromo")]
         public CustomerPromoDto CustomerPromo { get; set; }
@@ -56,6 +56,9 @@ namespace MealzNow.Core.Dto
         [JsonProperty("postalCode")]
         public string? PostalCode { get; set; }
 
+        [JsonProperty("cityName")]
+        public string? CityName { get; set; }
+
         [JsonProperty("district")]
         public string? District { get; set; }
 
@@ -64,6 +67,12 @@ namespace MealzNow.Core.Dto
 
         [JsonProperty("floorNumber")]
         public string? FloorNumber { get; set; }
+
+        [JsonProperty("stateName")]
+        public string? StateName { get; set; }
+
+        [JsonProperty("countryName")]
+        public string? CountryName { get; set; }
 
         [JsonProperty("notes")]
         public string? Notes { get; set; }
@@ -79,6 +88,12 @@ namespace MealzNow.Core.Dto
 
         [JsonProperty("longitude")]
         public decimal Longitude { get; set; }
+
+        [JsonProperty("cityId")]
+        public Guid CityId { get; set; }
+
+        [JsonProperty("customerId")]
+        public Guid CustomerId { get; set; }
     }
 
     public class PreferenceDto
@@ -117,7 +132,6 @@ namespace MealzNow.Core.Dto
         public Guid OutlineId { get; set; }
     }
 
-
     public class CustomerProductOutline
     {
         [JsonProperty("title")]
@@ -148,7 +162,7 @@ namespace MealzNow.Core.Dto
         public Guid ProductInclusionId { get; set; }
     }
 
-    public class CustomerOrderedPackageDto
+    public class CustomerPackageDto
     {
         [JsonProperty("packageId")]
         public Guid PackageId { get; set; }
@@ -183,6 +197,4 @@ namespace MealzNow.Core.Dto
         [JsonProperty("percent")]
         public string Percent { get; set; }
     }
-
-
 }

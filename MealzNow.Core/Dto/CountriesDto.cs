@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MealzNow.Core.Dto
 {
-    public class Countries
+    public class CountriesDto
     {
         [JsonProperty("country")]
         public List<Country> Country { get; set; } = new List<Country>();

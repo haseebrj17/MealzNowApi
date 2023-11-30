@@ -1,90 +1,134 @@
-﻿//using MealzNow.Db.Models;
-//using Microsoft.Azure.Cosmos;
-//using Microsoft.EntityFrameworkCore;
+﻿using MealzNow.Db.Models;
+using Microsoft.Azure.Cosmos;
+using Microsoft.EntityFrameworkCore;
+using static MealzNow.Core.Enum.Enums;
 
-//namespace MealzNow.Db.Repositories
-//{
-//    public interface IFranchiseRepository
-//    {
-//        Task<Franchise> GetFranchiseDetail(decimal latidude, decimal longitude);
-//        Task<List<Franchise>> GetClientFranchises(Guid clientId);
-//        Task<List<Order>> GetAllFranchiseOrders(Guid franchiseId);
-//        Task<List<Order>> GetCustomerOrders(Guid customerId);
-//        Task<Order> GetOrderDetail(Guid orderId, Guid franchiseId);
-//        Task<bool> UpdateOrderStatus(Guid orderId, OrderStatus orderStatus, Guid loggedInUserId);
-//        Task<User> UserLogin(string email, string password);
-//    }
-//    public class FranchiseRepository : IFranchiseRepository
-//    {
-//        private readonly FoodsNowDbContext _foodsNowDbContext;
-//        public FranchiseRepository(FoodsNowDbContext foodsNowDbContext)
-//        {
-//            _foodsNowDbContext = foodsNowDbContext;
-//        }
+namespace MealzNow.Db.Repositories
+{
+    public interface IFranchiseRepository
+    {
+        Task<List<Franchise>> GetClientFranchises(Guid clientId);
+        Task<List<Order>> GetAllFranchiseOrders(Guid franchiseId, DateTime specificDay);
+        Task<List<Order>> GetCustomerOrders(Guid customerId);
+        Task<bool> UpdateOrderStatus(Guid orderId, Guid dayId, Guid productByTimingId, OrderStatus orderStatus, Guid loggedInUserId);
+        Task<FranchiseUser> UserLogin(string email, string password);
+        Task<Franchise> GetFranchiseDetailByUser(string email);
+        Task<Franchise> GetFranchiseSettingById(Guid franchiseId);
+    }
+    public class FranchiseRepository : IFranchiseRepository
+    {
+        private readonly MealzNowDataBaseContext _mealzNowDataBaseContext;
+        public FranchiseRepository(MealzNowDataBaseContext mealzNowDataBaseContext)
+        {
+            _mealzNowDataBaseContext = mealzNowDataBaseContext;
+        }
 
-//        public async Task<List<Order>> GetCustomerOrders(Guid customerId)
-//        {
-//            return await _foodsNowDbContext.Orders.Include(o => o.OrderProducts)
-//                .Include(o => o.OrderProducts).ThenInclude(p => p.OrderProductExtraDippings)
-//                .Include(o => o.OrderProducts).ThenInclude(p => p.OrderProductExtraToppings)
-//                .Where(o => o.CustomerId == customerId).ToListAsync();
-//        }
+        public async Task<List<Order>> GetCustomerOrders(Guid customerId)
+        {
+            return await _mealzNowDataBaseContext.Orders
+                .Include(o => o.CustomerOrderedPackage)
+                .Include(o => o.ProductByDay)
+                    .ThenInclude(pbd => pbd.ProductByTiming)
+                .Include(o => o.CustomerOrderPromo)
+                .Include(o => o.CustomerOrderPayment)
+                .Where(o => o.CustomerId == customerId)
+                .ToListAsync();
+        }
 
-//        public async Task<List<Order>> GetAllFranchiseOrders(Guid franchiseId)
-//        {
-//            return await _foodsNowDbContext.Orders.Include(o => o.OrderProducts)
-//                .Include(o => o.Customer)
-//                .Include(o => o.CustomerAdress)
-//                .Include(o => o.OrderProducts).ThenInclude(p => p.OrderProductExtraDippings)
-//                .Include(o => o.OrderProducts).ThenInclude(p => p.OrderProductExtraToppings)
-//                .Where(o => o.FranchiseId == franchiseId)
-//                .OrderByDescending(o => o.CreatedDateTimeUtc).ToListAsync();
-//        }
+        public async Task<List<Order>> GetAllFranchiseOrders(Guid franchiseId, DateTime specificDay)
+        {
 
-//        public async Task<List<Franchise>> GetClientFranchises(Guid clientId)
-//        {
-//            return await _foodsNowDbContext.Franchises.Where(f => f.ClientId == clientId && f.IsActive).ToListAsync();
-//        }
+            return await _mealzNowDataBaseContext.Orders
+                .Include(o => o.CustomerOrderedPackage)
+                .Include(o => o.ProductByDay)
+                    .ThenInclude(pbd => pbd.ProductByTiming)
+                .Include(o => o.CustomerOrderPromo)
+                .Include(o => o.CustomerOrderPayment)
+                .Include(o => o.CustomerDetails)
+                    .ThenInclude(cd => cd.CustomerAddressDetail)
+                .Where(o => o.FranchiseId == franchiseId &&
+                            o.ProductByDay.Any(pbd => pbd.DeliveryDate == specificDay.Date))
+                .OrderByDescending(o => o.CreatedDateTimeUtc)
+                .ToListAsync();
+        }
 
-//        public async Task<Franchise> GetFranchiseDetail(decimal latidude, decimal longitude)
-//        {
-//            //Todo: get by lati longi
-//            return await _foodsNowDbContext.Franchises.FirstAsync();//.FindAsync(latidude, longitude);
-//        }
+        public async Task<List<Franchise>> GetClientFranchises(Guid clientId)
+        {
+            return await _mealzNowDataBaseContext.Franchises.Where(f => f.ClientId == clientId && f.IsActive).ToListAsync();
+        }
 
-//        public async Task<Order> GetOrderDetail(Guid orderId, Guid franchiseId)
-//        {
-//            return await _foodsNowDbContext.Orders.Include(o => o.OrderProducts)
-//                .Include(o => o.OrderProducts).ThenInclude(p => p.OrderProductExtraDippings)
-//                .Include(o => o.OrderProducts).ThenInclude(p => p.OrderProductExtraToppings)
-//                .FirstAsync(o => o.Id == orderId && o.FranchiseId == franchiseId);
-//        }
+        public async Task<Franchise?> GetFranchiseDetailByUser(string email)
+        {
+            var user = await _mealzNowDataBaseContext.FranchiseUsers
+                .FirstOrDefaultAsync(u => u.EmailAddress == email);
 
-//        public async Task<bool> UpdateOrderStatus(Guid orderId, OrderStatus orderStatus, Guid loggedInUserId)
-//        {
-//            var order = await _foodsNowDbContext.Orders.FirstAsync(o => o.Id == orderId);
+            if (user == null || user.FranchiseId == Guid.Empty)
+            {
+                throw new InvalidOperationException("Franchise not found for the provided user.");
+            }
 
-//            if (order != null)
-//            {
-//                order.OrderStatus = orderStatus;
+            return await _mealzNowDataBaseContext.Franchises
+                .FirstOrDefaultAsync(f => f.Id == user.FranchiseId);
+        }
 
-//                order.UpdatedById = loggedInUserId;
+        public async Task<bool> UpdateOrderStatus(Guid orderId, Guid dayId, Guid productByTimingId, OrderStatus orderStatus, Guid loggedInUserId)
+        {
+            var order = await _mealzNowDataBaseContext.Orders
+                .Include(o => o.ProductByDay)
+                    .ThenInclude(pbd => pbd.ProductByTiming)
+                .FirstOrDefaultAsync(o => o.Id == orderId);
 
-//                _foodsNowDbContext.Orders.Update(order);
+            if (order == null)
+            {
+                return false;
+            }
 
-//                await _foodsNowDbContext.SaveChangesAsync();
-//            }
+            var day = order.ProductByDay.FirstOrDefault(d => d.DayId == dayId);
+            if (day == null)
+            {
+                return false;
+            }
 
-//            return false;
-//        }
+            var productByTiming = day.ProductByTiming.FirstOrDefault(pbt => pbt.TimeOfDayId == productByTimingId);
+            if (productByTiming == null)
+            {
+                return false;
+            }
 
-//        public async Task<User> UserLogin(string email, string password)
-//        {
-//            var user = await _foodsNowDbContext.Users.FirstOrDefaultAsync(c => c.EmailAdress == email && c.Password == password);
+            if (orderStatus == OrderStatus.Delivered)
+            {
+                productByTiming.Fulfilled = true;
+            }
 
-//            if (user == null) return null;
+            order.OrderStatus = orderStatus;
+            order.UpdatedById = loggedInUserId;
+            _mealzNowDataBaseContext.Orders.Update(order);
 
-//            return user;
-//        }
-//    }
-//}
+            await _mealzNowDataBaseContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<Franchise> GetFranchiseSettingById(Guid franchiseId)
+        {
+            var franchise = await _mealzNowDataBaseContext.Franchises
+                                .Include(f => f.FranchiseSetting)
+                                .FirstOrDefaultAsync(f => f.Id == franchiseId);
+
+            if (franchise == null)
+            {
+                throw new InvalidOperationException("Franchise not found.");
+            }
+
+            return franchise;
+        }
+
+        public async Task<FranchiseUser> UserLogin(string email, string password)
+        {
+            var user = await _mealzNowDataBaseContext.FranchiseUsers.FirstOrDefaultAsync(c => c.EmailAddress == email && c.Password == password);
+
+            if (user == null) return null;
+
+            return user;
+        }
+    }
+}

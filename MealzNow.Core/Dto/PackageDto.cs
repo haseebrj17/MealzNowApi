@@ -32,5 +32,8 @@ namespace MealzNow.Db.Models
 
         [JsonProperty("price")]
         public decimal Price { get; set; }
+
+        [JsonProperty("franchiseId")]
+        public Guid FranchiseId { get; set; }
     }
 }

@@ -17,6 +17,10 @@ namespace MealzNow.Services.Mapping
 
             CreateMap<FranchiseDto, Franchise>();
 
+            CreateMap<Packages, PackageDto>();
+
+            CreateMap<PackageDto, Packages>();
+
             CreateMap<Category, CategoryDto>();
 
             CreateMap<Category, CategoryOutlineDto>();

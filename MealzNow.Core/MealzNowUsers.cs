@@ -6,7 +6,7 @@ namespace MealzNow.Core
     public class MealzNowUsers
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public Guid? Id { get; set; }
 
         [JsonProperty("franchiseId")]
         public Guid? FranchiseId { get; set; }

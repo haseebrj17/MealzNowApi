@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using static MealzNow.Core.Enum.Enums;
 
 namespace MealzNow.Db.Models
 {
@@ -38,32 +39,32 @@ namespace MealzNow.Db.Models
         [JsonProperty("isEmailVerified")]
         public bool IsEmailVerified { get; set; }
 
-        [JsonProperty("CustomerAddress")]
-        public List<CustomerAddress> CustomerAddress { get; set; } = new List<CustomerAddress>();
+        [JsonProperty("customerAddresses")]
+        public List<CustomerAddresses> CustomerAddresses { get; set; } = new List<CustomerAddresses>();
 
-        [JsonProperty("Preference")]
+        [JsonProperty("preference")]
         public Preference Preference { get; set; }
 
         [JsonProperty("customerProductOutline")]
         public CustomerProductOutline CustomerProductOutline { get; set; }
 
-        [JsonProperty("CustomerOrderedPackage")]
-        public CustomerOrderedPackage CustomerOrderedPackage { get; set; }
+        [JsonProperty("customerPackage")]
+        public CustomerPackage CustomerPackage { get; set; }
 
-        [JsonProperty("CustomerPromo")]
+        [JsonProperty("customerPromo")]
         public CustomerPromo CustomerPromo { get; set; }
 
-        [JsonProperty("CustomerPayment")]
+        [JsonProperty("customerPayment")]
         public CustomerPayment CustomerPayment { get; set; }
 
         [JsonProperty("customerPassword")]
         public CustomerPassword CustomerPassword { get; set; }
 
-        [JsonProperty("CustomerDevice")]
+        [JsonProperty("customerDevice")]
         public List<CustomerDevice> CustomerDevice { get; set; } = new List<CustomerDevice>();
     }
 
-    public class CustomerAddress : BaseEntity
+    public class CustomerAddresses : BaseEntity
     {
         [Required]
         [JsonProperty("streetAddress")]
@@ -75,6 +76,9 @@ namespace MealzNow.Db.Models
         [JsonProperty("postalCode")]
         public string? PostalCode { get; set; }
 
+        [JsonProperty("cityName")]
+        public string? CityName { get; set; }
+
         [JsonProperty("district")]
         public string? District { get; set; }
 
@@ -83,6 +87,12 @@ namespace MealzNow.Db.Models
 
         [JsonProperty("floorNumber")]
         public string? FloorNumber { get; set; }
+
+        [JsonProperty("stateName")]
+        public string? StateName { get; set; }
+
+        [JsonProperty("countryName")]
+        public string? CountryName { get; set; }
 
         [JsonProperty("notes")]
         public string? Notes { get; set; }
@@ -101,8 +111,58 @@ namespace MealzNow.Db.Models
         [JsonProperty("longitude")]
         public decimal Longitude { get; set; }
 
+        [Required]
         [JsonProperty("cityId")]
         public Guid CityId { get; set; }
+
+        [Required]
+        [JsonProperty("customerId")]
+        public Guid CustomerId { get; set; }
+    }
+
+    public class CustomerPackage : BaseEntity
+    {
+        [Required]
+        [JsonProperty("packageId")]
+        public Guid PackageId { get; set; }
+
+        [Required]
+        [JsonProperty("packageName")]
+        public string PackageName { get; set; }
+
+        [Required]
+        [JsonProperty("totalNumberOfMeals")]
+        public int TotalNumberOfMeals { get; set; }
+
+        [Required]
+        [JsonProperty("numberOfDays")]
+        public int NumberOfDays { get; set; }
+    }
+
+    public class CustomerPayment : BaseEntity
+    {
+        [Required]
+        [JsonProperty("paymentType")]
+        public string PaymentType { get; set; }
+
+        [Required]
+        [JsonProperty("orderType")]
+        public OrderType OrderType { get; set; }
+    }
+
+    public class CustomerPromo : BaseEntity
+    {
+        [Required]
+        [JsonProperty("type")]
+        public string Type { get; set; }
+
+        [Required]
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [Required]
+        [JsonProperty("percent")]
+        public string Percent { get; set; }
     }
 
     public class CustomerDevice : BaseEntity

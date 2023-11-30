@@ -1,83 +1,69 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
 using static MealzNow.Core.Enum.Enums;
 
-namespace MealzNow.Db.Models
+namespace MealzNow.Core.Dto
 {
-    public class Order : BaseEntity
+    public class OrderDto
     {
-        [Required]
         [JsonProperty("totalBill")]
         public decimal TotalBill { get; set; }
 
-        [Required]
         [JsonProperty("totalItems")]
         public int TotalItems { get; set; }
 
-        [Required]
-        [JsonProperty("")]
+        [JsonProperty("orderDeliveryDateTime")]
         public DateTime OrderDeliveryDateTime { get; set; }
 
         [JsonProperty("instructions")]
         public string? Instructions { get; set; }
 
-        [Required]
         [JsonProperty("customerId")]
         public Guid CustomerId { get; set; }
 
-        [Required]
         [JsonProperty("customerAddressId")]
         public Guid CustomerAddressId { get; set; }
 
-        [Required]
         [JsonProperty("customerDetails")]
-        public CustomerDetails CustomerDetails { get; set; }
+        public CustomerDetailsDto CustomerDetails { get; set; }
 
-        [Required]
         [JsonProperty("franchiseId")]
         public Guid FranchiseId { get; set; }
 
         [JsonProperty("orderStatus")]
         public OrderStatus OrderStatus { get; set; }
 
-        [Required]
         [JsonProperty("customerOrderedPackage")]
-        public CustomerOrderedPackage CustomerOrderedPackage { get; set; }
+        public CustomerOrderedPackageDto CustomerOrderedPackage { get; set; }
 
         [JsonProperty("productByDay")]
-        public List<ProductByDay> ProductByDay { get; set; } = new List<ProductByDay>();
+        public List<ProductByDayDto> ProductByDay { get; set; }
 
         [JsonProperty("customerOrderPromo")]
-        public CustomerOrderPromo CustomerOrderPromo { get; set; }
+        public CustomerOrderPromoDto CustomerOrderPromo { get; set; }
 
         [JsonProperty("customerOrderPayment")]
-        public CustomerOrderPayment CustomerOrderPayment { get; set; }
+        public CustomerOrderPaymentDto CustomerOrderPayment { get; set; }
     }
 
-    public class CustomerDetails : BaseEntity
+    public class CustomerDetailsDto
     {
-
-        [Required]
         [JsonProperty("customerFullName")]
         public string CustomerFullName { get; set; }
 
-        [Required]
         [JsonProperty("customerEmailAddress")]
         public string CustomerEmailAddress { get; set; }
 
-        [Required]
         [JsonProperty("customerContactNumber")]
         public string CustomerContactNumber { get; set; }
 
-        [Required]
         [JsonProperty("customerAddressDetail")]
-        public CustomerAddressDetail CustomerAddressDetail { get; set; }
+        public CustomerAddressDetailDto CustomerAddressDetail { get; set; }
     }
 
-    public class CustomerAddressDetail : BaseEntity
+    public class CustomerAddressDetailDto
     {
-        [Required]
         [JsonProperty("streetAddress")]
         public string StreetAddress { get; set; }
 
@@ -108,109 +94,87 @@ namespace MealzNow.Db.Models
         [JsonProperty("notes")]
         public string? Notes { get; set; }
 
-        [Required]
         [JsonProperty("latitude")]
         public decimal Latitude { get; set; }
 
-        [Required]
         [JsonProperty("longitude")]
         public decimal Longitude { get; set; }
 
-        [Required]
         [JsonProperty("cityId")]
         public Guid CityId { get; set; }
     }
 
-    public class CustomerOrderedPackage : BaseEntity
+    public class CustomerOrderedPackageDto
     {
-        [Required]
         [JsonProperty("packageId")]
         public Guid PackageId { get; set; }
 
-        [Required]
         [JsonProperty("packageName")]
         public string PackageName { get; set; }
 
-        [Required]
         [JsonProperty("totalNumberOfMeals")]
         public int TotalNumberOfMeals { get; set; }
 
-        [Required]
         [JsonProperty("numberOfDays")]
         public int NumberOfDays { get; set; }
     }
 
-    public class CustomerOrderPayment : BaseEntity
+    public class CustomerOrderPromoDto
     {
-        [Required]
-        [JsonProperty("paymentType")]
-        public string PaymentType { get; set; }
-
-        [Required]
-        [JsonProperty("orderType")]
-        public OrderType OrderType { get; set; }
-    }
-
-    public class CustomerOrderPromo : BaseEntity
-    {
-        [Required]
         [JsonProperty("type")]
         public string Type { get; set; }
 
-        [Required]
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [Required]
         [JsonProperty("percent")]
         public string Percent { get; set; }
     }
 
-    public class ProductByDay : BaseEntity
+    public class CustomerOrderPaymentDto
     {
-        [Required]
+        [JsonProperty("paymentType")]
+        public string PaymentType { get; set; }
+
+        [JsonProperty("orderType")]
+        public OrderType OrderType { get; set; }
+    }
+
+    public class ProductByDayDto
+    {
         [JsonProperty("day")]
         public string Day { get; set; }
 
-        [Required]
         [JsonProperty("dayId")]
         public Guid DayId { get; set; }
 
-        [Required]
         [JsonProperty("deliveryDate")]
         public DateTime DeliveryDate { get; set; }
 
-        [Required]
         [JsonProperty("productByTiming")]
-        public List<ProductByTiming> ProductByTiming { get; set; } = new List<ProductByTiming>();
+        public List<ProductByTimingDto> ProductByTiming { get; set; }
     }
 
-    public class ProductByTiming : BaseEntity
+    public class ProductByTimingDto
     {
         [JsonProperty("fulfilled")]
-        public bool Fulfilled { get; set; } = false;
+        public bool Fulfilled { get; set; }
 
-        [Required]
         [JsonProperty("timeOfDay")]
         public string TimeOfDay { get; set; }
 
-        [Required]
         [JsonProperty("timeOfDayId")]
         public Guid TimeOfDayId { get; set; }
 
-        [Required]
         [JsonProperty("deliveryTimings")]
         public DateTime DeliveryTimings { get; set; }
 
-        [Required]
         [JsonProperty("deliveryTimingsId")]
         public Guid DeliveryTimingsId { get; set; }
 
-        [Required]
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [Required]
         [JsonProperty("detail")]
         public string Detail { get; set; }
 
@@ -220,80 +184,72 @@ namespace MealzNow.Db.Models
         [JsonProperty("spiceLevel")]
         public int? SpiceLevel { get; set; }
 
-        [Required]
         [JsonProperty("ingredientSummary")]
         public string IngredientSummary { get; set; }
 
-        [Required]
         [JsonProperty("image")]
         public string Image { get; set; }
 
-        [Required]
         [JsonProperty("price")]
         public decimal Price { get; set; }
 
         [JsonProperty("orderedProductExtraDipping")]
-        public List<OrderedProductExtraDipping> OrderedProductExtraDipping { get; set; } = new List<OrderedProductExtraDipping>();
+        public List<OrderedProductExtraDippingDto> OrderedProductExtraDipping { get; set; }
 
         [JsonProperty("orderedProductExtraTopping")]
-        public List<OrderedProductExtraTopping> OrderedProductExtraTopping { get; set; } = new List<OrderedProductExtraTopping>();
+        public List<OrderedProductExtraToppingDto> OrderedProductExtraTopping { get; set; }
 
         [JsonProperty("orderedProductSides")]
-        public OrderedProductSides OrderedProductSides { get; set; }
+        public OrderedProductSidesDto OrderedProductSides { get; set; }
 
         [JsonProperty("orderedProductDessert")]
-        public OrderedProductDessert OrderedProductDessert { get; set; }
+        public OrderedProductDessertDto OrderedProductDessert { get; set; }
 
         [JsonProperty("orderedProductDrinks")]
-        public OrderedProductDrinks OrderedProductDrinks { get; set; }
+        public OrderedProductDrinksDto OrderedProductDrinks { get; set; }
     }
 
-    public class OrderedProductExtraDipping : BaseEntity
+    public class OrderedProductExtraDippingDto
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [Required]
         [JsonProperty("price")]
         public decimal Price { get; set; }
     }
 
-    public class OrderedProductExtraTopping : BaseEntity
+    public class OrderedProductExtraToppingDto
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [Required]
         [JsonProperty("price")]
         public decimal Price { get; set; }
     }
 
-    public class OrderedProductSides : BaseEntity
+    public class OrderedProductSidesDto
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [Required]
         [JsonProperty("price")]
         public decimal Price { get; set; }
     }
 
-    public class OrderedProductDessert : BaseEntity
+    public class OrderedProductDessertDto
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [Required]
         [JsonProperty("price")]
         public decimal Price { get; set; }
     }
 
-    public class OrderedProductDrinks : BaseEntity
+    public class OrderedProductDrinksDto
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [Required]
         [JsonProperty("price")]
         public decimal Price { get; set; }
     }

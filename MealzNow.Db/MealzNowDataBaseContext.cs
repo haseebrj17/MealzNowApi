@@ -12,7 +12,7 @@ public class MealzNowDataBaseContext : DbContext
     public DbSet<SuperAdmin> SuperAdmins { get; set; }
     public DbSet<FranchiseUser> FranchiseUsers { get; set; }
     public DbSet<Client> Clients { get; set; }
-    public DbSet<Countries> Geographical { get; set; }
+    public DbSet<Countries> Country { get; set; }
     public DbSet<Franchise> Franchises { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<Order> Orders { get; set; }
@@ -41,7 +41,7 @@ public class MealzNowDataBaseContext : DbContext
         modelBuilder.Entity<Client>().ToContainer("Clients").HasPartitionKey(c => c.EmailAddress);
 
         modelBuilder.Entity<Countries>().HasKey(e => e.Id);
-        modelBuilder.Entity<Countries>().ToContainer("Geographical").HasPartitionKey(c => c.Id);
+        modelBuilder.Entity<Countries>().ToContainer("Country").HasPartitionKey(c => c.Id);
 
         modelBuilder.Entity<Franchise>().HasKey(e => e.Id);
         modelBuilder.Entity<Franchise>().ToContainer("Franchises").HasPartitionKey(f => f.ClientId);
