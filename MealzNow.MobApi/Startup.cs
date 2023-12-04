@@ -17,13 +17,7 @@ namespace MealzNow.Api
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Environment.CurrentDirectory)
-                .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
-                .AddEnvironmentVariables()
-                .Build();
-
-            builder.Services.AddSingleton<IConfiguration>(config);
+            var config = builder.GetContext().Configuration;
 
             var cosmosDbAccount = config.GetValue<string>("CosmosDb:Account");
             var cosmosDbKey = config.GetValue<string>("CosmosDb:Key");
@@ -35,13 +29,6 @@ namespace MealzNow.Api
             builder.Services.AddRepositories(config);
             builder.Services.AddServices(config);
             builder.Services.AddAutoMapper(typeof(Program));
-
-            var serviceProvider = builder.Services.BuildServiceProvider();
-            using (var scope = serviceProvider.CreateScope())
-            {
-                var dbContext = scope.ServiceProvider.GetRequiredService<MealzNowDataBaseContext>();
-                dbContext.Database.EnsureCreated();
-            }
         }
     }
 }
