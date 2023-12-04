@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using System.Net;
 using static MealzNow.Core.Enum.Enums;
 
-namespace FoodsNow.Api
+namespace MealzNow.Api
 {
     public class OrderApi
     {

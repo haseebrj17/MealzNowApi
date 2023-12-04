@@ -21,7 +21,6 @@ namespace MealzNow.Db.Models
         [JsonProperty("createdDateTimeUtc")]
         public DateTime CreatedDateTimeUtc { get; set; }
 
-        [Required]
         [JsonProperty("updatedDateTimeUtc")]
         public DateTime? UpdatedDateTimeUtc { get; set; }
 

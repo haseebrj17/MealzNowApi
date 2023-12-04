@@ -207,6 +207,18 @@ namespace MealzNow.Core.Dto
 
         [JsonProperty("orderedProductDrinks")]
         public OrderedProductDrinksDto OrderedProductDrinks { get; set; }
+
+        [JsonProperty("orderedProductChoices")]
+        public List<OrderedProductChoicesDtp> OrderedProductChoices { get; set; } = new List<OrderedProductChoicesDtp>();
+    }
+
+    public class OrderedProductChoicesDtp
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("detail")]
+        public string Detail { get; set; }
     }
 
     public class OrderedProductExtraDippingDto

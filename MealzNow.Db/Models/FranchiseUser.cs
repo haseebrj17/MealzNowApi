@@ -28,10 +28,6 @@ namespace MealzNow.Db.Models
         public string Password { get; set; }
 
         [Required]
-        [JsonProperty("kind")]
-        public string Kind { get; set; }
-
-        [Required]
         [JsonProperty("userRole")]
         public UserRole UserRole { get; set; }
 

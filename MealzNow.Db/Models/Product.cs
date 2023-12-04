@@ -41,8 +41,8 @@ namespace MealzNow.Db.Models
         [JsonProperty("franchiseId")]
         public Guid Franchiseid { get; set; }
 
-        [JsonProperty("showExtraTropping")]
-        public bool showExtraTropping { get; set; }
+        [JsonProperty("showExtraTopping")]
+        public bool showExtraTopping { get; set; }
 
         [JsonProperty("showExtraDipping")]
         public bool showExtraDipping { get; set; }
@@ -67,6 +67,9 @@ namespace MealzNow.Db.Models
 
         [JsonProperty("productItemOutline")]
         public List<ProductItemOutline> ProductItemOutline { get; set; } = new List<ProductItemOutline>();
+
+        [JsonProperty("productChoices")]
+        public List<ProductChoices> ProductChoices { get; set; } = new List<ProductChoices>();
     }
 
     public class ProductAllergy : BaseEntity
@@ -105,6 +108,15 @@ namespace MealzNow.Db.Models
         public string CategoryType { get; set; }
     }
 
+    public class ProductChoices : BaseEntity
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("detail")]
+        public string Detail { get; set; }
+    }
+
     public class ProductExtraDipping : BaseEntity
     {
         [JsonProperty("name")]
@@ -113,10 +125,10 @@ namespace MealzNow.Db.Models
         [JsonProperty("detail")]
         public string Detail { get; set; }
 
-        [JsonProperty("ProductExtraDippingAllergy")]
+        [JsonProperty("productExtraDippingAllergy")]
         public List<ProductExtraDippingAllergy> ProductExtraDippingAllergy { get; set; } = new List<ProductExtraDippingAllergy>();
 
-        [JsonProperty("ProductExtraDippingPrice")]
+        [JsonProperty("productExtraDippingPrice")]
         public List<ProductExtraDippingPrice> ProductExtraDippingPrice { get; set; } = new List<ProductExtraDippingPrice>();
     }
 
@@ -149,10 +161,10 @@ namespace MealzNow.Db.Models
         [JsonProperty("detail")]
         public string Detail { get; set; }
 
-        [JsonProperty("ProductExtraToppingAllergy")]
+        [JsonProperty("productExtraToppingAllergy")]
         public List<ProductExtraToppingAllergy> ProductExtraToppingAllergy { get; set; } = new List<ProductExtraToppingAllergy>();
 
-        [JsonProperty("ProductExtraToppingPrice")]
+        [JsonProperty("productExtraToppingPrice")]
         public List<ProductExtraToppingPrice> ProductExtraToppingPrice { get; set; } = new List<ProductExtraToppingPrice>();
     }
 

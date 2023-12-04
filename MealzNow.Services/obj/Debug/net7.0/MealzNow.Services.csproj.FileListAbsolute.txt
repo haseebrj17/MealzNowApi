@@ -20,3 +20,11 @@
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Debug/net7.0/refint/MealzNow.Services.dll
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Debug/net7.0/MealzNow.Services.pdb
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Debug/net7.0/ref/MealzNow.Services.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/Microsoft.Azure.Cosmos.ServiceInterop.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/Cosmos.CRTCompat.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/msvcp140.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/vcruntime140.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/vcruntime140_1.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Services.deps.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Services.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Services.pdb

@@ -24,9 +24,6 @@ namespace MealzNow.Core.Dto
         [StringLength(100, MinimumLength = 6)]
         public string Password { get; set; }
 
-        [JsonProperty("kind")]
-        public string Kind { get; set; }
-
         [JsonProperty("userRole")]
         public UserRole UserRole { get; set; }
 

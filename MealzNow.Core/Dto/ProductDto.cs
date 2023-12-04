@@ -36,8 +36,8 @@ namespace MealzNow.Db.Models
         [JsonProperty("isActive")]
         public bool IsActive { get; set; }
 
-        [JsonProperty("showExtraTropping")]
-        public bool ShowExtraTropping { get; set; }
+        [JsonProperty("showExtraTopping")]
+        public bool showExtraTopping { get; set; }
 
         [JsonProperty("showExtraDipping")]
         public bool ShowExtraDipping { get; set; }
@@ -62,6 +62,9 @@ namespace MealzNow.Db.Models
 
         [JsonProperty("productItemOutline")]
         public List<ProductItemOutlineDto> ProductItemOutline { get; set; }
+
+        [JsonProperty("productChoices")]
+        public List<ProductChoicesDto> ProductExtra { get; set; } = new List<ProductChoicesDto>();
     }
 
     public class ProductAllergyDto
@@ -92,6 +95,15 @@ namespace MealzNow.Db.Models
 
         [JsonProperty("categoryType")]
         public string CategoryType { get; set; }
+    }
+
+    public class ProductChoicesDto
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("detail")]
+        public string Detail { get; set; }
     }
 
     public class ProductExtraDippingDto

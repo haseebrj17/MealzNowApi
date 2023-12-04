@@ -27,6 +27,7 @@ namespace MealzNow.Db.Repositories
                 .Include(p => p.ProductCategory)
                 .Include(p => p.ProductExtraDipping)
                 .Include(p => p.ProductExtraTopping)
+                .Include(p => p.ProductChoices)
                 .Include(p => p.ProductItemOutline)
                 .Where(p => productIds
                 .Contains(p.Id) && p.IsActive).ToListAsync();
@@ -42,6 +43,7 @@ namespace MealzNow.Db.Repositories
                 .Include(p => p.ProductCategory)
                 .Include(p => p.ProductExtraDipping)
                 .Include(p => p.ProductExtraTopping)
+                .Include(p => p.ProductChoices)
                 .Include(p => p.ProductItemOutline)
                 .Where(p => p.CategoryId == categoryId && p.IsActive)
                 .OrderBy(p => p.Sequence).ToListAsync();
@@ -56,6 +58,7 @@ namespace MealzNow.Db.Repositories
                 .Include(p => p.ProductAllergy)
                 .Include(p => p.ProductExtraDipping)
                 .Include(p => p.ProductExtraTopping)
+                .Include(p => p.ProductChoices)
                 .Include(p => p.ProductItemOutline)
                 .Where(p => p.ProductCategory.Any(c => categoryIds.Contains(c.CategoryId)) && p.IsActive)
                 .ToListAsync();
@@ -70,6 +73,7 @@ namespace MealzNow.Db.Repositories
                 .Include(p => p.ProductAllergy)
                 .Include(p => p.ProductExtraDipping)
                 .Include(p => p.ProductExtraTopping)
+                .Include(p => p.ProductChoices)
                 .Include(p => p.ProductItemOutline)
                 .Include(p => p.ProductCategory)
                 .Where(p => p.Franchiseid == franchiseId && p.IsActive)
@@ -87,6 +91,7 @@ namespace MealzNow.Db.Repositories
                 .Include(p => p.ProductAllergy)
                 .Include(p => p.ProductExtraDipping)
                 .Include(p => p.ProductExtraTopping)
+                .Include(p => p.ProductChoices)
                 .Include(p => p.ProductItemOutline)
                 .Include(p => p.ProductCategory)
                 .Where(p => p.Id == productId && p.IsActive)

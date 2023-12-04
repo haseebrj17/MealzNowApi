@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
-namespace MealzNow.DbEntities
+namespace MealzNow.Db
 {
     public static class RepositoriesRegistrationExtensions
     {

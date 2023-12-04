@@ -29,6 +29,11 @@ public class MealzNowDataBaseContext : DbContext
         );
     }
 
+    public async Task InitializeDatabaseAsync()
+    {
+        await this.Database.EnsureCreatedAsync();
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<SuperAdmin>().HasKey(e => e.EmailAddress);
@@ -43,22 +48,22 @@ public class MealzNowDataBaseContext : DbContext
         modelBuilder.Entity<Countries>().HasKey(e => e.Id);
         modelBuilder.Entity<Countries>().ToContainer("Country").HasPartitionKey(c => c.Id);
 
-        modelBuilder.Entity<Franchise>().HasKey(e => e.Id);
+        modelBuilder.Entity<Franchise>().HasKey(e => e.ClientId);
         modelBuilder.Entity<Franchise>().ToContainer("Franchises").HasPartitionKey(f => f.ClientId);
 
-        modelBuilder.Entity<Product>().HasKey(e => e.Id);
+        modelBuilder.Entity<Product>().HasKey(e => e.CategoryId);
         modelBuilder.Entity<Product>().ToContainer("Products").HasPartitionKey(p => p.CategoryId);
 
-        modelBuilder.Entity<Order>().HasKey(e => e.Id);
-        modelBuilder.Entity<Order>().ToContainer("Orders").HasPartitionKey(o => o.Id);
+        modelBuilder.Entity<Order>().HasKey(e => e.FranchiseId);
+        modelBuilder.Entity<Order>().ToContainer("Orders").HasPartitionKey(o => o.FranchiseId);
 
-        modelBuilder.Entity<Category>().HasKey(e => e.Id);
+        modelBuilder.Entity<Category>().HasKey(e => e.FranchiseId);
         modelBuilder.Entity<Category>().ToContainer("Categories").HasPartitionKey(c => c.FranchiseId);
 
         modelBuilder.Entity<Customer>().HasKey(e => e.EmailAddress);
         modelBuilder.Entity<Customer>().ToContainer("Customers").HasPartitionKey(c => c.EmailAddress);
 
-        modelBuilder.Entity<Packages>().HasKey(e => e.Id);
-        modelBuilder.Entity<Packages>().ToContainer("Packages").HasPartitionKey(p => p.Id);
+        modelBuilder.Entity<Packages>().HasKey(e => e.FranchiseId);
+        modelBuilder.Entity<Packages>().ToContainer("Packages").HasPartitionKey(p => p.FranchiseId);
     }
 }

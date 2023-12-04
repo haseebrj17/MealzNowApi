@@ -246,6 +246,18 @@ namespace MealzNow.Db.Models
 
         [JsonProperty("orderedProductDrinks")]
         public OrderedProductDrinks OrderedProductDrinks { get; set; }
+
+        [JsonProperty("orderedProductChoices")]
+        public List<OrderedProductChoices> OrderedProductChoices { get; set; } = new List<OrderedProductChoices>();
+    }
+
+    public class OrderedProductChoices : BaseEntity
+    {
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("detail")]
+        public string Detail { get; set; }
     }
 
     public class OrderedProductExtraDipping : BaseEntity

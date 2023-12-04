@@ -7,7 +7,7 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace MealzNow.Api
+namespace MealzNow.MobApi
 {
     public class MealzNowMobAppApi
     {
