@@ -11,8 +11,8 @@ namespace MealzNow.Db.Repositories
         Task<List<Order>> GetAllFranchiseOrders(Guid franchiseId, DateTime specificDay);
         Task<List<Order>> GetCustomerOrders(Guid customerId);
         Task<bool> UpdateOrderStatus(Guid orderId, Guid dayId, Guid productByTimingId, OrderStatus orderStatus, Guid loggedInUserId);
-        Task<FranchiseUser> UserLogin(string email, string password);
-        Task<Franchise> GetFranchiseDetailByUser(string email);
+        Task<FranchiseUser?> UserLogin(string email, string password);
+        Task<Franchise?> GetFranchiseDetailByUser(string email);
         Task<Franchise> GetFranchiseSettingById(Guid franchiseId);
     }
     public class FranchiseRepository : IFranchiseRepository
@@ -122,7 +122,7 @@ namespace MealzNow.Db.Repositories
             return franchise;
         }
 
-        public async Task<FranchiseUser> UserLogin(string email, string password)
+        public async Task<FranchiseUser?> UserLogin(string email, string password)
         {
             var user = await _mealzNowDataBaseContext.FranchiseUsers.FirstOrDefaultAsync(c => c.EmailAddress == email && c.Password == password);
 
