@@ -1,4 +1,4 @@
-﻿using MealzNow.Api;
+﻿using MealzNow.MobApi;
 using MealzNow.Core.Dto;
 using MealzNow.Services;
 using MealzNow.Services.Interfaces;
@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using System.Net;
 using static MealzNow.Core.Enum.Enums;
 
-namespace MealzNow.Api
+namespace MealzNow.MobApi
 {
     public class OrderApi
     {

@@ -9,12 +9,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.ApplicationInsights.Extensibility;
 
-[assembly: FunctionsStartup(typeof(MealzNow.Api.Startup))]
+[assembly: FunctionsStartup(typeof(MealzNow.MobApi.Startup))]
 
-namespace MealzNow.Api
+namespace MealzNow.MobApi
 {
     public class Startup : FunctionsStartup
     {
+        private static readonly IConfigurationRoot Configuration = new ConfigurationBuilder()
+            .SetBasePath(Environment.CurrentDirectory)
+            .AddJsonFile("local.settings.json", true)
+            .AddEnvironmentVariables()
+            .Build();
+
         public override void Configure(IFunctionsHostBuilder builder)
         {
             var config = builder.GetContext().Configuration;

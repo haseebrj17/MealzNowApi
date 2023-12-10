@@ -9,12 +9,12 @@ namespace MealzNow.Db.Models
         [Required]
         [JsonProperty("firstName")]
         [StringLength(100)]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = "";
 
         [Required]
         [JsonProperty("lastName")]
         [StringLength(100)]
-        public string LastName { get; set; }
+        public required string LastName { get; set; }
 
         [Required]
         [JsonProperty("emailAddress")]
