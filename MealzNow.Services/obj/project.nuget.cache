@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Q16PkdIXFSk9q2vBUeFzV6/7T88UE+Z8kCrcxsGGcwvBmdTMQ2TT5q1o+6K9Xi3vFx8lLnUE0/XB6Wgy6wj5Lg==",
+  "dgSpecHash": "HpyBZ1NJlPRkB8vY9DxtAnWWeqh1DMqt8Sw+LCcrJRg/Be/adancO5DMCOiVBkasiffKxIF8M1QXHNtY0iv+0w==",
   "success": true,
   "projectFilePath": "/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/MealzNow.Services.csproj",
   "expectedPackageFiles": [
     "/Users/haseebrajpoot/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/haseebrajpoot/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "/Users/haseebrajpoot/.nuget/packages/azure.communication.sms/1.0.1/azure.communication.sms.1.0.1.nupkg.sha512",
     "/Users/haseebrajpoot/.nuget/packages/azure.core/1.19.0/azure.core.1.19.0.nupkg.sha512",
     "/Users/haseebrajpoot/.nuget/packages/microsoft.azure.cosmos/3.37.0/microsoft.azure.cosmos.3.37.0.nupkg.sha512",
     "/Users/haseebrajpoot/.nuget/packages/microsoft.azure.functions.worker.core/1.15.0/microsoft.azure.functions.worker.core.1.15.0.nupkg.sha512",

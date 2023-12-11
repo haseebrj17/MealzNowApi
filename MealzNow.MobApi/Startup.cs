@@ -6,8 +6,8 @@ using System;
 using AutoMapper;
 using MealzNow.Services;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Azure.Cosmos.Fluent;
 using Microsoft.Extensions.Logging;
-using Microsoft.ApplicationInsights.Extensibility;
 
 [assembly: FunctionsStartup(typeof(MealzNow.MobApi.Startup))]
 
@@ -25,16 +25,41 @@ namespace MealzNow.MobApi
         {
             var config = builder.GetContext().Configuration;
 
-            var cosmosDbAccount = config.GetValue<string>("CosmosDb:Account");
-            var cosmosDbKey = config.GetValue<string>("CosmosDb:Key");
-            var cosmosDbDatabaseName = config.GetValue<string>("CosmosDb:DatabaseName");
+            // Adding logger
+            var logger = builder.Services.BuildServiceProvider().GetRequiredService<ILogger<Startup>>();
 
+            logger.LogInformation("Starting Configure method in Startup.");
+
+            // Entity Framework Core setup
+            string cosmosDbAccount = config.GetValue<string>("CosmosDb:Account");
+            string cosmosDbKey = config.GetValue<string>("CosmosDb:Key");
+            var cosmosDbDatabaseName = config.GetValue<string>("CosmosDb:DatabaseName");
             builder.Services.AddDbContext<MealzNowDataBaseContext>(options =>
                 options.UseCosmos(cosmosDbAccount, cosmosDbKey, cosmosDbDatabaseName));
 
+            logger.LogInformation("Cosmos DB DbContext added.");
+
+            // Register other services
             builder.Services.AddRepositories(config);
             builder.Services.AddServices(config);
             builder.Services.AddAutoMapper(typeof(Program));
+
+            logger.LogInformation("Repositories, services, and AutoMapper configured.");
+
+            // Create Cosmos DB database and containers
+            var serviceProvider = builder.Services.BuildServiceProvider();
+            CreateCosmosDbDatabaseAndContainersAsync(serviceProvider, logger).GetAwaiter().GetResult();
+        }
+
+        private async Task CreateCosmosDbDatabaseAndContainersAsync(IServiceProvider serviceProvider, ILogger logger)
+        {
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<MealzNowDataBaseContext>();
+                logger.LogInformation("Ensuring Cosmos DB database and containers are created.");
+                await dbContext.Database.EnsureCreatedAsync();
+                logger.LogInformation("Database EnsureCreatedAsync method called.");
+            }
         }
     }
 }

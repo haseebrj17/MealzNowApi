@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System.Net.Mail;
+using AutoMapper;
+using Azure.Communication.Sms;
 using MealzNow.Core;
 using MealzNow.Core.Dto;
 using MealzNow.Core.RequestModels;
@@ -7,6 +9,7 @@ using MealzNow.Db.Models;
 using MealzNow.Db.Repositories;
 using MealzNow.Services;
 using MealzNow.Services.Interfaces;
+using Microsoft.Extensions.Logging;
 using static MealzNow.Core.Enum.Enums;
 
 namespace MealzNow.Services.Services
@@ -18,14 +21,16 @@ namespace MealzNow.Services.Services
         private readonly IMapper _mapper;
         private readonly IJwtTokenManager _jwtTokenManager;
         private readonly ICityRepository _cityRepository;
+        private readonly ILogger<CustomerService> _logger;
 
         public CustomerService(IMapper mapper, ICustomerRepository customerRepository, ICustomerAddressRepository customerAddressRepository,
-                 ICityRepository _cityRepository, IJwtTokenManager jwtTokenManager)
+                 ICityRepository _cityRepository, IJwtTokenManager jwtTokenManager, ILogger<CustomerService> logger)
         {
             _mapper = mapper;
             _customerRepository = customerRepository;
             _customerAddressRepository = customerAddressRepository;
             _jwtTokenManager = jwtTokenManager;
+            _logger = logger;
         }
 
         public async Task<CustomerDto> AddCustomer(CustomerDto customerDto)
@@ -40,7 +45,26 @@ namespace MealzNow.Services.Services
 
             var response = _mapper.Map<Customer, CustomerDto>(newCustomer);
 
+            await SendSms(customer);
+
             return response;
+        }
+
+        private async Task SendSms(Customer customer)
+        {
+            try
+            {
+                var connectionString = "endpoint=https://foodsnowcs.switzerland.communication.azure.com/;accesskey=I0YaWzdEMfzRNEqHdEyL3JFxDvEmg67/jllqoz1OEI1SelvCL1PkV/VO6jXk2Cfka3WZKhPsypfpOxpBNEBGAw==";
+                var smsClient = new SmsClient(connectionString);
+                var sendResult = await smsClient.SendAsync(
+                    from: "MealzNow",
+                    to: customer.ContactNumber,
+                    message: customer.VerificationCode);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while sending SMS to {PhoneNumber}", customer.ContactNumber);
+            }
         }
 
         public async Task<CustomerAddressDto> AddAddress(CustomerAddressDto addressDto)

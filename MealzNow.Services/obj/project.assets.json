@@ -31,6 +31,23 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "Azure.Communication.Sms/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.14.0",
+          "System.Text.Json": "4.6.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Azure.Communication.Sms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Communication.Sms.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Azure.Core/1.19.0": {
         "type": "package",
         "dependencies": {
@@ -1294,6 +1311,22 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "Azure.Communication.Sms/1.0.1": {
+      "sha512": "lY6COxdSaG+Y/nK4QXdqqJD3XS6JZ8rsh3TzT0jid6r6J3VK48/cSjgCYxEm0ihgqxIILd7wUb2f4qhYbRWfeA==",
+      "type": "package",
+      "path": "azure.communication.sms/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "README.md",
+        "azure.communication.sms.1.0.1.nupkg.sha512",
+        "azure.communication.sms.nuspec",
+        "lib/netstandard2.0/Azure.Communication.Sms.dll",
+        "lib/netstandard2.0/Azure.Communication.Sms.xml",
+        "pkgicon.png"
       ]
     },
     "Azure.Core/1.19.0": {
@@ -3082,6 +3115,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
+      "Azure.Communication.Sms >= 1.0.1",
       "MealzNow.Core >= 1.0.0",
       "MealzNow.Db >= 1.0.0",
       "Microsoft.Azure.Functions.Worker.Extensions.Http >= 3.1.0",
@@ -3139,6 +3173,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[12.0.1, )"
+          },
+          "Azure.Communication.Sms": {
+            "target": "Package",
+            "version": "[1.0.1, )"
           },
           "Microsoft.Azure.Functions.Worker.Extensions.Http": {
             "target": "Package",

@@ -20,20 +20,6 @@ public class MealzNowDataBaseContext : DbContext
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Packages> Packages { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseCosmos(
-            "https://mealznowcdb.documents.azure.com:443/",
-            "SEONv3ty9lriwa53UbtOIyUruLEW8000TIHM0uGBKqTQ9ChAp5TbX2nBtAIhaMngnm4475znExM3ACDb5UbnlA==",
-            "MealzNowDB"
-        );
-    }
-
-    public async Task InitializeDatabaseAsync()
-    {
-        await this.Database.EnsureCreatedAsync();
-    }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<SuperAdmin>().HasKey(e => e.EmailAddress);
