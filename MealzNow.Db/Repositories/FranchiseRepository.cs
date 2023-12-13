@@ -112,6 +112,7 @@ namespace MealzNow.Db.Repositories
         {
             var franchise = await _mealzNowDataBaseContext.Franchises
                                 .Include(f => f.FranchiseSetting)
+                                .Include(f => f.FranchiseTimings)
                                 .FirstOrDefaultAsync(f => f.Id == franchiseId);
 
             if (franchise == null)

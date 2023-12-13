@@ -15,20 +15,22 @@ namespace MealzNow.MobApi
 {
     public class Startup : FunctionsStartup
     {
-        private static readonly IConfigurationRoot Configuration = new ConfigurationBuilder()
-            .SetBasePath(Environment.CurrentDirectory)
-            .AddJsonFile("local.settings.json", true)
-            .AddEnvironmentVariables()
-            .Build();
+        public IConfiguration Configuration { get; }
+
+        public Startup()
+        {
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(Environment.CurrentDirectory)
+                .AddJsonFile("local.settings.json", true)
+                .AddEnvironmentVariables()
+                .Build();
+        }
 
         public override void Configure(IFunctionsHostBuilder builder)
         {
+            builder.Services.AddLogging(); // Adding logging services
+
             var config = builder.GetContext().Configuration;
-
-            // Adding logger
-            var logger = builder.Services.BuildServiceProvider().GetRequiredService<ILogger<Startup>>();
-
-            logger.LogInformation("Starting Configure method in Startup.");
 
             // Entity Framework Core setup
             string cosmosDbAccount = config.GetValue<string>("CosmosDb:Account");
@@ -37,14 +39,14 @@ namespace MealzNow.MobApi
             builder.Services.AddDbContext<MealzNowDataBaseContext>(options =>
                 options.UseCosmos(cosmosDbAccount, cosmosDbKey, cosmosDbDatabaseName));
 
-            logger.LogInformation("Cosmos DB DbContext added.");
-
             // Register other services
             builder.Services.AddRepositories(config);
             builder.Services.AddServices(config);
             builder.Services.AddAutoMapper(typeof(Program));
 
-            logger.LogInformation("Repositories, services, and AutoMapper configured.");
+            // Now resolve the logger
+            var logger = builder.Services.BuildServiceProvider().GetRequiredService<ILogger<Startup>>();
+            logger.LogInformation("Starting Configure method in Startup.");
 
             // Create Cosmos DB database and containers
             var serviceProvider = builder.Services.BuildServiceProvider();

@@ -95,11 +95,19 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("openingTime")]
-        public DateTime OpeningTime { get; set; }
+        public TimeSpan OpeningTime { get; set; }
 
         [Required]
         [JsonProperty("closingTime")]
-        public DateTime ClosingTime { get; set; }
+        public TimeSpan ClosingTime { get; set; }
+
+        [Required]
+        [JsonProperty("open")]
+        public bool Open { get; set; } = true;
+
+        [Required]
+        [JsonProperty("servingTimings")]
+        public List<ServingTimings> ServingTimings { get; set; } = new List<ServingTimings>();
     }
 
     public class FranchiseHoliday
@@ -170,10 +178,6 @@ namespace MealzNow.Db.Models
         [Required]
         [JsonProperty("servingDays")]
         public List<ServingDays> ServingDays { get; set; } = new List<ServingDays>();
-
-        [Required]
-        [JsonProperty("servingTimings")]
-        public List<ServingTimings> ServingTimings { get; set; } = new List<ServingTimings>();
     }
 
     public class MealsPerDay : BaseEntity
@@ -212,11 +216,11 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("slotStart")]
-        public DateTime SlotStart { get; set; }
+        public TimeSpan SlotStart { get; set; }
 
         [Required]
         [JsonProperty("slotEnd")]
-        public DateTime SlotEnd { get; set; }
+        public TimeSpan SlotEnd { get; set; }
     }
 
     public class ProductOutline : BaseEntity

@@ -68,10 +68,16 @@ namespace MealzNow.Core.Dto
         public string Day { get; set; }
 
         [JsonProperty("openingTime")]
-        public DateTime OpeningTime { get; set; }
+        public TimeSpan OpeningTime { get; set; }
 
         [JsonProperty("closingTime")]
-        public DateTime ClosingTime { get; set; }
+        public TimeSpan ClosingTime { get; set; }
+
+        [JsonProperty("open")]
+        public bool Open { get; set; }
+
+        [JsonProperty("servingTimings")]
+        public List<ServingTimingsDto> ServingTimings { get; set; }
     }
 
     public class FranchiseHolidayDto
@@ -90,9 +96,6 @@ namespace MealzNow.Core.Dto
 
         [JsonProperty("servingDays")]
         public List<ServingDaysDto> ServingDays { get; set; }
-
-        [JsonProperty("servingTimings")]
-        public List<ServingTimingsDto> ServingTimings { get; set; }
     }
 
     public class MealsPerDayDto
@@ -125,10 +128,10 @@ namespace MealzNow.Core.Dto
     public class ServingTimeDto
     {
         [JsonProperty("slotStart")]
-        public DateTime SlotStart { get; set; }
+        public TimeSpan SlotStart { get; set; }
 
         [JsonProperty("slotEnd")]
-        public DateTime SlotEnd { get; set; }
+        public TimeSpan SlotEnd { get; set; }
     }
 
     public class ProductOutlineDto
