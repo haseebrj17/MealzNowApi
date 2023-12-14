@@ -1,10 +1,11 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{420AF5FC-E127-4010-946F-A92400DB905B}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.MealzNow.MobApi PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MealzNow.Db/Models/Franchise.cs">
     <Files>
       <File FileName="MealzNow.MobApi/host.json" />
@@ -16,7 +17,7 @@
       <File FileName="MealzNow.Db/MealzNowDataBaseContext.cs" />
       <File FileName="MealzNow.Core/Dto/FranchiseDto.cs" />
       <File FileName="MealzNow.Db/Models/FranchiseUser.cs" />
-      <File FileName="MealzNow.Db/Models/Franchise.cs" Line="54" Column="33" />
+      <File FileName="MealzNow.Db/Models/Franchise.cs" Line="63" Column="42" />
       <File FileName="MealzNow.Core/Dto/BannerDto.cs" />
       <File FileName="MealzNow.Core/Dto/DishOfDayDto.cs" />
       <File FileName="MealzNow.Db/Models/Packages.cs" />
@@ -75,7 +76,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="MealzNow">
+          <Node name="MealzNow" expanded="True">
             <Node name="MealzNow.Db" expanded="True">
               <Node name="Models" expanded="True">
                 <Node name="Franchise.cs" selected="True" />
@@ -87,5 +88,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
 </Properties>
