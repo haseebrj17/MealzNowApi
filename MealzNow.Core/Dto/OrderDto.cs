@@ -184,6 +184,9 @@ namespace MealzNow.Core.Dto
         [JsonProperty("spiceLevel")]
         public int? SpiceLevel { get; set; }
 
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+
         [JsonProperty("ingredientSummary")]
         public string IngredientSummary { get; set; }
 

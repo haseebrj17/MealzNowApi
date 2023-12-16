@@ -60,6 +60,9 @@ namespace MealzNow.Db.Models
         [JsonProperty("name")]
         public string Name { get; set; }
 
+        [JsonProperty("parentId")]
+        public Guid ParentId { get; set; }
+
         [JsonProperty("cover")]
         public string Cover { get; set; }
 
@@ -88,4 +91,3 @@ namespace MealzNow.Db.Models
         public bool IsActive { get; set; }
     }
 }
-

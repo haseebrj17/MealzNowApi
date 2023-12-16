@@ -3,10 +3,9 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MealzNow.MobApi PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MealzNow.Db/Models/Franchise.cs">
+  <MonoDevelop.Ide.ItemProperties.MealzNow.MobApi PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MealzNow.Db/Models/Product.cs">
     <Files>
       <File FileName="MealzNow.MobApi/host.json" />
       <File FileName="MealzNow.MobApi/Program.cs" />
@@ -17,12 +16,12 @@
       <File FileName="MealzNow.Db/MealzNowDataBaseContext.cs" />
       <File FileName="MealzNow.Core/Dto/FranchiseDto.cs" />
       <File FileName="MealzNow.Db/Models/FranchiseUser.cs" />
-      <File FileName="MealzNow.Db/Models/Franchise.cs" Line="63" Column="42" />
+      <File FileName="MealzNow.Db/Models/Franchise.cs" />
       <File FileName="MealzNow.Core/Dto/BannerDto.cs" />
       <File FileName="MealzNow.Core/Dto/DishOfDayDto.cs" />
       <File FileName="MealzNow.Db/Models/Packages.cs" />
-      <File FileName="MealzNow.Db/Models/Product.cs" />
-      <File FileName="MealzNow.Db/Models/Category.cs" />
+      <File FileName="MealzNow.Db/Models/Product.cs" Line="26" Column="9" />
+      <File FileName="MealzNow.Db/Models/Category.cs" Line="52" Column="46" />
       <File FileName="MealzNow.Db/Models/Order.cs" />
       <File FileName="MealzNow.Core/Enum/Enums.cs" />
       <File FileName="MealzNow.Db/Models/Client.cs" />
@@ -65,7 +64,6 @@
       <File FileName="MealzNow.MobApi/.gitignore" />
       <File FileName="MealzNow.MobApi/CustomerApi.cs" />
       <File FileName="MealzNow.MobApi/OrderApi.cs" />
-      <File FileName="MealzNow.MobApi/Startup.cs" />
       <File FileName="MealzNow.MobApi/Properties/serviceDependencies.local.json" />
       <File FileName="MealzNow.MobApi/Properties/serviceDependencies.json" />
       <File FileName="MealzNow.MobApi/MealzNowMobAppApi.cs" />
@@ -76,16 +74,28 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="MealzNow" expanded="True">
+          <Node name="MealzNow">
+            <Node name="MealzNow.Core" expanded="True">
+              <Node name="Dto" expanded="True" />
+              <Node name="Enum" expanded="True" />
+              <Node name="RequestModels" expanded="True" />
+            </Node>
             <Node name="MealzNow.Db" expanded="True">
               <Node name="Models" expanded="True">
-                <Node name="Franchise.cs" selected="True" />
+                <Node name="Product.cs" selected="True" />
               </Node>
+              <Node name="Repositories" expanded="True" />
             </Node>
-            <Node name="MealzNow.MobApi" expanded="True" />
+            <Node name="MealzNow.MobApi" expanded="True">
+              <Node name="Properties" expanded="True" />
+            </Node>
+            <Node name="MealzNow.Services" expanded="True">
+              <Node name="Services" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
