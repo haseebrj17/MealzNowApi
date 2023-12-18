@@ -7,7 +7,7 @@ namespace MealzNow.Db.Repositories
 {
     public interface IFranchiseRepository
     {
-        Task<List<Franchise>> GetClientFranchises(Guid clientId);
+        List<Franchise> GetClientFranchises(Guid clientId);
         Task<List<Order>> GetAllFranchiseOrders(Guid franchiseId, DateTime specificDay);
         Task<List<Order>> GetCustomerOrders(Guid customerId);
         Task<bool> UpdateOrderStatus(Guid orderId, Guid dayId, Guid productByTimingId, OrderStatus orderStatus, Guid loggedInUserId);
@@ -52,9 +52,9 @@ namespace MealzNow.Db.Repositories
                 .ToListAsync();
         }
 
-        public async Task<List<Franchise>> GetClientFranchises(Guid clientId)
+        public List<Franchise> GetClientFranchises(Guid clientId)
         {
-            return await _mealzNowDataBaseContext.Franchises.Where(f => f.ClientId == clientId && f.IsActive).ToListAsync();
+            return _mealzNowDataBaseContext.Franchises.Where(f => f.ClientId == clientId && f.IsActive == true).ToList();
         }
 
         public async Task<Franchise?> GetFranchiseDetailByUser(string email)
