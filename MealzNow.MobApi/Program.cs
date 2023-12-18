@@ -23,7 +23,7 @@ try
     var cosmosDbAccount = config.GetValue<string>("CosmosDb:Account") ??
         "https://mealznowcdb.documents.azure.com:443/";
     var cosmosDbKey = config.GetValue<string>("CosmosDb:Key") ??
-        "SEONv3ty9lriwa53UbtOIyUruLEW8000TIHM0uGBKqTQ9ChAp5TbX2nBtAIhaMngnm4475znExM3ACDb5UbnlA==";
+        "ZUr2bcfSjsQSjuhfpS6XtWjcUYKWYGXhe3SoA2okp0pcjiTq7Oej56L2OuvOFwEaKZ032OZi2QMzACDbL9fXVQ==";
     var cosmosDbDatabaseName = config.GetValue<string>("CosmosDb:DatabaseName") ??
         "MealzNowDB";
 
