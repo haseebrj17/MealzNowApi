@@ -39,6 +39,9 @@ namespace MealzNow.Core.Dto
         [JsonProperty("parentId")]
         public Guid ParentId { get; set; }
 
+        [JsonProperty("franchiseId")]
+        public Guid FranchiseId { get; set; }
+
         [JsonProperty("cover")]
         public string Cover { get; set; }
 

@@ -1,10 +1,11 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{420AF5FC-E127-4010-946F-A92400DB905B}|Default">
+﻿<Properties StartupConfiguration="{420AF5FC-E127-4010-946F-A92400DB905B}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.ItemProperties.MealzNow.MobApi PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.MealzNow.MobApi PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MealzNow.Db/Models/Product.cs">
     <Files>
       <File FileName="MealzNow.MobApi/host.json" />
@@ -20,8 +21,8 @@
       <File FileName="MealzNow.Core/Dto/BannerDto.cs" />
       <File FileName="MealzNow.Core/Dto/DishOfDayDto.cs" />
       <File FileName="MealzNow.Db/Models/Packages.cs" />
-      <File FileName="MealzNow.Db/Models/Product.cs" Line="26" Column="9" />
-      <File FileName="MealzNow.Db/Models/Category.cs" Line="52" Column="46" />
+      <File FileName="MealzNow.Db/Models/Product.cs" Line="43" Column="1" />
+      <File FileName="MealzNow.Db/Models/Category.cs" Line="66" Column="38" />
       <File FileName="MealzNow.Db/Models/Order.cs" />
       <File FileName="MealzNow.Core/Enum/Enums.cs" />
       <File FileName="MealzNow.Db/Models/Client.cs" />
@@ -30,7 +31,7 @@
       <File FileName="MealzNow.Core/Dto/ProductDataDto.cs" />
       <File FileName="MealzNow.Core/Dto/PackageDto.cs" />
       <File FileName="MealzNow.Core/Dto/CategoryOutlineDto.cs" />
-      <File FileName="MealzNow.Core/Dto/CategoryDto.cs" />
+      <File FileName="MealzNow.Core/Dto/CategoryDto.cs" Line="43" Column="46" />
       <File FileName="MealzNow.Core/MealzNowUsers.cs" />
       <File FileName="MealzNow.Services/Mapping/AutoMapperProfiles.cs" />
       <File FileName="MealzNow.Core/RequestModels/LoginRequestModel.cs" />
@@ -74,7 +75,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="MealzNow">
+          <Node name="MealzNow" expanded="True">
             <Node name="MealzNow.Core" expanded="True">
               <Node name="Dto" expanded="True" />
               <Node name="Enum" expanded="True" />
@@ -84,12 +85,12 @@
               <Node name="Models" expanded="True">
                 <Node name="Product.cs" selected="True" />
               </Node>
-              <Node name="Repositories" expanded="True" />
             </Node>
             <Node name="MealzNow.MobApi" expanded="True">
               <Node name="Properties" expanded="True" />
             </Node>
             <Node name="MealzNow.Services" expanded="True">
+              <Node name="Mapping" expanded="True" />
               <Node name="Services" expanded="True" />
             </Node>
           </Node>
@@ -97,5 +98,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
