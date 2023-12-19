@@ -25,7 +25,7 @@ public class MealzNowDataBaseContext : DbContext
         optionsBuilder.UseCosmos(
             "https://mealznowcdb.documents.azure.com:443/",
             "ZUr2bcfSjsQSjuhfpS6XtWjcUYKWYGXhe3SoA2okp0pcjiTq7Oej56L2OuvOFwEaKZ032OZi2QMzACDbL9fXVQ==",
-            "MealzNowDB"
+             databaseName: "MealzNowDB"
         );
     }
 
