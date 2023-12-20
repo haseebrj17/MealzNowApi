@@ -12,7 +12,7 @@ namespace MealzNow.Core.Dto
     public class Country
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("states")]
         public List<State> States { get; set; } = new List<State>();
@@ -21,7 +21,7 @@ namespace MealzNow.Core.Dto
     public class State
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("cities")]
         public List<CityName> Cities { get; set; } = new List<CityName>();
@@ -30,7 +30,7 @@ namespace MealzNow.Core.Dto
     public class CityName
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
     }
 }
 

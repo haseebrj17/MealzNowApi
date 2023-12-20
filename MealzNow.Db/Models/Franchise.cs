@@ -8,27 +8,27 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [Required]
         [JsonProperty("address")]
-        public string Address { get; set; }
+        public string Address { get; set; } = null!;
 
         [Required]
         [JsonProperty("zipCode")]
-        public string ZipCode { get; set; }
+        public string ZipCode { get; set; } = null!;
 
         [Required]
         [JsonProperty("contactNumber")]
-        public string ContactNumber { get; set; }
+        public string ContactNumber { get; set; } = null!;
 
         [Required]
         [JsonProperty("openingTime")]
-        public string OpeningTime { get; set; }
+        public string OpeningTime { get; set; } = null!;
 
         [Required]
         [JsonProperty("closingTime")]
-        public string ClosingTime { get; set; }
+        public string ClosingTime { get; set; } = null!;
 
         [Required]
         [JsonProperty("latitude")]
@@ -56,7 +56,7 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("cityName")]
-        public string CityName { get; set; }
+        public string CityName { get; set; } = null!;
 
         [Required]
         [JsonProperty("stateId")]
@@ -64,7 +64,7 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("stateName")]
-        public string StateName { get; set; }
+        public string StateName { get; set; } = null!;
 
         [JsonProperty("franchiseTimings")]
         public List<FranchiseTiming> FranchiseTimings { get; set; } = new List<FranchiseTiming>();
@@ -91,7 +91,7 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("day")]
-        public string Day { get; set; }
+        public string Day { get; set; } = null!;
 
         [Required]
         [JsonProperty("openingTime")]
@@ -148,7 +148,7 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("imageUrl")]
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = null!;
 
         [JsonProperty("isActive")]
         public bool IsActive { get; set; } = true;
@@ -184,11 +184,11 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [Required]
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
         [JsonProperty("discount")]
         public int Discount { get; set; }
@@ -198,14 +198,14 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
     }
 
     public class ServingTimings : BaseEntity
     {
         [Required]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("servingTime")]
@@ -227,15 +227,15 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [Required]
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
         [Required]
         [JsonProperty("icon")]
-        public string Icon { get; set; }
+        public string Icon { get; set; } = null!;
 
         [Required]
         [JsonProperty("productInclusion")]
@@ -245,9 +245,9 @@ namespace MealzNow.Db.Models
     public class ProductInclusion : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("icon")]
-        public string Icon { get; set; }
+        public string Icon { get; set; } = null!;
     }
 }

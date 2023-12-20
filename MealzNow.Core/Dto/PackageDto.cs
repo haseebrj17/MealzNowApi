@@ -7,7 +7,7 @@ namespace MealzNow.Db.Models
     public class PackageDto
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("packageType")]
         public PackageType PackageType { get; set; }

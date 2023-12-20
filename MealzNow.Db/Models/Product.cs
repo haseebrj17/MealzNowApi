@@ -8,11 +8,11 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("detail")]
-        public string Detail { get; set; }
+        public string Detail { get; set; } = null!;
 
         [JsonProperty("estimatedDeliveryTime")]
         public string? EstimatedDeliveryTime { get; set; }
@@ -24,19 +24,19 @@ namespace MealzNow.Db.Models
         public int? SpiceLevel { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string Type { get; set; } = null!;
 
         [Required]
         [JsonProperty("ingredientSummary")]
-        public string IngredientSummary { get; set; }
+        public string IngredientSummary { get; set; } = null!;
 
         [Required]
         [JsonProperty("ingredientDetail")]
-        public string IngredientDetail { get; set; }
+        public string IngredientDetail { get; set; } = null!;
 
         [Required]
         [JsonProperty("image")]
-        public string Image { get; set; }
+        public string Image { get; set; } = null!;
 
         [JsonProperty("isActive")]
         public bool IsActive { get; set; }
@@ -45,10 +45,10 @@ namespace MealzNow.Db.Models
         public Guid Franchiseid { get; set; }
 
         [JsonProperty("showExtraTopping")]
-        public bool showExtraTopping { get; set; }
+        public bool ShowExtraTopping { get; set; }
 
         [JsonProperty("showExtraDipping")]
-        public bool showExtraDipping { get; set; }
+        public bool ShowExtraDipping { get; set; }
 
         [JsonProperty("productAllergy")]
         public List<ProductAllergy> ProductAllergy { get; set; } = new List<ProductAllergy>();
@@ -78,7 +78,7 @@ namespace MealzNow.Db.Models
     public class ProductAllergy : BaseEntity
     {
         [JsonProperty("allergyName")]
-        public string AllergyName { get; set; }
+        public string AllergyName { get; set; } = null!;
     }
 
     public class ProductPrice : BaseEntity
@@ -89,11 +89,11 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
     }
 
     public class ProductCategory : BaseEntity
@@ -104,29 +104,29 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("categoryName")]
-        public string CategoryName { get; set; }
+        public string CategoryName { get; set; } = null!;
 
         [Required]
         [JsonProperty("categoryType")]
-        public string CategoryType { get; set; }
+        public string CategoryType { get; set; } = null!;
     }
 
     public class ProductChoices : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("detail")]
-        public string Detail { get; set; }
+        public string Detail { get; set; } = null!;
     }
 
     public class ProductExtraDipping : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("detail")]
-        public string Detail { get; set; }
+        public string Detail { get; set; } = null!;
 
         [JsonProperty("productExtraDippingAllergy")]
         public List<ProductExtraDippingAllergy> ProductExtraDippingAllergy { get; set; } = new List<ProductExtraDippingAllergy>();
@@ -138,7 +138,7 @@ namespace MealzNow.Db.Models
     public class ProductExtraDippingAllergy : BaseEntity
     {
         [JsonProperty("allergyName")]
-        public string AllergyName { get; set; }
+        public string AllergyName { get; set; } = null!;
     }
 
     public class ProductExtraDippingPrice : BaseEntity
@@ -149,20 +149,20 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
     }
 
     public class ProductExtraTopping : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("detail")]
-        public string Detail { get; set; }
+        public string Detail { get; set; } = null!;
 
         [JsonProperty("productExtraToppingAllergy")]
         public List<ProductExtraToppingAllergy> ProductExtraToppingAllergy { get; set; } = new List<ProductExtraToppingAllergy>();
@@ -174,7 +174,7 @@ namespace MealzNow.Db.Models
     public class ProductExtraToppingAllergy : BaseEntity
     {
         [JsonProperty("allergyName")]
-        public string AllergyName { get; set; }
+        public string AllergyName { get; set; } = null!;
     }
 
     public class ProductExtraToppingPrice : BaseEntity
@@ -185,17 +185,17 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
     }
 
     public class ProductItemOutline : BaseEntity
     {
         [Required]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
     }
 }
