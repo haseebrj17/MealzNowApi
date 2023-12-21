@@ -26,7 +26,7 @@ namespace MealzNow.Core.Dto
         public Guid CustomerAddressId { get; set; }
 
         [JsonProperty("customerDetails")]
-        public CustomerDetailsDto CustomerDetails { get; set; }
+        public CustomerDetailsDto CustomerDetails { get; set; } = null!;
 
         [JsonProperty("franchiseId")]
         public Guid FranchiseId { get; set; }
@@ -35,37 +35,37 @@ namespace MealzNow.Core.Dto
         public OrderStatus OrderStatus { get; set; }
 
         [JsonProperty("customerOrderedPackage")]
-        public CustomerOrderedPackageDto CustomerOrderedPackage { get; set; }
+        public CustomerOrderedPackageDto CustomerOrderedPackage { get; set; } = null!;
 
         [JsonProperty("productByDay")]
-        public List<ProductByDayDto> ProductByDay { get; set; }
+        public List<ProductByDayDto> ProductByDay { get; set; } = null!;
 
         [JsonProperty("customerOrderPromo")]
-        public CustomerOrderPromoDto CustomerOrderPromo { get; set; }
+        public CustomerOrderPromoDto CustomerOrderPromo { get; set; } = null!;
 
         [JsonProperty("customerOrderPayment")]
-        public CustomerOrderPaymentDto CustomerOrderPayment { get; set; }
+        public CustomerOrderPaymentDto CustomerOrderPayment { get; set; } = null!;
     }
 
     public class CustomerDetailsDto
     {
         [JsonProperty("customerFullName")]
-        public string CustomerFullName { get; set; }
+        public string CustomerFullName { get; set; } = null!;
 
         [JsonProperty("customerEmailAddress")]
-        public string CustomerEmailAddress { get; set; }
+        public string CustomerEmailAddress { get; set; } = null!;
 
         [JsonProperty("customerContactNumber")]
-        public string CustomerContactNumber { get; set; }
+        public string CustomerContactNumber { get; set; } = null!;
 
         [JsonProperty("customerAddressDetail")]
-        public CustomerAddressDetailDto CustomerAddressDetail { get; set; }
+        public CustomerAddressDetailDto CustomerAddressDetail { get; set; } = null!;
     }
 
     public class CustomerAddressDetailDto
     {
         [JsonProperty("streetAddress")]
-        public string StreetAddress { get; set; }
+        public string StreetAddress { get; set; } = null!;
 
         [JsonProperty("house")]
         public string? House { get; set; }
@@ -110,7 +110,7 @@ namespace MealzNow.Core.Dto
         public Guid PackageId { get; set; }
 
         [JsonProperty("packageName")]
-        public string PackageName { get; set; }
+        public string PackageName { get; set; } = null!;
 
         [JsonProperty("totalNumberOfMeals")]
         public int TotalNumberOfMeals { get; set; }
@@ -122,19 +122,19 @@ namespace MealzNow.Core.Dto
     public class CustomerOrderPromoDto
     {
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string Type { get; set; } = null!;
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("percent")]
-        public string Percent { get; set; }
+        public string Percent { get; set; } = null!;
     }
 
     public class CustomerOrderPaymentDto
     {
         [JsonProperty("paymentType")]
-        public string PaymentType { get; set; }
+        public string PaymentType { get; set; } = null!;
 
         [JsonProperty("orderType")]
         public OrderType OrderType { get; set; }
@@ -152,7 +152,7 @@ namespace MealzNow.Core.Dto
         public DateTime DeliveryDate { get; set; }
 
         [JsonProperty("productByTiming")]
-        public List<ProductByTimingDto> ProductByTiming { get; set; }
+        public List<ProductByTimingDto> ProductByTiming { get; set; } = null!;
     }
 
     public class ProductByTimingDto
@@ -161,7 +161,7 @@ namespace MealzNow.Core.Dto
         public bool Fulfilled { get; set; }
 
         [JsonProperty("timeOfDay")]
-        public string TimeOfDay { get; set; }
+        public string TimeOfDay { get; set; } = null!;
 
         [JsonProperty("timeOfDayId")]
         public Guid TimeOfDayId { get; set; }
@@ -173,10 +173,10 @@ namespace MealzNow.Core.Dto
         public Guid DeliveryTimingsId { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("detail")]
-        public string Detail { get; set; }
+        public string Detail { get; set; } = null!;
 
         [JsonProperty("estimatedDeliveryTime")]
         public string? EstimatedDeliveryTime { get; set; }
@@ -184,29 +184,32 @@ namespace MealzNow.Core.Dto
         [JsonProperty("spiceLevel")]
         public int? SpiceLevel { get; set; }
 
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+
         [JsonProperty("ingredientSummary")]
-        public string IngredientSummary { get; set; }
+        public string IngredientSummary { get; set; } = null!;
 
         [JsonProperty("image")]
-        public string Image { get; set; }
+        public string Image { get; set; } = null!;
 
         [JsonProperty("price")]
         public decimal Price { get; set; }
 
         [JsonProperty("orderedProductExtraDipping")]
-        public List<OrderedProductExtraDippingDto> OrderedProductExtraDipping { get; set; }
+        public List<OrderedProductExtraDippingDto> OrderedProductExtraDipping { get; set; } = null!;
 
         [JsonProperty("orderedProductExtraTopping")]
-        public List<OrderedProductExtraToppingDto> OrderedProductExtraTopping { get; set; }
+        public List<OrderedProductExtraToppingDto> OrderedProductExtraTopping { get; set; } = null!;
 
         [JsonProperty("orderedProductSides")]
-        public OrderedProductSidesDto OrderedProductSides { get; set; }
+        public OrderedProductSidesDto OrderedProductSides { get; set; } = null!;
 
         [JsonProperty("orderedProductDessert")]
-        public OrderedProductDessertDto OrderedProductDessert { get; set; }
+        public OrderedProductDessertDto OrderedProductDessert { get; set; } = null!;
 
         [JsonProperty("orderedProductDrinks")]
-        public OrderedProductDrinksDto OrderedProductDrinks { get; set; }
+        public OrderedProductDrinksDto OrderedProductDrinks { get; set; } = null!;
 
         [JsonProperty("orderedProductChoices")]
         public List<OrderedProductChoicesDtp> OrderedProductChoices { get; set; } = new List<OrderedProductChoicesDtp>();
@@ -215,16 +218,16 @@ namespace MealzNow.Core.Dto
     public class OrderedProductChoicesDtp
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("detail")]
-        public string Detail { get; set; }
+        public string Detail { get; set; } = null!;
     }
 
     public class OrderedProductExtraDippingDto
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("price")]
         public decimal Price { get; set; }
@@ -233,7 +236,7 @@ namespace MealzNow.Core.Dto
     public class OrderedProductExtraToppingDto
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("price")]
         public decimal Price { get; set; }
@@ -242,7 +245,7 @@ namespace MealzNow.Core.Dto
     public class OrderedProductSidesDto
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("price")]
         public decimal Price { get; set; }
@@ -251,7 +254,7 @@ namespace MealzNow.Core.Dto
     public class OrderedProductDessertDto
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("price")]
         public decimal Price { get; set; }
@@ -260,7 +263,7 @@ namespace MealzNow.Core.Dto
     public class OrderedProductDrinksDto
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("price")]
         public decimal Price { get; set; }

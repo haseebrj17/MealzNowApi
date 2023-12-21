@@ -10,22 +10,22 @@ namespace MealzNow.Db.Models
         [Required]
         [JsonProperty("firstName")]
         [StringLength(100)]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = null!;
 
         [Required]
         [JsonProperty("lastName")]
         [StringLength(100)]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = null!;
 
         [Required]
         [JsonProperty("emailAddress")]
         [EmailAddress]
-        public string EmailAddress { get; set; }
+        public string EmailAddress { get; set; } = null!;
 
         [Required]
         [JsonProperty("password")]
         [StringLength(100, MinimumLength = 6)]
-        public string Password { get; set; }
+        public string Password { get; set; } = null!;
 
         [Required]
         [JsonProperty("userRole")]
@@ -41,6 +41,6 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("franchiseName")]
-        public string FranchiseName { get; set; }
+        public string FranchiseName { get; set; } = null!;
     }
 }

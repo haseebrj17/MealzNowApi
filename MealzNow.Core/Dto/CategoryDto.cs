@@ -10,13 +10,13 @@ namespace MealzNow.Core.Dto
         public Guid Id { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("cover")]
-        public string Cover { get; set; }
+        public string Cover { get; set; } = null!;
 
         [JsonProperty("thumbnail")]
-        public string Thumbnail { get; set; }
+        public string Thumbnail { get; set; } = null!;
 
         [JsonProperty("logo")]
         public string? Logo { get; set; }
@@ -28,19 +28,25 @@ namespace MealzNow.Core.Dto
         public Guid FranchiseId { get; set; }
 
         [JsonProperty("subCategory")]
-        public List<SubCategoryDto> SubCategory { get; set; }
+        public List<SubCategoryDto> SubCategory { get; set; } = null!;
     }
 
     public class SubCategoryDto
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
+
+        [JsonProperty("parentId")]
+        public Guid ParentId { get; set; }
+
+        [JsonProperty("franchiseId")]
+        public Guid FranchiseId { get; set; }
 
         [JsonProperty("cover")]
-        public string Cover { get; set; }
+        public string Cover { get; set; } = null!;
 
         [JsonProperty("thumbnail")]
-        public string Thumbnail { get; set; }
+        public string Thumbnail { get; set; } = null!;
 
         [JsonProperty("description")]
         public string? Description { get; set; }

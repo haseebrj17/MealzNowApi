@@ -9,6 +9,7 @@ namespace MealzNow.Db.Repositories
         List<Category> GetFranchiseBrands(Guid franchiseId);
         List<SubCategory> GetChildCategories(Guid categoryId);
         Task<List<SubCategory>> GetAllSubCategories(Guid franchiseId);
+        List<Category> GetFranchiseCategories(Guid franchiseId);
     }
     public class CategoryRepository : ICategoryRepository
     {
@@ -51,5 +52,9 @@ namespace MealzNow.Db.Repositories
             return allSubCategories;
         }
 
+        public List<Category> GetFranchiseCategories(Guid franchiseId)
+        {
+            return _mealzNowDataBaseContext.Categories.Where(c => c.FranchiseId == franchiseId && c.IsBrand == false).OrderBy(c => c.Sequence).ToList();
+        }
     }
 }

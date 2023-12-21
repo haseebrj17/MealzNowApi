@@ -1,6 +1,3 @@
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Core.deps.json
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Core.dll
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Core.pdb
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Core/bin/Debug/net7.0/MealzNow.Core.deps.json
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Core/bin/Debug/net7.0/MealzNow.Core.dll
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Core/bin/Debug/net7.0/MealzNow.Core.pdb

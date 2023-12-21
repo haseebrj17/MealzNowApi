@@ -19,12 +19,12 @@ namespace MealzNow.Db.Models
         [Required]
         [JsonProperty("emailAddress")]
         [EmailAddress]
-        public string EmailAddress { get; set; }
+        public string EmailAddress { get; set; } = null!;
 
         [Required]
         [JsonProperty("password")]
         [StringLength(100, MinimumLength = 6)]
-        public string Password { get; set; }
+        public string Password { get; set; } = null!;
     }
 }
 

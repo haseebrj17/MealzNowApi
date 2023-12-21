@@ -20,36 +20,45 @@ public class MealzNowDataBaseContext : DbContext
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Packages> Packages { get; set; }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseCosmos(
+            "https://mealznowcdb.documents.azure.com:443/",
+            "ZUr2bcfSjsQSjuhfpS6XtWjcUYKWYGXhe3SoA2okp0pcjiTq7Oej56L2OuvOFwEaKZ032OZi2QMzACDbL9fXVQ==",
+            "MealzNowDB"
+        );
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<SuperAdmin>().HasKey(e => e.EmailAddress);
-        modelBuilder.Entity<SuperAdmin>().ToContainer("SuperAdmins").HasPartitionKey(s => s.EmailAddress);
+        modelBuilder.Entity<SuperAdmin>().ToContainer("SuperAdmins").HasPartitionKey(s => s.EmailAddress).HasNoDiscriminator();
 
         modelBuilder.Entity<FranchiseUser>().HasKey(e => e.EmailAddress);
-        modelBuilder.Entity<FranchiseUser>().ToContainer("FranchiseUsers").HasPartitionKey(u => u.EmailAddress);
+        modelBuilder.Entity<FranchiseUser>().ToContainer("FranchiseUsers").HasPartitionKey(u => u.EmailAddress).HasNoDiscriminator();
 
         modelBuilder.Entity<Client>().HasKey(e => e.EmailAddress);
-        modelBuilder.Entity<Client>().ToContainer("Clients").HasPartitionKey(c => c.EmailAddress);
+        modelBuilder.Entity<Client>().ToContainer("Clients").HasPartitionKey(c => c.EmailAddress).HasNoDiscriminator();
 
         modelBuilder.Entity<Countries>().HasKey(e => e.Id);
-        modelBuilder.Entity<Countries>().ToContainer("Country").HasPartitionKey(c => c.Id);
+        modelBuilder.Entity<Countries>().ToContainer("Country").HasPartitionKey(c => c.Id).HasNoDiscriminator();
 
         modelBuilder.Entity<Franchise>().HasKey(e => e.ClientId);
-        modelBuilder.Entity<Franchise>().ToContainer("Franchises").HasPartitionKey(f => f.ClientId);
+        modelBuilder.Entity<Franchise>().ToContainer("Franchises").HasPartitionKey(f => f.ClientId).HasNoDiscriminator();
 
         modelBuilder.Entity<Product>().HasKey(e => e.CategoryId);
-        modelBuilder.Entity<Product>().ToContainer("Products").HasPartitionKey(p => p.CategoryId);
+        modelBuilder.Entity<Product>().ToContainer("Products").HasPartitionKey(p => p.CategoryId).HasNoDiscriminator();
 
         modelBuilder.Entity<Order>().HasKey(e => e.FranchiseId);
-        modelBuilder.Entity<Order>().ToContainer("Orders").HasPartitionKey(o => o.FranchiseId);
+        modelBuilder.Entity<Order>().ToContainer("Orders").HasPartitionKey(o => o.FranchiseId).HasNoDiscriminator();
 
         modelBuilder.Entity<Category>().HasKey(e => e.FranchiseId);
-        modelBuilder.Entity<Category>().ToContainer("Categories").HasPartitionKey(c => c.FranchiseId);
+        modelBuilder.Entity<Category>().ToContainer("Categories").HasPartitionKey(c => c.FranchiseId).HasNoDiscriminator();
 
         modelBuilder.Entity<Customer>().HasKey(e => e.EmailAddress);
-        modelBuilder.Entity<Customer>().ToContainer("Customers").HasPartitionKey(c => c.EmailAddress);
+        modelBuilder.Entity<Customer>().ToContainer("Customers").HasPartitionKey(c => c.EmailAddress).HasNoDiscriminator();
 
         modelBuilder.Entity<Packages>().HasKey(e => e.FranchiseId);
-        modelBuilder.Entity<Packages>().ToContainer("Packages").HasPartitionKey(p => p.FranchiseId);
+        modelBuilder.Entity<Packages>().ToContainer("Packages").HasPartitionKey(p => p.FranchiseId).HasNoDiscriminator();
     }
 }

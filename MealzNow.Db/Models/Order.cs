@@ -32,7 +32,7 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("customerDetails")]
-        public CustomerDetails CustomerDetails { get; set; }
+        public CustomerDetails CustomerDetails { get; set; } = null!;
 
         [Required]
         [JsonProperty("franchiseId")]
@@ -43,16 +43,16 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("customerOrderedPackage")]
-        public CustomerOrderedPackage CustomerOrderedPackage { get; set; }
+        public CustomerOrderedPackage CustomerOrderedPackage { get; set; } = null!;
 
         [JsonProperty("productByDay")]
         public List<ProductByDay> ProductByDay { get; set; } = new List<ProductByDay>();
 
         [JsonProperty("customerOrderPromo")]
-        public CustomerOrderPromo CustomerOrderPromo { get; set; }
+        public CustomerOrderPromo CustomerOrderPromo { get; set; } = null!;
 
         [JsonProperty("customerOrderPayment")]
-        public CustomerOrderPayment CustomerOrderPayment { get; set; }
+        public CustomerOrderPayment CustomerOrderPayment { get; set; } = null!;
     }
 
     public class CustomerDetails : BaseEntity
@@ -60,26 +60,26 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("customerFullName")]
-        public string CustomerFullName { get; set; }
+        public string CustomerFullName { get; set; } = null!;
 
         [Required]
         [JsonProperty("customerEmailAddress")]
-        public string CustomerEmailAddress { get; set; }
+        public string CustomerEmailAddress { get; set; } = null!;
 
         [Required]
         [JsonProperty("customerContactNumber")]
-        public string CustomerContactNumber { get; set; }
+        public string CustomerContactNumber { get; set; } = null!;
 
         [Required]
         [JsonProperty("customerAddressDetail")]
-        public CustomerAddressDetail CustomerAddressDetail { get; set; }
+        public CustomerAddressDetail CustomerAddressDetail { get; set; } = null!;
     }
 
     public class CustomerAddressDetail : BaseEntity
     {
         [Required]
         [JsonProperty("streetAddress")]
-        public string StreetAddress { get; set; }
+        public string StreetAddress { get; set; } = null!;
 
         [JsonProperty("house")]
         public string? House { get; set; }
@@ -129,7 +129,7 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("packageName")]
-        public string PackageName { get; set; }
+        public string PackageName { get; set; } = null!;
 
         [Required]
         [JsonProperty("totalNumberOfMeals")]
@@ -144,7 +144,7 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("paymentType")]
-        public string PaymentType { get; set; }
+        public string PaymentType { get; set; } = null!;
 
         [Required]
         [JsonProperty("orderType")]
@@ -155,22 +155,22 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string Type { get; set; } = null!;
 
         [Required]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("percent")]
-        public string Percent { get; set; }
+        public string Percent { get; set; } = null!;
     }
 
     public class ProductByDay : BaseEntity
     {
         [Required]
         [JsonProperty("day")]
-        public string Day { get; set; }
+        public string Day { get; set; } = null!;
 
         [Required]
         [JsonProperty("dayId")]
@@ -192,7 +192,7 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("timeOfDay")]
-        public string TimeOfDay { get; set; }
+        public string TimeOfDay { get; set; } = null!;
 
         [Required]
         [JsonProperty("timeOfDayId")]
@@ -208,11 +208,11 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("detail")]
-        public string Detail { get; set; }
+        public string Detail { get; set; } = null!;
 
         [JsonProperty("estimatedDeliveryTime")]
         public string? EstimatedDeliveryTime { get; set; }
@@ -220,13 +220,16 @@ namespace MealzNow.Db.Models
         [JsonProperty("spiceLevel")]
         public int? SpiceLevel { get; set; }
 
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+
         [Required]
         [JsonProperty("ingredientSummary")]
-        public string IngredientSummary { get; set; }
+        public string IngredientSummary { get; set; } = null!;
 
         [Required]
         [JsonProperty("image")]
-        public string Image { get; set; }
+        public string Image { get; set; } = null!;
 
         [Required]
         [JsonProperty("price")]
@@ -239,13 +242,13 @@ namespace MealzNow.Db.Models
         public List<OrderedProductExtraTopping> OrderedProductExtraTopping { get; set; } = new List<OrderedProductExtraTopping>();
 
         [JsonProperty("orderedProductSides")]
-        public OrderedProductSides OrderedProductSides { get; set; }
+        public OrderedProductSides OrderedProductSides { get; set; } = null!;
 
         [JsonProperty("orderedProductDessert")]
-        public OrderedProductDessert OrderedProductDessert { get; set; }
+        public OrderedProductDessert OrderedProductDessert { get; set; } = null!;
 
         [JsonProperty("orderedProductDrinks")]
-        public OrderedProductDrinks OrderedProductDrinks { get; set; }
+        public OrderedProductDrinks OrderedProductDrinks { get; set; } = null!;
 
         [JsonProperty("orderedProductChoices")]
         public List<OrderedProductChoices> OrderedProductChoices { get; set; } = new List<OrderedProductChoices>();
@@ -254,16 +257,16 @@ namespace MealzNow.Db.Models
     public class OrderedProductChoices : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("detail")]
-        public string Detail { get; set; }
+        public string Detail { get; set; } = null!;
     }
 
     public class OrderedProductExtraDipping : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("price")]
@@ -273,7 +276,7 @@ namespace MealzNow.Db.Models
     public class OrderedProductExtraTopping : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("price")]
@@ -283,7 +286,7 @@ namespace MealzNow.Db.Models
     public class OrderedProductSides : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("price")]
@@ -293,7 +296,7 @@ namespace MealzNow.Db.Models
     public class OrderedProductDessert : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("price")]
@@ -303,7 +306,7 @@ namespace MealzNow.Db.Models
     public class OrderedProductDrinks : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
         [JsonProperty("price")]

@@ -9,7 +9,7 @@ namespace MealzNow.Core.Dto
         public Guid Id { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("logo")]
         public string? Logo { get; set; }

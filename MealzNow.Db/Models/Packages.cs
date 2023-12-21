@@ -9,9 +9,9 @@ namespace MealzNow.Db.Models
 	{
 		[Required]
 		[JsonProperty("name")]
-		public string Name { get; set; }
+		public string Name { get; set; } = null!;
 
-		[Required]
+        [Required]
 		[JsonProperty("packageType")]
 		public PackageType PackageType { get; set; }
 

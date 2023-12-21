@@ -12,13 +12,13 @@ namespace MealzNow.Core.Dto
         public Guid? Id { get; set; }
 
         [JsonProperty("fullName")]
-        public string FullName { get; set; }
+        public string FullName { get; set; } = null!;
 
         [JsonProperty("emailAddress")]
-        public string EmailAddress { get; set; }
+        public string EmailAddress { get; set; } = null!;
 
         [JsonProperty("contactNumber")]
-        public string ContactNumber { get; set; }
+        public string ContactNumber { get; set; } = null!;
 
         [JsonProperty("isNumberVerified")]
         public bool IsNumberVerified { get; set; }
@@ -27,22 +27,22 @@ namespace MealzNow.Core.Dto
         public bool IsEmailVerified { get; set; }
 
         [JsonProperty("customerAddress")]
-        public List<CustomerAddressDto> CustomerAddress { get; set; }
+        public List<CustomerAddressDto> CustomerAddress { get; set; } = null!;
 
         [JsonProperty("preference")]
-        public PreferenceDto Preference { get; set; }
+        public PreferenceDto Preference { get; set; } = null!;
 
         [JsonProperty("customerProductOutline")]
-        public List<CustomerProductOutlineDto> CustomerProductOutline { get; set; }
+        public List<CustomerProductOutlineDto> CustomerProductOutline { get; set; } = null!;
 
         [JsonProperty("customerPackageDto")]
-        public CustomerPackageDto CustomerPackageDto { get; set; }
+        public CustomerPackageDto CustomerPackageDto { get; set; } = null!;
 
         [JsonProperty("customerPromo")]
-        public CustomerPromoDto CustomerPromo { get; set; }
+        public CustomerPromoDto CustomerPromo { get; set; } = null!;
 
         [JsonProperty("customerPayment")]
-        public CustomerPromoDto CustomerPayment { get; set; }
+        public CustomerPromoDto CustomerPayment { get; set; } = null!;
 
         public string? Code { get; set; }
 
@@ -103,10 +103,10 @@ namespace MealzNow.Core.Dto
     public class PreferenceDto
     {
         [JsonProperty("preferredCategories")]
-        public List<PreferredCategoriesDto> PreferredCategories { get; set; }
+        public List<PreferredCategoriesDto> PreferredCategories { get; set; } = null!;
 
         [JsonProperty("preferredSubCategories")]
-        public List<PreferredSubCategoriesDto> PreferredSubCategories { get; set; }
+        public List<PreferredSubCategoriesDto> PreferredSubCategories { get; set; } = null!;
     }
 
     public class PreferredCategoriesDto
@@ -115,7 +115,7 @@ namespace MealzNow.Core.Dto
         public Guid CategoryId { get; set; }
 
         [JsonProperty("categoryName")]
-        public string CategoryName { get; set; }
+        public string CategoryName { get; set; } = null!;
     }
 
     public class PreferredSubCategoriesDto
@@ -124,13 +124,13 @@ namespace MealzNow.Core.Dto
         public Guid SubCategoryId { get; set; }
 
         [JsonProperty("subCategoryName")]
-        public string SubCategoryName { get; set; }
+        public string SubCategoryName { get; set; } = null!;
     }
 
     public class CustomerProductOutlineDto
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("outlineId")]
         public Guid OutlineId { get; set; }
@@ -139,13 +139,13 @@ namespace MealzNow.Core.Dto
     public class CustomerProductOutline
     {
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
         [JsonProperty("icon")]
-        public string Icon { get; set; }
+        public string Icon { get; set; } = null!;
 
         [JsonProperty("outlineId")]
         public Guid OutlineId { get; set; }
@@ -157,10 +157,10 @@ namespace MealzNow.Core.Dto
     public class CustomerProductInclusion
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("icon")]
-        public string Icon { get; set; }
+        public string Icon { get; set; } = null!;
 
         [JsonProperty("productInclusionId")]
         public Guid ProductInclusionId { get; set; }
@@ -172,7 +172,7 @@ namespace MealzNow.Core.Dto
         public Guid PackageId { get; set; }
 
         [JsonProperty("packageName")]
-        public string PackageName { get; set; }
+        public string PackageName { get; set; } = null!;
 
         [JsonProperty("totalNumberOfMeals")]
         public int TotalNumberOfMeals { get; set; }
@@ -184,7 +184,7 @@ namespace MealzNow.Core.Dto
     public class CustomerPaymentDto
     {
         [JsonProperty("paymentType")]
-        public string PaymentType { get; set; }
+        public string PaymentType { get; set; } = null!;
 
         [JsonProperty("orderType")]
         public OrderType OrderType { get; set; }
@@ -193,12 +193,12 @@ namespace MealzNow.Core.Dto
     public class CustomerPromoDto
     {
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public string Type { get; set; } = null!;
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [JsonProperty("percent")]
-        public string Percent { get; set; }
+        public string Percent { get; set; } = null!;
     }
 }

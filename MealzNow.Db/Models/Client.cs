@@ -9,46 +9,46 @@ namespace MealzNow.Db.Models
         [Required]
         [JsonProperty("firstName")]
         [StringLength(100)]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = null!;
 
         [Required]
         [JsonProperty("lastName")]
         [StringLength(100)]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = null!;
 
         [Required]
         [JsonProperty("emailAddress")]
         [EmailAddress]
-        public string EmailAddress { get; set; }
+        public string EmailAddress { get; set; } = null!;
 
         [Required]
         [JsonProperty("password")]
         [StringLength(100, MinimumLength = 6)]
-        public string Password { get; set; }
+        public string Password { get; set; } = null!;
 
         [Required]
         [JsonProperty("address")]
-        public string Address { get; set; }
+        public string Address { get; set; } = null!;
 
         [Required]
         [JsonProperty("appLogo")]
-        public string AppLogo { get; set; }
+        public string AppLogo { get; set; } = null!;
 
         [Required]
         [JsonProperty("websiteLogo")]
-        public string WebsiteLogo { get; set; }
+        public string WebsiteLogo { get; set; } = null!;
 
         [Required]
         [JsonProperty("slogon")]
-        public string Slogon { get; set; }
+        public string Slogon { get; set; } = null!;
 
         [Required]
         [JsonProperty("zipCode")]
-        public string ZipCode { get; set; }
+        public string ZipCode { get; set; } = null!;
 
         [Required]
         [JsonProperty("contactNumber")]
-        public string ContactNumber { get; set; }
+        public string ContactNumber { get; set; } = null!;
 
         [Required]
         [JsonProperty("isActive")]
@@ -70,27 +70,27 @@ namespace MealzNow.Db.Models
     {
         [Required]
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
         [Required]
         [JsonProperty("address")]
-        public string Address { get; set; }
+        public string Address { get; set; } = null!;
 
         [Required]
         [JsonProperty("zipCode")]
-        public string ZipCode { get; set; }
+        public string ZipCode { get; set; } = null!;
 
         [Required]
         [JsonProperty("contactNumber")]
-        public string ContactNumber { get; set; }
+        public string ContactNumber { get; set; } = null!;
 
         [Required]
         [JsonProperty("openingTime")]
-        public string OpeningTime { get; set; }
+        public string OpeningTime { get; set; } = null!;
 
         [Required]
         [JsonProperty("closingTime")]
-        public string ClosingTime { get; set; }
+        public string ClosingTime { get; set; } = null!;
 
         [Required]
         [JsonProperty("latitude")]

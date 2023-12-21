@@ -9,15 +9,15 @@ namespace MealzNow.Db.Models
 	{
 		[Required]
 		[JsonProperty("name")]
-		public string Name { get; set; }
+		public string Name { get; set; } = null!;
 
-		[Required]
+        [Required]
 		[JsonProperty("cover")]
-		public string Cover { get; set; }
+		public string Cover { get; set; } = null!;
 
         [Required]
         [JsonProperty("thumbnail")]
-        public string Thumbnail { get; set; }
+        public string Thumbnail { get; set; } = null!;
 
         [Required]
         [JsonProperty("sequence")]
@@ -58,13 +58,19 @@ namespace MealzNow.Db.Models
     public class SubCategory : BaseEntity
     {
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
+
+        [JsonProperty("parentId")]
+        public Guid ParentId { get; set; }
+
+        [JsonProperty("franchiseId")]
+        public Guid FranchiseId { get; set; }
 
         [JsonProperty("cover")]
-        public string Cover { get; set; }
+        public string Cover { get; set; } = null!;
 
         [JsonProperty("thumbnail")]
-        public string Thumbnail { get; set; }
+        public string Thumbnail { get; set; } = null!;
 
         [JsonProperty("sequence")]
         public int Sequence { get; set; } = 0;
@@ -88,4 +94,3 @@ namespace MealzNow.Db.Models
         public bool IsActive { get; set; }
     }
 }
-
