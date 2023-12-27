@@ -14,6 +14,7 @@ namespace MealzNow.Db.Repositories
         Task<FranchiseUser?> UserLogin(string email, string password);
         Task<Franchise?> GetFranchiseDetailByUser(string email);
         Task<Franchise> GetFranchiseSettingById(Guid franchiseId);
+        Task<Franchise> GetFranchisById(Guid franchiseId);
     }
     public class FranchiseRepository : IFranchiseRepository
     {
@@ -54,7 +55,19 @@ namespace MealzNow.Db.Repositories
 
         public async Task<List<Franchise>> GetClientFranchises(Guid clientId)
         {
-            return await _mealzNowDataBaseContext.Franchises.Where(f => f.ClientId == clientId && f.IsActive).ToListAsync();
+
+            Console.WriteLine($"Getting franchises for ClientId: {clientId}");
+
+            return await _mealzNowDataBaseContext.Franchises
+                .Where(f => f.ClientId == clientId && f.IsActive)
+                .ToListAsync();
+        }
+
+        public async Task<Franchise> GetFranchisById(Guid franchiseId)
+        {
+            return await _mealzNowDataBaseContext.Franchises
+                .Where(f => f.Id == franchiseId && f.IsActive)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<Franchise?> GetFranchiseDetailByUser(string email)

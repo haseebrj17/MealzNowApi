@@ -44,7 +44,7 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("isActive")]
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; }
 
         [Required]
         [JsonProperty("clientId")]
@@ -87,7 +87,7 @@ namespace MealzNow.Db.Models
         public List<ProductOutline> ProductOutline { get; set; } = new List<ProductOutline>();
     }
 
-    public class FranchiseTiming
+    public class FranchiseTiming : BaseEntity
     {
         [Required]
         [JsonProperty("day")]
@@ -110,7 +110,7 @@ namespace MealzNow.Db.Models
         public List<ServingTimings> ServingTimings { get; set; } = new List<ServingTimings>();
     }
 
-    public class FranchiseHoliday
+    public class FranchiseHoliday : BaseEntity
     {
         [Required]
         [JsonProperty("from")]

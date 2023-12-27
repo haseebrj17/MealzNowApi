@@ -28,7 +28,7 @@ namespace MealzNow.Api
         [Function(nameof(UserLogin))]
         public async Task<HttpResponseData> UserLogin([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling User Login funtion");
+            _logger.LogInformation("Calling User Login function");
 
             var content = await new StreamReader(req.Body).ReadToEndAsync();
 
@@ -40,7 +40,7 @@ namespace MealzNow.Api
             if (request == null)
                 return req.CreateResponse(HttpStatusCode.BadRequest);
 
-            if (string.IsNullOrWhiteSpace(request.EmailAdress))
+            if (string.IsNullOrWhiteSpace(request.EmailAddress))
                 return req.CreateResponse(HttpStatusCode.BadRequest);
 
             if (string.IsNullOrWhiteSpace(request.Password))
@@ -58,7 +58,7 @@ namespace MealzNow.Api
         [Function(nameof(GetAllFranchiseOrders))]
         public async Task<HttpResponseData> GetAllFranchiseOrders([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling GetAllFranchiseOrders funtion");
+            _logger.LogInformation("Calling GetAllFranchiseOrders function");
 
             var loggedInUser = _jwtTokenManager.ValidateToken(req, new List<UserRole> { UserRole.FranchiseManager, UserRole.SuperAdmin, UserRole.Client, UserRole.FranchiseUser });
 
@@ -77,10 +77,32 @@ namespace MealzNow.Api
             return response;
         }
 
+        [Function(nameof(GetFranchiseById))]
+        public async Task<HttpResponseData> GetFranchiseById([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
+        {
+            _logger.LogInformation("Calling GetFranchiseById function");
+
+            var loggedInUser = _jwtTokenManager.ValidateToken(req, new List<UserRole> { UserRole.FranchiseManager, UserRole.SuperAdmin, UserRole.Client, UserRole.FranchiseUser });
+
+            if (loggedInUser == null)
+                return req.CreateResponse(HttpStatusCode.Unauthorized);
+
+            if (loggedInUser.FranchiseId == null || loggedInUser.FranchiseId == Guid.Empty)
+                return req.CreateResponse(HttpStatusCode.Unauthorized);
+
+            var data = await _franchiseService.GetFranchiseById(loggedInUser.FranchiseId.Value);
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+
+            await response.WriteAsJsonAsync(data);
+
+            return response;
+        }
+
         [Function(nameof(UpdateOrderStatus))]
         public async Task<HttpResponseData> UpdateOrderStatus([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling UpdateOrderStatus funtion");
+            _logger.LogInformation("Calling UpdateOrderStatus function");
 
             var loggedInUser = _jwtTokenManager.ValidateToken(req, new List<UserRole> { UserRole.FranchiseManager, UserRole.SuperAdmin, UserRole.Client, UserRole.FranchiseUser });
 

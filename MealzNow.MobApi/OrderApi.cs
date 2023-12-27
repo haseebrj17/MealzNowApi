@@ -29,7 +29,7 @@ namespace MealzNow.Api
         public async Task<HttpResponseData> PlaceOrder([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
 
-            _logger.LogInformation("Calling PlaceOrder funtion");
+            _logger.LogInformation("Calling PlaceOrder function");
 
             var content = await new StreamReader(req.Body).ReadToEndAsync();
 
@@ -79,7 +79,7 @@ namespace MealzNow.Api
         [Function(nameof(GetCustomerOrders))]
         public async Task<HttpResponseData> GetCustomerOrders([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling GetCustomerOrders funtion");
+            _logger.LogInformation("Calling GetCustomerOrders function");
 
             var loggedInUser = _jwtTokenManager.ValidateToken(req, new List<UserRole> { UserRole.Customer });
 

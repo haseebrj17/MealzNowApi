@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace MealzNow.Core.Dto
 {
@@ -46,26 +47,37 @@ namespace MealzNow.Core.Dto
         [JsonProperty("cityName")]
         public string CityName { get; set; } = null!;
 
+        [JsonProperty("stateId")]
+        public Guid StateId { get; set; }
+
         [JsonProperty("stateName")]
         public string StateName { get; set; } = null!;
 
         [JsonProperty("franchiseTimings")]
-        public List<FranchiseTimingDto> FranchiseTimings { get; set; } = null!;
+        public List<FranchiseTimingDto> FranchiseTimings { get; set; } = new List<FranchiseTimingDto>();
 
         [JsonProperty("franchiseHolidays")]
-        public List<FranchiseHolidayDto> FranchiseHolidays { get; set; } = null!;
+        public List<FranchiseHolidayDto> FranchiseHolidays { get; set; } = new List<FranchiseHolidayDto>();
+
+        [JsonProperty("dishOfDay")]
+        public List<DishOfDayDto> DishOfDay { get; set; } = new List<DishOfDayDto>();
+
+        [JsonProperty("banner")]
+        public List<BannerDto> Banner { get; set; } = new List<BannerDto>();
+
 
         [JsonProperty("franchiseSetting")]
-        public List<FranchiseSettingDto> FranchiseSetting { get; set; } = null!;
+        public List<FranchiseSettingDto> FranchiseSetting { get; set; } = new List<FranchiseSettingDto>();
+
 
         [JsonProperty("productOutline")]
-        public List<ProductOutlineDto> ProductOutline { get; set; } = null!;
+        public List<ProductOutlineDto> ProductOutline { get; set; } = new List<ProductOutlineDto>();
     }
 
     public class FranchiseTimingDto
     {
         [JsonProperty("day")]
-        public string Day { get; set; }
+        public string Day { get; set; } = null!;
 
         [JsonProperty("openingTime")]
         public TimeSpan OpeningTime { get; set; }
@@ -74,10 +86,10 @@ namespace MealzNow.Core.Dto
         public TimeSpan ClosingTime { get; set; }
 
         [JsonProperty("open")]
-        public bool Open { get; set; }
+        public bool Open { get; set; } = true;
 
         [JsonProperty("servingTimings")]
-        public List<ServingTimingsDto> ServingTimings { get; set; } = null!;
+        public List<ServingTimingsDto> ServingTimings { get; set; } = new List<ServingTimingsDto>();
     }
 
     public class FranchiseHolidayDto
@@ -92,10 +104,10 @@ namespace MealzNow.Core.Dto
     public class FranchiseSettingDto
     {
         [JsonProperty("mealsPerDay")]
-        public List<MealsPerDayDto> MealsPerDay { get; set; } = null!;
+        public List<MealsPerDayDto> MealsPerDay { get; set; } = new List<MealsPerDayDto>();
 
         [JsonProperty("servingDays")]
-        public List<ServingDaysDto> ServingDays { get; set; } = null!;
+        public List<ServingDaysDto> ServingDays { get; set; } = new List<ServingDaysDto>();
     }
 
     public class MealsPerDayDto
@@ -122,7 +134,7 @@ namespace MealzNow.Core.Dto
         public string Name { get; set; } = null!;
 
         [JsonProperty("servingTime")]
-        public List<ServingTimeDto> ServingTime { get; set; } = null!;
+        public List<ServingTimeDto> ServingTime { get; set; } = new List<ServingTimeDto>();
     }
 
     public class ServingTimeDto
@@ -146,7 +158,7 @@ namespace MealzNow.Core.Dto
         public string Icon { get; set; } = null!;
 
         [JsonProperty("productInclusion")]
-        public List<ProductInclusionDto> ProductInclusion { get; set; } = null!;
+        public List<ProductInclusionDto> ProductInclusion { get; set; } = new List<ProductInclusionDto>();
     }
 
     public class ProductInclusionDto

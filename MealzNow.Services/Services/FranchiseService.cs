@@ -49,7 +49,7 @@ namespace MealzNow.Services.Services
 
         public async Task<LoginResponse> UserLogin(LoginRequestModel loginRequest)
         {
-            var userDetails = await _franchiseRepository.UserLogin(loginRequest.EmailAdress, loginRequest.Password);
+            var userDetails = await _franchiseRepository.UserLogin(loginRequest.EmailAddress, loginRequest.Password);
 
             if (userDetails == null) { return new LoginResponse() { IsLoggedIn = false }; }
 
@@ -64,6 +64,18 @@ namespace MealzNow.Services.Services
             var token = _jwtTokenManager.GenerateToken(currentAppUser);
 
             return new LoginResponse() { IsLoggedIn = true, Token = token };
+        }
+
+        public async Task<FranchiseDto> GetFranchiseById(Guid franchiseId)
+        {
+            var franchise = await _franchiseRepository.GetFranchisById(franchiseId);
+
+            if (franchise == null)
+            {
+                return null;
+            }
+
+            return _mapper.Map<Franchise, FranchiseDto>(franchise);
         }
     }
 }

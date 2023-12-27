@@ -35,7 +35,7 @@ namespace MealzNow.Services.Services
         {
             var homeData = new HomeDataDto();
 
-            var franchise = await _franchiseRepository.GetClientFranchises(franchiseId);
+            var franchise = await _franchiseRepository.GetFranchisById(franchiseId);
 
             if (franchise != null)
             {

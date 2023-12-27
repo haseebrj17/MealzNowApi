@@ -9,6 +9,7 @@ namespace MealzNow.Services.Interfaces
     public interface IFranchiseService
     {
         Task<LoginResponse> UserLogin(LoginRequestModel customer);
+        Task<FranchiseDto> GetFranchiseById(Guid franchiseId);
         Task<List<OrderDto>> GetAllFranchiseOrders(Guid franchiseId);
         Task<List<OrderDto>> GetCustomerOrders(Guid customerId);
         Task<bool> UpdateOrderStatus(Guid orderId, Guid dayId, Guid productByTimingId, Enums.OrderStatus orderStatus, Guid loggedInUserId);

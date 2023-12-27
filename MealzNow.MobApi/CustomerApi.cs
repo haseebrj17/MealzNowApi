@@ -27,7 +27,7 @@ namespace MealzNow.Api
         [Function(nameof(Register))]
         public async Task<HttpResponseData> Register([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling Register funtion");
+            _logger.LogInformation("Calling Register function");
 
             var content = await new StreamReader(req.Body).ReadToEndAsync();
 
@@ -61,7 +61,7 @@ namespace MealzNow.Api
         [Function(nameof(VerifyPin))]
         public async Task<HttpResponseData> VerifyPin([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling Verifiy pin funtion");
+            _logger.LogInformation("Calling Verifiy pin function");
 
             var content = await new StreamReader(req.Body).ReadToEndAsync();
 
@@ -91,7 +91,7 @@ namespace MealzNow.Api
         [Function(nameof(CustomerLogin))]
         public async Task<HttpResponseData> CustomerLogin([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling Cutomer Login funtion");
+            _logger.LogInformation("Calling Cutomer Login function");
 
             var content = await new StreamReader(req.Body).ReadToEndAsync();
 
@@ -103,7 +103,7 @@ namespace MealzNow.Api
             if (request == null)
                 return req.CreateResponse(HttpStatusCode.BadRequest);
 
-            if (string.IsNullOrWhiteSpace(request.EmailAdress))
+            if (string.IsNullOrWhiteSpace(request.EmailAddress))
                 return req.CreateResponse(HttpStatusCode.BadRequest);
 
             if (string.IsNullOrWhiteSpace(request.Password))
@@ -121,7 +121,7 @@ namespace MealzNow.Api
         [Function(nameof(CustomerAddAddress))]
         public async Task<HttpResponseData> CustomerAddAddress([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling Customer Add Address funtion");
+            _logger.LogInformation("Calling Customer Add Address function");
 
             var loggedInUser = _jwtTokenManager.ValidateToken(req, new List<UserRole> { UserRole.Customer });
 
@@ -162,7 +162,7 @@ namespace MealzNow.Api
         [Function(nameof(CustomerUpdateAddress))]
         public async Task<HttpResponseData> CustomerUpdateAddress([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling Register funtion");
+            _logger.LogInformation("Calling Register function");
 
             var loggedInUser = _jwtTokenManager.ValidateToken(req, new List<UserRole> { UserRole.Customer });
 
@@ -203,7 +203,7 @@ namespace MealzNow.Api
         [Function(nameof(DeleteMyAccount))]
         public async Task<HttpResponseData> DeleteMyAccount([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling DeleteMyAccount funtion");
+            _logger.LogInformation("Calling DeleteMyAccount function");
 
             var loggedInUser = _jwtTokenManager.ValidateToken(req, new List<UserRole> { UserRole.Customer });
 
@@ -222,7 +222,7 @@ namespace MealzNow.Api
         [Function(nameof(GetCustomerAddresses))]
         public async Task<HttpResponseData> GetCustomerAddresses([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
         {
-            _logger.LogInformation("Calling GetCustomerAddresses funtion");
+            _logger.LogInformation("Calling GetCustomerAddresses function");
 
             var loggedInUser = _jwtTokenManager.ValidateToken(req, new List<UserRole> { UserRole.Customer });
 

@@ -93,7 +93,7 @@ namespace MealzNow.Services.Services
 
         public async Task<LoginResponse> CustomerLogin(LoginRequestModel loginRequest)
         {
-            var customerDetails = await _customerRepository.CustomerLogin(loginRequest.EmailAdress, loginRequest.Password);
+            var customerDetails = await _customerRepository.CustomerLogin(loginRequest.EmailAddress, loginRequest.Password);
 
             if (customerDetails == null) { return new LoginResponse() { IsLoggedIn = false }; }
 

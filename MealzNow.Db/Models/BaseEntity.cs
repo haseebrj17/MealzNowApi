@@ -6,11 +6,7 @@ namespace MealzNow.Db.Models
 {
     public abstract class BaseEntity
     {
-        public BaseEntity()
-        {
-            Id = Guid.NewGuid();
-            CreatedDateTimeUtc = DateTime.UtcNow;
-        }
+        public BaseEntity() => Id = Guid.NewGuid();
 
         [Key]
         [Required]
@@ -19,7 +15,7 @@ namespace MealzNow.Db.Models
 
         [Required]
         [JsonProperty("createdDateTimeUtc")]
-        public DateTime CreatedDateTimeUtc { get; set; }
+        public DateTime CreatedDateTimeUtc { get; set; } = DateTime.UtcNow;
 
         [JsonProperty("updatedDateTimeUtc")]
         public DateTime? UpdatedDateTimeUtc { get; set; }

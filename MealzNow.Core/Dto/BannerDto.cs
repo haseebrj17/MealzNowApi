@@ -3,7 +3,7 @@ namespace MealzNow.Core.Dto
 {
     public class BannerDto
     {
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = null!;
         public bool IsActive { get; set; }
         public int Sequence { get; set; }
         public DateTime Validity { get; set; }

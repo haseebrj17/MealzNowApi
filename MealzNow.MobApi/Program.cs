@@ -20,27 +20,23 @@ try
         .AddEnvironmentVariables()
         .Build();
 
-    var cosmosDbAccount = config.GetValue<string>("CosmosDb:Account") ??
-        "https://mealznowcdb.documents.azure.com:443/";
-    var cosmosDbKey = config.GetValue<string>("CosmosDb:Key") ??
-        "ZUr2bcfSjsQSjuhfpS6XtWjcUYKWYGXhe3SoA2okp0pcjiTq7Oej56L2OuvOFwEaKZ032OZi2QMzACDbL9fXVQ==";
+    var cosmosDbConString = config.GetValue<string>("CosmosDb:ConnectionString") ??
+        "AccountEndpoint=https://mealznowcdb.documents.azure.com:443/;AccountKey=ZUr2bcfSjsQSjuhfpS6XtWjcUYKWYGXhe3SoA2okp0pcjiTq7Oej56L2OuvOFwEaKZ032OZi2QMzACDbL9fXVQ==;";
     var cosmosDbDatabaseName = config.GetValue<string>("CosmosDb:DatabaseName") ??
         "MealzNowDB";
 
     var host = new HostBuilder()
-        .ConfigureAppConfiguration(builder =>
-        {
-            builder.AddEnvironmentVariables();
-            builder.AddJsonFile("local.settings.json", optional: true);
-        })
         .ConfigureServices((context, services) =>
         {
             services.AddDbContext<MealzNowDataBaseContext>(options =>
-                options.UseCosmos(cosmosDbAccount, cosmosDbKey, cosmosDbDatabaseName));
+                options.UseCosmos(
+                    cosmosDbConString,
+                    databaseName: cosmosDbDatabaseName
+                ));
 
-             services.AddRepositories(config);
-             services.AddServices(config);
-             services.AddAutoMapper(typeof(Program));
+            services.AddRepositories(config);
+            services.AddServices(config);
+            services.AddAutoMapper(typeof(Program));
 
         }).ConfigureFunctionsWorkerDefaults()
         .Build();
