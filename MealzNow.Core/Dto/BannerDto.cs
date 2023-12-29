@@ -1,8 +1,12 @@
 ﻿using System;
+using Newtonsoft.Json;
+
 namespace MealzNow.Core.Dto
 {
     public class BannerDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
         public string ImageUrl { get; set; } = null!;
         public bool IsActive { get; set; }
         public int Sequence { get; set; }

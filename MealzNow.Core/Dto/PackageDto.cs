@@ -6,6 +6,9 @@ namespace MealzNow.Db.Models
 {
     public class PackageDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public PackageType PackageType { get; set; }

@@ -57,6 +57,9 @@ namespace MealzNow.Db.Models
 
     public class ProductPriceDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public decimal Price { get; set; }
 
         public string Name { get; set; } = null!;
@@ -82,6 +85,9 @@ namespace MealzNow.Db.Models
 
     public class ProductExtraDippingDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public string Detail { get; set; } = null!;
@@ -98,6 +104,9 @@ namespace MealzNow.Db.Models
 
     public class ProductExtraDippingPriceDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public decimal Price { get; set; }
 
         public string Name { get; set; } = null!;
@@ -107,6 +116,9 @@ namespace MealzNow.Db.Models
 
     public class ProductExtraToppingDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public string Detail { get; set; } = null!;
@@ -123,6 +135,9 @@ namespace MealzNow.Db.Models
 
     public class ProductExtraToppingPriceDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public decimal Price { get; set; }
 
         public string Name { get; set; } = null!;
@@ -132,6 +147,9 @@ namespace MealzNow.Db.Models
 
     public class ProductItemOutlineDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
     }
 

@@ -7,6 +7,9 @@ namespace MealzNow.Core.Dto
 {
     public class OrderDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public decimal TotalBill { get; set; }
 
         public int TotalItems { get; set; }
@@ -76,6 +79,9 @@ namespace MealzNow.Core.Dto
 
     public class CustomerOrderedPackageDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public Guid PackageId { get; set; }
 
         public string PackageName { get; set; } = null!;
@@ -87,6 +93,9 @@ namespace MealzNow.Core.Dto
 
     public class CustomerOrderPromoDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Type { get; set; } = null!;
 
         public string Name { get; set; } = null!;
@@ -96,6 +105,9 @@ namespace MealzNow.Core.Dto
 
     public class CustomerOrderPaymentDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string PaymentType { get; set; } = null!;
 
         public OrderType OrderType { get; set; }
@@ -103,6 +115,9 @@ namespace MealzNow.Core.Dto
 
     public class ProductByDayDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Day { get; set; }
 
         public Guid DayId { get; set; }
@@ -114,6 +129,9 @@ namespace MealzNow.Core.Dto
 
     public class ProductByTimingDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public bool Fulfilled { get; set; }
 
         public string TimeOfDay { get; set; } = null!;
@@ -155,6 +173,9 @@ namespace MealzNow.Core.Dto
 
     public class OrderedProductChoicesDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public string Detail { get; set; } = null!;
@@ -162,6 +183,9 @@ namespace MealzNow.Core.Dto
 
     public class OrderedProductExtraDippingDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public decimal Price { get; set; }
@@ -169,6 +193,9 @@ namespace MealzNow.Core.Dto
 
     public class OrderedProductExtraToppingDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public decimal Price { get; set; }
@@ -176,6 +203,9 @@ namespace MealzNow.Core.Dto
 
     public class OrderedProductSidesDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public decimal Price { get; set; }
@@ -183,6 +213,9 @@ namespace MealzNow.Core.Dto
 
     public class OrderedProductDessertDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public decimal Price { get; set; }
@@ -190,6 +223,9 @@ namespace MealzNow.Core.Dto
 
     public class OrderedProductDrinksDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public decimal Price { get; set; }

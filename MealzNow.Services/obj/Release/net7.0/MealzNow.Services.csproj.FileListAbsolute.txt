@@ -1,0 +1,17 @@
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/bin/Release/net7.0/MealzNow.Services.deps.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/bin/Release/net7.0/MealzNow.Services.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/bin/Release/net7.0/MealzNow.Services.pdb
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/bin/Release/net7.0/MealzNow.Core.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/bin/Release/net7.0/MealzNow.Db.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/bin/Release/net7.0/MealzNow.Core.pdb
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/bin/Release/net7.0/MealzNow.Db.pdb
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/MealzNow.Services.csproj.AssemblyReference.cache
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/MealzNow.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/MealzNow.Services.AssemblyInfoInputs.cache
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/MealzNow.Services.AssemblyInfo.cs
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/MealzNow.Services.csproj.CoreCompileInputs.cache
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/MealzNow.Services.csproj.CopyComplete
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/MealzNow.Services.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/refint/MealzNow.Services.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/MealzNow.Services.pdb
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Services/obj/Release/net7.0/ref/MealzNow.Services.dll

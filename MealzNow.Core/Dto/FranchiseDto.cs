@@ -55,6 +55,9 @@ namespace MealzNow.Core.Dto
 
     public class FranchiseTimingDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Day { get; set; } = null!;
 
         public TimeSpan OpeningTime { get; set; }
@@ -68,6 +71,9 @@ namespace MealzNow.Core.Dto
 
     public class FranchiseHolidayDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public DateTime From { get; set; }
 
         public DateTime To { get; set; }
@@ -75,6 +81,9 @@ namespace MealzNow.Core.Dto
 
     public class FranchiseSettingDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public List<MealsPerDayDto> MealsPerDay { get; set; } = new List<MealsPerDayDto>();
 
         public List<ServingDaysDto> ServingDays { get; set; } = new List<ServingDaysDto>();
@@ -82,6 +91,9 @@ namespace MealzNow.Core.Dto
 
     public class MealsPerDayDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Title { get; set; } = null!;
 
         public string Description { get; set; } = null!;
@@ -91,11 +103,17 @@ namespace MealzNow.Core.Dto
 
     public class ServingDaysDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
     }
 
     public class ServingTimingsDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public List<ServingTimeDto> ServingTime { get; set; } = new List<ServingTimeDto>();
@@ -103,6 +121,9 @@ namespace MealzNow.Core.Dto
 
     public class ServingTimeDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public TimeSpan SlotStart { get; set; }
 
         public TimeSpan SlotEnd { get; set; }
@@ -110,6 +131,9 @@ namespace MealzNow.Core.Dto
 
     public class ProductOutlineDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Title { get; set; } = null!;
 
         public string Description { get; set; } = null!;
@@ -121,6 +145,9 @@ namespace MealzNow.Core.Dto
 
     public class ProductInclusionDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public string Icon { get; set; } = null!;

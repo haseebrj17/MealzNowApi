@@ -10,6 +10,9 @@ namespace MealzNow.Core.Dto
 
     public class CountryDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public List<StateDto> States { get; set; } = new List<StateDto>();
@@ -17,6 +20,9 @@ namespace MealzNow.Core.Dto
 
     public class StateDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public List<CityNameDto> Cities { get; set; } = new List<CityNameDto>();
@@ -24,6 +30,9 @@ namespace MealzNow.Core.Dto
 
     public class CityNameDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         public string Name { get; set; } = null!;
     }
 }

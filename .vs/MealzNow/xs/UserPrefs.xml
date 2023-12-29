@@ -1,8 +1,10 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{420AF5FC-E127-4010-946F-A92400DB905B}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.MealzNow.DataBaseManagement PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.ItemProperties.MealzNow.MobApi PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MealzNow.Services/Mapping/AutoMapperProfiles.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MealzNow.Db/Repositories/FranchiseRepository.cs">
     <Files>
       <File FileName="MealzNow.MobApi/Program.cs" />
       <File FileName="MealzNow.MobApi/CustomerApi.cs" />
@@ -12,84 +14,92 @@
       <File FileName="MealzNow.MobApi/Properties/ServiceDependencies/mealznow - Zip Deploy/storage1.arm.json" />
       <File FileName="MealzNow.MobApi/Properties/launchSettings.json" />
       <File FileName="MealzNow.MobApi/OrderApi.cs" />
-      <File FileName="MealzNow.MobApi/host.json" Line="1" Column="1" />
+      <File FileName="MealzNow.MobApi/host.json" />
       <File FileName="MealzNow.Services/Services/CustomerService.cs" />
       <File FileName="MealzNow.MobApi/local.settings.json" />
       <File FileName="MealzNow.Services/Services/AppService.cs" />
       <File FileName="MealzNow.Services/Interfaces/IAppService.cs" />
-      <File FileName="MealzNow.Db/Repositories/FranchiseRepository.cs" />
+      <File FileName="MealzNow.Db/Repositories/FranchiseRepository.cs" Line="58" Column="61" />
       <File FileName="MealzNow.Db/Repositories/ProductRepository.cs" />
-      <File FileName="MealzNow.Db/Models/Franchise.cs" Line="245" Column="47" />
+      <File FileName="MealzNow.Db/Models/Franchise.cs" Line="22" Column="22" />
       <File FileName="MealzNow.Core/Dto/FranchiseDto.cs" />
-      <File FileName="MealzNow.Services/Mapping/AutoMapperProfiles.cs" Line="37" Column="1" />
-      <File FileName="MealzNow.Core/Dto/CountriesDto.cs" Line="9" Column="76" />
-      <File FileName="MealzNow.Db/Models/Category.cs" Line="43" Column="1" />
-      <File FileName="MealzNow.Db/Repositories/CategoryRepository.cs" />
+      <File FileName="MealzNow.Services/Mapping/AutoMapperProfiles.cs" />
+      <File FileName="MealzNow.Core/Dto/CountriesDto.cs" />
+      <File FileName="MealzNow.Db/Models/Category.cs" />
+      <File FileName="MealzNow.Db/Repositories/CategoryRepository.cs" Line="27" Column="1" />
       <File FileName="MealzNow.Core/Dto/CategoryDto.cs" />
       <File FileName="MealzNow.Core/Dto/HomeDataDto.cs" />
-      <File FileName="MealzNow.Db/Models/Order.cs" Line="41" Column="38" />
-      <File FileName="MealzNow.Db/MealzNowDataBaseContext.cs" Line="71" Column="1" />
+      <File FileName="MealzNow.Db/Models/Order.cs" />
+      <File FileName="MealzNow.Db/MealzNowDataBaseContext.cs" />
       <File FileName="MealzNow.Services/Services/FranchiseService.cs" />
       <File FileName="MealzNow.Db/Repositories/BannerRepository.cs" />
       <File FileName="MealzNow.Db/Repositories/CityRepository.cs" />
       <File FileName="MealzNow.Core/Dto/FranchiseUserDto.cs" />
       <File FileName="MealzNow.Core/Dto/BannerDto.cs" />
       <File FileName="MealzNow.Core/Dto/DishOfDayDto.cs" />
-      <File FileName="MealzNow.Core/Dto/CustomerDto.cs" Line="220" Column="1" />
+      <File FileName="MealzNow.Core/Dto/CustomerDto.cs" />
       <File FileName="MealzNow.Db/Repositories/CustomerRepository.cs" />
       <File FileName="MealzNow.Db/Repositories/OrderRepository.cs" />
       <File FileName="MealzNow.Db/RepositoriesRegistrationExtensions.cs" />
       <File FileName="MealzNow.Db/Repositories/CustomerAddressRepository.cs" />
       <File FileName="MealzNow.Db/Repositories/ClientRepository.cs" />
-      <File FileName="MealzNow.Db/Models/Customer.cs" Line="61" Column="72" />
+      <File FileName="MealzNow.Db/Models/Customer.cs" />
       <File FileName="MealzNow.Db/Models/BaseEntity.cs" />
       <File FileName="MealzNow.Db/Models/SuperAdmin.cs" />
-      <File FileName="MealzNow.Db/Models/Product.cs" Line="48" Column="51" />
+      <File FileName="MealzNow.Db/Models/Product.cs" />
       <File FileName="MealzNow.Db/Repositories/PackagesRepository.cs" />
       <File FileName="MealzNow.Core/RequestModels/DataRequest.cs" />
       <File FileName="MealzNow.Services/Services/OrderService.cs" />
       <File FileName="MealzNow.Services/Interfaces/IFranchiseService.cs" />
       <File FileName="MealzNow.Services/Interfaces/ICustomerService.cs" />
-      <File FileName="MealzNow.Db/Models/FranchiseUser.cs" Line="39" Column="38" />
+      <File FileName="MealzNow.Db/Models/FranchiseUser.cs" />
       <File FileName="MealzNow.Core/Enum/Enums.cs" />
       <File FileName="MealzNow.Core/RequestModels/LoginRequestModel.cs" />
-      <File FileName="MealzNow.Db/Models/Countries.cs" Line="39" Column="28" />
+      <File FileName="MealzNow.Db/Models/Countries.cs" />
       <File FileName="MealzNow.DataBaseManagement/appsettings.Development.json" />
       <File FileName="MealzNow.DataBaseManagement/appsettings.json" />
       <File FileName="MealzNow.DataBaseManagement/Properties/launchSettings.json" />
-      <File FileName="MealzNow.DataBaseManagement/Program.cs" Line="43" Column="1" />
-      <File FileName="MealzNow.DataBaseManagement/Seeder/DataSeeder.cs" Line="39" Column="2" />
-      <File FileName="MealzNow.DataBaseManagement/Data/Franchise.json" Line="633" Column="27" />
-      <File FileName="MealzNow.Db/Models/Client.cs" Line="36" Column="1" />
-      <File FileName="MealzNow.Core/Dto/ClientDto.cs" Line="1" Column="1" />
-      <File FileName="MealzNow.Core/MealzNowUsers.cs" Line="21" Column="46" />
-      <File FileName="MealzNow.Core/Dto/OrderDto.cs" Line="221" Column="43" />
-      <File FileName="MealzNow.Db/Models/Packages.cs" Line="32" Column="51" />
+      <File FileName="MealzNow.DataBaseManagement/Program.cs" />
+      <File FileName="MealzNow.DataBaseManagement/Seeder/DataSeeder.cs" />
+      <File FileName="MealzNow.DataBaseManagement/Data/Franchise.json" />
+      <File FileName="MealzNow.Db/Models/Client.cs" />
+      <File FileName="MealzNow.Core/Dto/ClientDto.cs" />
+      <File FileName="MealzNow.Core/MealzNowUsers.cs" />
+      <File FileName="MealzNow.Core/Dto/OrderDto.cs" />
+      <File FileName="MealzNow.Db/Models/Packages.cs" />
+      <File FileName="MealzNow.Core/Dto/CategoryOutlineDto.cs" />
+      <File FileName="MealzNow.Core/Dto/PackageDto.cs" />
+      <File FileName="MealzNow.Core/Dto/ProductDataDto.cs" />
+      <File FileName="MealzNow.Core/Dto/ProductDto.cs" />
+      <File FileName="MealzNow.DataBaseManagement/Data/CountryJson.json" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MealzNow" expanded="True">
-            <Node name="MealzNow.DataBaseManagement">
+            <Node name="MealzNow.Core" expanded="True" />
+            <Node name="MealzNow.DataBaseManagement" expanded="True">
               <Node name="Data" expanded="True" />
               <Node name="Seeder" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="MealzNow.Db">
               <Node name="Models" expanded="True" />
-            </Node>
-            <Node name="MealzNow.Services">
-              <Node name="Mapping">
-                <Node name="AutoMapperProfiles.cs" selected="True" />
+              <Node name="Repositories">
+                <Node name="FranchiseRepository.cs" selected="True" />
               </Node>
+            </Node>
+            <Node name="MealzNow.MobApi" expanded="True" />
+            <Node name="MealzNow.Services" expanded="True">
+              <Node name="Mapping" expanded="True" />
+              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MealzNow.MobApi PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
