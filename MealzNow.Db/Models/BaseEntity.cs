@@ -14,18 +14,14 @@ namespace MealzNow.Db.Models
         public Guid Id { get; set; }
 
         [Required]
-        [JsonProperty("createdDateTimeUtc")]
         public DateTime CreatedDateTimeUtc { get; set; } = DateTime.UtcNow;
 
-        [JsonProperty("updatedDateTimeUtc")]
         public DateTime? UpdatedDateTimeUtc { get; set; }
 
         [Required]
-        [JsonProperty("createdById")]
         public Guid CreatedById { get; set; }
 
         [Required]
-        [JsonProperty("updatedById")]
         public Guid UpdatedById { get; set; }
     }
 }

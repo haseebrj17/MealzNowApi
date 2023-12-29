@@ -1,4 +1,5 @@
-﻿using MealzNow.Db.Models;
+﻿using System;
+using MealzNow.Db.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace MealzNow.Db
@@ -24,7 +25,7 @@ namespace MealzNow.Db
             => optionsBuilder.UseCosmos(
                 "AccountEndpoint=https://mealznowcdb.documents.azure.com:443/;AccountKey=ZUr2bcfSjsQSjuhfpS6XtWjcUYKWYGXhe3SoA2okp0pcjiTq7Oej56L2OuvOFwEaKZ032OZi2QMzACDbL9fXVQ==;",
                 databaseName: "MealzNowDB"
-            );
+        );
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,7 +55,18 @@ namespace MealzNow.Db
                 {
                     ft.WithOwner().HasForeignKey("FranchiseId");
                     ft.HasKey("Id");
-                    ft.OwnsMany(t => t.ServingTimings);
+
+                    ft.OwnsMany(t => t.ServingTimings, st =>
+                    {
+                        st.WithOwner().HasForeignKey("ServingTimingsId");
+                        st.HasKey("Id");
+
+                        st.OwnsMany(s => s.ServingTime, time =>
+                        {
+                            time.WithOwner().HasForeignKey("ServingTimingsId");
+                            time.HasKey("Id");
+                        });
+                    });
                 });
 
                 entity.OwnsMany(f => f.FranchiseHolidays, fh =>

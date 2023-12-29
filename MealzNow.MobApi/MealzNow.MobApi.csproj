@@ -13,8 +13,12 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.20.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MealzNow.Core\MealzNow.Core.csproj" />
-    <ProjectReference Include="..\MealzNow.Services\MealzNow.Services.csproj" />
+    <ProjectReference Include="..\MealzNow.Core\MealzNow.Core.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\MealzNow.Services\MealzNow.Services.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
     <ProjectReference Include="..\MealzNow.Db\MealzNow.Db.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>

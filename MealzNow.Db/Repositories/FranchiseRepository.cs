@@ -55,9 +55,6 @@ namespace MealzNow.Db.Repositories
 
         public async Task<List<Franchise>> GetClientFranchises(Guid clientId)
         {
-
-            Console.WriteLine($"Getting franchises for ClientId: {clientId}");
-
             return await _mealzNowDataBaseContext.Franchises
                 .Where(f => f.ClientId == clientId && f.IsActive)
                 .ToListAsync();

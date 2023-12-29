@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealzNow.Db", "MealzNow.Db\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealzNow.Services", "MealzNow.Services\MealzNow.Services.csproj", "{D658B875-D4EE-4370-B731-326F70610803}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MealzNow.DataBaseManagement", "MealzNow.DataBaseManagement\MealzNow.DataBaseManagement.csproj", "{648C035B-9E6B-4A97-93E9-BA81EC58E9DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D658B875-D4EE-4370-B731-326F70610803}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D658B875-D4EE-4370-B731-326F70610803}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D658B875-D4EE-4370-B731-326F70610803}.Release|Any CPU.Build.0 = Release|Any CPU
+		{648C035B-9E6B-4A97-93E9-BA81EC58E9DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{648C035B-9E6B-4A97-93E9-BA81EC58E9DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{648C035B-9E6B-4A97-93E9-BA81EC58E9DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{648C035B-9E6B-4A97-93E9-BA81EC58E9DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

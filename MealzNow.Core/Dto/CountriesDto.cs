@@ -5,31 +5,25 @@ namespace MealzNow.Core.Dto
 {
     public class CountriesDto
     {
-        [JsonProperty("country")]
-        public List<Country> Country { get; set; } = new List<Country>();
+        public List<CountryDto> Country { get; set; } = new List<CountryDto>();
     }
 
-    public class Country
+    public class CountryDto
     {
-        [JsonProperty("name")]
         public string Name { get; set; } = null!;
 
-        [JsonProperty("states")]
-        public List<State> States { get; set; } = new List<State>();
+        public List<StateDto> States { get; set; } = new List<StateDto>();
     }
 
-    public class State
+    public class StateDto
     {
-        [JsonProperty("name")]
         public string Name { get; set; } = null!;
 
-        [JsonProperty("cities")]
-        public List<CityName> Cities { get; set; } = new List<CityName>();
+        public List<CityNameDto> Cities { get; set; } = new List<CityNameDto>();
     }
 
-    public class CityName
+    public class CityNameDto
     {
-        [JsonProperty("name")]
         public string Name { get; set; } = null!;
     }
 }
