@@ -31,7 +31,7 @@ namespace MealzNow.Db.Models
 
         public bool IsActive { get; set; }
 
-        public Guid Franchiseid { get; set; }
+        public Guid FranchiseId { get; set; }
 
         public bool ShowExtraTopping { get; set; }
 

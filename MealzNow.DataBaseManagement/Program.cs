@@ -21,7 +21,7 @@ builder.Services.AddScoped<DataSeeder>();
 
 var app = builder.Build();
 
-await InitializeDatabase(app);
+//await InitializeDatabase(app);
 
 using (var scope = app.Services.CreateScope())
 {

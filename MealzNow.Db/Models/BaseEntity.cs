@@ -6,7 +6,10 @@ namespace MealzNow.Db.Models
 {
     public abstract class BaseEntity
     {
-        public BaseEntity() => Id = Guid.NewGuid();
+        public BaseEntity()
+        {
+            Id = Guid.NewGuid();
+        }
 
         [Key]
         [Required]
@@ -19,9 +22,8 @@ namespace MealzNow.Db.Models
         public DateTime? UpdatedDateTimeUtc { get; set; }
 
         [Required]
-        public Guid CreatedById { get; set; }
+        public Guid CreatedById { get; set; } = Guid.Parse("8446a68c-8287-450a-b727-7646365b62d8");
 
-        [Required]
         public Guid UpdatedById { get; set; }
     }
 }

@@ -35,14 +35,55 @@ namespace MealzNow.Db
             modelBuilder.Entity<FranchiseUser>().HasKey(e => e.Id);
             modelBuilder.Entity<FranchiseUser>().ToContainer("FranchiseUsers").HasPartitionKey(u => u.FranchiseId).HasNoDiscriminator();
 
-            modelBuilder.Entity<Client>().HasKey(e => e.Id);
-            modelBuilder.Entity<Client>().ToContainer("Clients").HasPartitionKey(c => c.EmailAddress).HasNoDiscriminator();
+            modelBuilder.Entity<Client>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.ToContainer("Clients").HasPartitionKey(c => c.EmailAddress).HasNoDiscriminator();
 
-            modelBuilder.Entity<Countries>().HasKey(e => e.Id);
-            modelBuilder.Entity<Countries>().ToContainer("Country").HasPartitionKey(c => c.Id).HasNoDiscriminator();
+                entity.OwnsMany(c => c.ClientFranchises, franchise =>
+                {
+                    franchise.WithOwner().HasForeignKey("ClientId");
+                    franchise.HasKey("Id");
+                });
+            });
 
-            //modelBuilder.Entity<Franchise>().HasKey(e => e.Id);
-            //modelBuilder.Entity<Franchise>().ToContainer("Franchises").HasPartitionKey(f => f.ClientId).HasNoDiscriminator();
+            modelBuilder.Entity<Countries>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.ToContainer("Countries").HasPartitionKey(c => c.Id).HasNoDiscriminator();
+
+                entity.OwnsMany(c => c.Country, country =>
+                {
+                    country.WithOwner().HasForeignKey("CountriesId");
+                    country.HasKey("Id");
+
+                    country.OwnsMany(c => c.States, state =>
+                    {
+                        state.WithOwner().HasForeignKey("CountryId");
+                        state.HasKey("Id");
+
+                        state.OwnsMany(s => s.Cities, city =>
+                        {
+                            city.WithOwner().HasForeignKey("StateId");
+                            city.HasKey("Id");
+                        });
+                    });
+                });
+            });
+
+            modelBuilder.Entity<Category>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.ToContainer("Categories");
+                entity.HasPartitionKey(c => c.FranchiseId);
+                entity.HasNoDiscriminator();
+
+                entity.OwnsMany(c => c.SubCategory, sc =>
+                {
+                    sc.WithOwner().HasForeignKey("ParentId");
+                    sc.HasKey("Id");
+                });
+            });
 
             modelBuilder.Entity<Franchise>(entity =>
             {
@@ -103,17 +144,184 @@ namespace MealzNow.Db
                 });
             });
 
-            modelBuilder.Entity<Product>().HasKey(e => e.Id);
-            modelBuilder.Entity<Product>().ToContainer("Products").HasPartitionKey(p => p.CategoryId).HasNoDiscriminator();
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.ToContainer("Products").HasPartitionKey(p => p.CategoryId).HasNoDiscriminator();
 
-            modelBuilder.Entity<Order>().HasKey(e => e.Id);
-            modelBuilder.Entity<Order>().ToContainer("Orders").HasPartitionKey(o => o.FranchiseId).HasNoDiscriminator();
+                entity.OwnsMany(p => p.ProductAllergy, allergy =>
+                {
+                    allergy.WithOwner().HasForeignKey("ProductId");
+                    allergy.HasKey("Id");
+                });
 
-            modelBuilder.Entity<Category>().HasKey(e => e.Id);
-            modelBuilder.Entity<Category>().ToContainer("Categories").HasPartitionKey(c => c.FranchiseId).HasNoDiscriminator();
+                entity.OwnsMany(p => p.ProductPrice, price =>
+                {
+                    price.WithOwner().HasForeignKey("ProductId");
+                    price.HasKey("Id");
+                });
 
-            modelBuilder.Entity<Customer>().HasKey(e => e.Id);
-            modelBuilder.Entity<Customer>().ToContainer("Customers").HasPartitionKey(c => c.EmailAddress).HasNoDiscriminator();
+                entity.OwnsMany(p => p.ProductCategory, category =>
+                {
+                    category.WithOwner().HasForeignKey("ProductId");
+                    category.HasKey("Id");
+                });
+
+                entity.OwnsMany(p => p.ProductExtraDipping, dipping =>
+                {
+                    dipping.WithOwner().HasForeignKey("ProductId");
+                    dipping.HasKey("Id");
+
+                    dipping.OwnsMany(d => d.ProductExtraDippingAllergy, allergy =>
+                    {
+                        allergy.WithOwner().HasForeignKey("DippingId");
+                        allergy.HasKey("Id");
+                    });
+                    dipping.OwnsMany(d => d.ProductExtraDippingPrice, price =>
+                    {
+                        price.WithOwner().HasForeignKey("DippingId");
+                        price.HasKey("Id");
+                    });
+                });
+
+                entity.OwnsMany(p => p.ProductExtraTopping, topping =>
+                {
+                    topping.WithOwner().HasForeignKey("ProductId");
+                    topping.HasKey("Id");
+
+                    topping.OwnsMany(t => t.ProductExtraToppingAllergy, allergy =>
+                    {
+                        allergy.WithOwner().HasForeignKey("ToppingId");
+                        allergy.HasKey("Id");
+                    });
+                    topping.OwnsMany(t => t.ProductExtraToppingPrice, price =>
+                    {
+                        price.WithOwner().HasForeignKey("ToppingId");
+                        price.HasKey("Id");
+                    });
+                });
+
+                entity.OwnsMany(p => p.ProductItemOutline, outline =>
+                {
+                    outline.WithOwner().HasForeignKey("ProductId");
+                    outline.HasKey("Id");
+                });
+
+                entity.OwnsMany(p => p.ProductChoices, choices =>
+                {
+                    choices.WithOwner().HasForeignKey("ProductId");
+                    choices.HasKey("Id");
+                });
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.ToContainer("Orders").HasPartitionKey(p => p.FranchiseId).HasNoDiscriminator();
+
+
+                entity.OwnsOne(o => o.CustomerDetails, details =>
+                {
+                    details.WithOwner();
+                    details.OwnsOne(d => d.CustomerAddressDetail);
+                });
+
+                entity.OwnsOne(o => o.CustomerOrderedPackage, package =>
+                {
+                    package.WithOwner();
+                });
+
+                entity.OwnsMany(o => o.ProductByDay, day =>
+                {
+                    day.WithOwner().HasForeignKey("OrderId");
+                    day.HasKey("Id");
+                    day.OwnsMany(d => d.ProductByTiming, timing =>
+                    {
+                        timing.WithOwner().HasForeignKey("DayId");
+                        timing.HasKey("Id");
+                        timing.OwnsMany(t => t.OrderedProductExtraDipping);
+                        timing.OwnsMany(t => t.OrderedProductExtraTopping);
+                        timing.OwnsOne(t => t.OrderedProductSides);
+                        timing.OwnsOne(t => t.OrderedProductDessert);
+                        timing.OwnsOne(t => t.OrderedProductDrinks);
+                        timing.OwnsMany(t => t.OrderedProductChoices);
+                    });
+                });
+
+                entity.OwnsOne(o => o.CustomerOrderPromo, promo =>
+                {
+                    promo.WithOwner();
+                });
+
+                entity.OwnsOne(o => o.CustomerOrderPayment, payment =>
+                {
+                    payment.WithOwner();
+                });
+            });
+
+
+            modelBuilder.Entity<Customer>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.ToContainer("Customers").HasPartitionKey(c => c.CityId).HasNoDiscriminator();
+
+                entity.OwnsMany(c => c.CustomerAddresses, addresses =>
+                {
+                    addresses.WithOwner().HasForeignKey("CustomerId");
+                    addresses.HasKey("Id");
+                });
+
+                entity.OwnsOne(c => c.CustomerPackage, package =>
+                {
+                    package.WithOwner();
+                });
+
+                entity.OwnsOne(c => c.CustomerPayment, payment =>
+                {
+                    payment.WithOwner();
+                });
+
+                entity.OwnsOne(c => c.CustomerPromo, promo =>
+                {
+                    promo.WithOwner();
+                });
+
+                entity.OwnsMany(c => c.CustomerDevice, device =>
+                {
+                    device.WithOwner().HasForeignKey("CustomerId");
+                    device.HasKey("Id");
+                });
+
+                entity.OwnsOne(c => c.CustomerPassword, password =>
+                {
+                    password.WithOwner();
+                });
+
+                entity.OwnsOne(c => c.Preference, preference =>
+                {
+                    preference.WithOwner();
+                    preference.OwnsMany(p => p.PreferredCategories, categories =>
+                    {
+                        categories.WithOwner().HasForeignKey("PreferenceId");
+                        categories.HasKey("Id");
+                    });
+                    preference.OwnsMany(p => p.PreferredSubCategories, subCategories =>
+                    {
+                        subCategories.WithOwner().HasForeignKey("PreferenceId");
+                        subCategories.HasKey("Id");
+                    });
+                });
+
+                entity.OwnsOne(c => c.CustomerProductOutline, outline =>
+                {
+                    outline.WithOwner();
+                    outline.OwnsMany(o => o.CustomerProductInclusion, inclusion =>
+                    {
+                        inclusion.WithOwner().HasForeignKey("OutlineId");
+                        inclusion.HasKey("Id");
+                    });
+                });
+            });
 
             modelBuilder.Entity<Packages>().HasKey(e => e.Id);
             modelBuilder.Entity<Packages>().ToContainer("Packages").HasPartitionKey(p => p.FranchiseId).HasNoDiscriminator();

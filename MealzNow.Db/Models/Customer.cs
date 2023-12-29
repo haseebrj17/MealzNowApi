@@ -30,6 +30,9 @@ namespace MealzNow.Db.Models
 
         public bool IsEmailVerified { get; set; }
 
+        [Required]
+        public Guid CityId { get; set; }
+
         public List<CustomerAddresses> CustomerAddresses { get; set; } = new List<CustomerAddresses>();
 
         public Preference Preference { get; set; } = null!;

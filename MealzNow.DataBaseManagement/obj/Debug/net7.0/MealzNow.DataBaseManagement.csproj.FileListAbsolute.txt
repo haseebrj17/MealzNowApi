@@ -61,3 +61,10 @@
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/obj/Debug/net7.0/MealzNow.DataBaseManagement.genruntimeconfig.cache
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/obj/Debug/net7.0/ref/MealzNow.DataBaseManagement.dll
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/bin/Debug/net7.0/Data/Franchise.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/bin/Debug/net7.0/Data/AdminJson.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/bin/Debug/net7.0/Data/Categories.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/bin/Debug/net7.0/Data/ClientJson.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/bin/Debug/net7.0/Data/CountryJson.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/bin/Debug/net7.0/Data/FranchiseUser.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/bin/Debug/net7.0/Data/Products.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.DataBaseManagement/bin/Debug/net7.0/Data/Package.json

@@ -76,7 +76,7 @@ namespace MealzNow.Db.Repositories
                 .Include(p => p.ProductChoices)
                 .Include(p => p.ProductItemOutline)
                 .Include(p => p.ProductCategory)
-                .Where(p => p.Franchiseid == franchiseId && p.IsActive)
+                .Where(p => p.FranchiseId == franchiseId && p.IsActive)
                 .OrderBy(p => p.CategoryId)
                 .ThenBy(p => p.Sequence)
                 .ToListAsync();

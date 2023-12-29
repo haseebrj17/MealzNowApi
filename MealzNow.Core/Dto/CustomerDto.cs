@@ -37,6 +37,8 @@ namespace MealzNow.Core.Dto
 
         public UserRole? UserRole { get; set; }
 
+        public Guid CityId { get; set; }
+
         public CustomerPasswordDto CustomerPassword { get; set; } = null!;
 
         public List<CustomerDeviceDto> CustomerDevice { get; set; } = new List<CustomerDeviceDto>();
