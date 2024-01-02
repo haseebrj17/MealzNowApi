@@ -149,6 +149,8 @@ namespace MealzNow.Core.Dto
         public Timings Timings { get; set; }
 
         public string MealzPerDay { get; set; } = null!;
+
+        public int NumberOfWeeks { get; set; }
     }
 
     public class CustomerPaymentDto

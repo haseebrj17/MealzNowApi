@@ -109,6 +109,9 @@ namespace MealzNow.Db.Models
 
         [Required]
         public string MealzPerDay { get; set; } = null!;
+
+        [Required]
+        public int NumberOfWeeks { get; set; }
     }
 
     public class CustomerPayment : BaseEntity
