@@ -1,3 +1,11 @@
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/Microsoft.Azure.Cosmos.ServiceInterop.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/Cosmos.CRTCompat.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/msvcp140.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/vcruntime140.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/vcruntime140_1.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Db.deps.json
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Db.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Db.pdb
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/bin/Debug/net7.0/MealzNow.Db.deps.json
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/bin/Debug/net7.0/MealzNow.Db.dll
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/bin/Debug/net7.0/MealzNow.Db.pdb
@@ -13,11 +21,3 @@
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/obj/Debug/net7.0/refint/MealzNow.Db.dll
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/obj/Debug/net7.0/MealzNow.Db.pdb
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/obj/Debug/net7.0/ref/MealzNow.Db.dll
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/Microsoft.Azure.Cosmos.ServiceInterop.dll
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/Cosmos.CRTCompat.dll
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/msvcp140.dll
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/vcruntime140.dll
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/vcruntime140_1.dll
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Db.deps.json
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Db.dll
-/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.MobApi/bin/output/MealzNow.Db.pdb

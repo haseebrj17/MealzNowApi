@@ -23,7 +23,8 @@
         public enum Timings
         {
             Lunch = 1,
-            Dinner = 2
+            Dinner = 2,
+            LunchAndDinner = 3
         }
 
         public enum CategoryType

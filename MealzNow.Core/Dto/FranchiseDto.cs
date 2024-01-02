@@ -46,9 +46,7 @@ namespace MealzNow.Core.Dto
 
         public List<BannerDto> Banner { get; set; } = new List<BannerDto>();
 
-
         public List<FranchiseSettingDto> FranchiseSetting { get; set; } = new List<FranchiseSettingDto>();
-
 
         public List<ProductOutlineDto> ProductOutline { get; set; } = new List<ProductOutlineDto>();
     }

@@ -145,6 +145,8 @@ namespace MealzNow.Core.Dto
         public int TotalNumberOfMeals { get; set; }
 
         public int NumberOfDays { get; set; }
+
+        public Timings Timings { get; set; }
     }
 
     public class CustomerPaymentDto
