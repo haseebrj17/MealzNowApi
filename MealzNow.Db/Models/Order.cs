@@ -107,6 +107,9 @@ namespace MealzNow.Db.Models
 
         [Required]
         public Timings Timings { get; set; }
+
+        [Required]
+        public string MealzPerDay { get; set; } = null!;
     }
 
     public class CustomerOrderPayment : BaseEntity

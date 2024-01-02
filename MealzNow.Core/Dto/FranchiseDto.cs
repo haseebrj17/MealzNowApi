@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using static MealzNow.Core.Enum.Enums;
 
 namespace MealzNow.Core.Dto
 {
@@ -99,6 +100,9 @@ namespace MealzNow.Core.Dto
         public int Discount { get; set; }
 
         public string Icon { get; set; } = null!;
+
+        [Required]
+        public Timings Timings { get; set; }
     }
 
     public class ServingDaysDto

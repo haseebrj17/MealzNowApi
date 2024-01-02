@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using static MealzNow.Core.Enum.Enums;
 
@@ -91,6 +92,8 @@ namespace MealzNow.Core.Dto
         public int NumberOfDays { get; set; }
 
         public Timings Timings { get; set; }
+
+        public string MealzPerDay { get; set; } = null!;
     }
 
     public class CustomerOrderPromoDto

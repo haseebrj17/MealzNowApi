@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using static MealzNow.Core.Enum.Enums;
 
 namespace MealzNow.Db.Models
 {
@@ -150,6 +151,9 @@ namespace MealzNow.Db.Models
 
         [Required]
         public string Icon { get; set; } = null!;
+
+        [Required]
+        public Timings Timings { get; set; }
     }
 
     public class ServingDays : BaseEntity
