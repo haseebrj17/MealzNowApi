@@ -147,6 +147,9 @@ namespace MealzNow.Db.Models
         public string Description { get; set; } = null!;
 
         public int Discount { get; set; }
+
+        [Required]
+        public string Icon { get; set; } = null!;
     }
 
     public class ServingDays : BaseEntity

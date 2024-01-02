@@ -99,6 +99,8 @@ namespace MealzNow.Core.Dto
         public string Description { get; set; } = null!;
 
         public int Discount { get; set; }
+
+        public string Icon { get; set; } = null!;
     }
 
     public class ServingDaysDto

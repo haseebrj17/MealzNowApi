@@ -73,84 +73,85 @@ namespace MealzNow.Services.Services
                     }
                 };
 
-                foreach (var productByDayDto in orderDto.ProductByDay)
+            foreach (var productByDayDto in orderDto.ProductByDay)
+            {
+                var productByDay = new ProductByDay
                 {
-                    var productByDay = new ProductByDay
+                    Day = productByDayDto.Day,
+                    DayId = productByDayDto.DayId,
+                    DeliveryDate = productByDayDto.DeliveryDate,
+                    ProductByTiming = new List<ProductByTiming>()
+                };
+
+                foreach (var productByTimingDto in productByDayDto.ProductByTiming)
+                {
+                    var productByTiming = new ProductByTiming
                     {
-                        Day = productByDayDto.Day,
-                        DayId = productByDayDto.DayId,
-                        ProductByTiming = new List<ProductByTiming>()
+                        TimeOfDay = productByTimingDto?.TimeOfDay,
+                        TimeOfDayId = productByTimingDto.TimeOfDayId,
+                        DeliveryTimings = productByTimingDto.DeliveryTimings,
+                        DeliveryTimingsId = productByTimingDto.DeliveryTimingsId,
+                        Name = productByTimingDto.Name,
+                        EstimatedDeliveryTime = productByTimingDto.EstimatedDeliveryTime,
+                        Image = productByTimingDto.Image,
+                        Price = productByTimingDto.Price,
+
+                        OrderedProductExtraDipping = productByTimingDto.OrderedProductExtraDipping.Select(dip => new OrderedProductExtraDipping
+                        {
+                            Name = dip.Name,
+                            Price = dip.Price
+                        }).ToList(),
+
+                        OrderedProductExtraTopping = productByTimingDto.OrderedProductExtraTopping.Select(top => new OrderedProductExtraTopping
+                        {
+                            Name = top.Name,
+                            Price = top.Price
+                        }).ToList(),
+
+                        OrderedProductSides = productByTimingDto.OrderedProductSides != null ? new OrderedProductSides
+                        {
+                            Name = productByTimingDto.OrderedProductSides.Name,
+                            Price = productByTimingDto.OrderedProductSides.Price
+                        } : null,
+
+                        OrderedProductDessert = productByTimingDto.OrderedProductDessert != null ? new OrderedProductDessert
+                        {
+                            Name = productByTimingDto.OrderedProductDessert.Name,
+                            Price = productByTimingDto.OrderedProductDessert.Price
+                        } : null,
+
+                        OrderedProductDrinks = productByTimingDto.OrderedProductDrinks != null ? new OrderedProductDrinks
+                        {
+                            Name = productByTimingDto.OrderedProductDrinks.Name,
+                            Price = productByTimingDto.OrderedProductDrinks.Price
+                        } : null
                     };
 
-                    foreach (var productByTimingDto in productByDayDto.ProductByTiming)
-                    {
-                        var productByTiming = new ProductByTiming
-                        {
-                            TimeOfDay = productByTimingDto?.TimeOfDay,
-                            TimeOfDayId = productByTimingDto.TimeOfDayId,
-                            DeliveryTimings = productByTimingDto.DeliveryTimings,
-                            DeliveryTimingsId = productByTimingDto.DeliveryTimingsId,
-                            Name = productByTimingDto.Name,
-                            EstimatedDeliveryTime = productByTimingDto.EstimatedDeliveryTime,
-                            Image = productByTimingDto.Image,
-                            Price = productByTimingDto.Price,
+                    totalBill += productByTiming.Price;
+                    totalBill += productByTiming.OrderedProductExtraDipping.Sum(dip => dip.Price);
+                    totalBill += productByTiming.OrderedProductExtraTopping.Sum(top => top.Price);
+                    if (productByTiming.OrderedProductSides != null) totalBill += productByTiming.OrderedProductSides.Price;
+                    if (productByTiming.OrderedProductDessert != null) totalBill += productByTiming.OrderedProductDessert.Price;
+                    if (productByTiming.OrderedProductDrinks != null) totalBill += productByTiming.OrderedProductDrinks.Price;
 
-                            OrderedProductExtraDipping = productByTimingDto.OrderedProductExtraDipping.Select(dip => new OrderedProductExtraDipping
-                            {
-                                Name = dip.Name,
-                                Price = dip.Price
-                            }).ToList(),
-
-                            OrderedProductExtraTopping = productByTimingDto.OrderedProductExtraTopping.Select(top => new OrderedProductExtraTopping
-                            {
-                                Name = top.Name,
-                                Price = top.Price
-                            }).ToList(),
-
-                            OrderedProductSides = productByTimingDto.OrderedProductSides != null ? new OrderedProductSides
-                            {
-                                Name = productByTimingDto.OrderedProductSides.Name,
-                                Price = productByTimingDto.OrderedProductSides.Price
-                            } : null,
-
-                            OrderedProductDessert = productByTimingDto.OrderedProductDessert != null ? new OrderedProductDessert
-                            {
-                                Name = productByTimingDto.OrderedProductDessert.Name,
-                                Price = productByTimingDto.OrderedProductDessert.Price
-                            } : null,
-
-                            OrderedProductDrinks = productByTimingDto.OrderedProductDrinks != null ? new OrderedProductDrinks
-                            {
-                                Name = productByTimingDto.OrderedProductDrinks.Name,
-                                Price = productByTimingDto.OrderedProductDrinks.Price
-                            } : null
-                        };
-
-                        totalBill += productByTiming.Price;
-                        totalBill += productByTiming.OrderedProductExtraDipping.Sum(dip => dip.Price);
-                        totalBill += productByTiming.OrderedProductExtraTopping.Sum(top => top.Price);
-                        if (productByTiming.OrderedProductSides != null) totalBill += productByTiming.OrderedProductSides.Price;
-                        if (productByTiming.OrderedProductDessert != null) totalBill += productByTiming.OrderedProductDessert.Price;
-                        if (productByTiming.OrderedProductDrinks != null) totalBill += productByTiming.OrderedProductDrinks.Price;
-
-                        productByDay.ProductByTiming.Add(productByTiming);
-                    }
-
-                    order.ProductByDay.Add(productByDay);
+                    productByDay.ProductByTiming.Add(productByTiming);
                 }
 
-                order.TotalBill = totalBill;
-
-                await _orderRepository.AddOrder(order);
-
-                return order.Id;
+                order.ProductByDay.Add(productByDay);
             }
+
+            order.TotalBill = totalBill;
+
+            await _orderRepository.AddOrder(order);
+
+            return order.Id;
+        }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return null;
             }
-        }
+}
 
     }
 }
