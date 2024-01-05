@@ -50,10 +50,12 @@ namespace MealzNow.Services.Services
                 var products = await _productRepository.GetAllProducts(franchiseId);
                 homeData.Products = _mapper.Map<List<Product>, List<ProductDto>>(products);
 
-                homeData.Categories = _mapper.Map<List<Category>, List<CategoryDto>>(_categoryRepository.GetFranchiseBrands(franchiseId));
+                homeData.Brands = _mapper.Map<List<Category>, List<CategoryDto>>(_categoryRepository.GetFranchiseBrands(franchiseId));
 
                 var allSubCategories = await _categoryRepository.GetAllSubCategories(franchiseId);
                 homeData.AllSubCategories = _mapper.Map<List<SubCategory>, List<SubCategoryDto>>(allSubCategories);
+
+                homeData.Categories = _mapper.Map<List<Category>, List<CategoryDto>>(_categoryRepository.GetFranchiseCategories(franchiseId));
             }
 
             return homeData;
