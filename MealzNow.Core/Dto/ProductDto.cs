@@ -47,7 +47,7 @@ namespace MealzNow.Db.Models
 
         public List<ProductItemOutlineDto> ProductItemOutline { get; set; } = null!;
 
-        public List<ProductChoicesDto> ProductExtra { get; set; } = new List<ProductChoicesDto>();
+        public List<ProductChoicesDto> ProductChoices { get; set; } = new List<ProductChoicesDto>();
     }
 
     public class ProductAllergyDto

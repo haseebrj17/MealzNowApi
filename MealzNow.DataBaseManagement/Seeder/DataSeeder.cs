@@ -23,8 +23,8 @@ namespace MealzNow.DataBaseManagement.Seeder
             //await SeedFranchisesAsync();
             //await SeedFranchisesUserAsync();
             //await SeedCategoriesAsync();
-            //await SeedProductsAsync();
-            await SeedPackagesAsync();
+            await SeedProductsAsync();
+            //await SeedPackagesAsync();
         }
 
         private async Task SeedFranchisesAsync()
@@ -138,7 +138,7 @@ namespace MealzNow.DataBaseManagement.Seeder
             if (!PackageExist)
             {
                 var jsonData = await File.ReadAllTextAsync("./Data/Package.json");
-                  var package = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Packages>>(jsonData);
+                var package = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Packages>>(jsonData);
                 if (package != null)
                 {
                     _context.Packages.AddRange(package);
