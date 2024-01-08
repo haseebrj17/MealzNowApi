@@ -72,6 +72,18 @@
           }
         }
       },
+      "Expo.Server.SDK/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netcoreapp2.2/Expo.Server.SDK.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.2/Expo.Server.SDK.dll": {}
+        }
+      },
       "Microsoft.Azure.Cosmos/3.30.1": {
         "type": "package",
         "dependencies": {
@@ -1355,6 +1367,20 @@
         "lib/netstandard2.0/Azure.Core.dll",
         "lib/netstandard2.0/Azure.Core.xml",
         "pkgicon.png"
+      ]
+    },
+    "Expo.Server.SDK/1.0.2": {
+      "sha512": "Dp1zvR2w5Mh9gdxXhYXVELaDjcXVPF5BmuvwjbzxBXAzqJyx0utdyPUcaCEH9CNjchG7zXcDQZ/Ox4DPObK8dQ==",
+      "type": "package",
+      "path": "expo.server.sdk/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "expo.server.sdk.1.0.2.nupkg.sha512",
+        "expo.server.sdk.nuspec",
+        "lib/netcoreapp2.2/Expo.Server.SDK.dll",
+        "lib/netstandard2.0/Expo.Server.SDK.dll"
       ]
     },
     "Microsoft.Azure.Cosmos/3.30.1": {
@@ -3122,6 +3148,7 @@
     "net7.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Azure.Communication.Sms >= 1.0.1",
+      "Expo.Server.SDK >= 1.0.2",
       "MealzNow.Core >= 1.0.0",
       "MealzNow.Db >= 1.0.0",
       "Microsoft.Azure.Functions.Worker.Extensions.Http >= 3.1.0",
@@ -3183,6 +3210,10 @@
           "Azure.Communication.Sms": {
             "target": "Package",
             "version": "[1.0.1, )"
+          },
+          "Expo.Server.SDK": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           },
           "Microsoft.Azure.Functions.Worker.Extensions.Http": {
             "target": "Package",

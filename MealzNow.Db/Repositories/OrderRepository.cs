@@ -7,6 +7,7 @@ namespace MealzNow.Db.Repositories
     {
         public Task<Order> AddOrder(Order order);
         public Task<Order> UpdateOrder(Order order);
+        public Task<Order> GetOrderById(Guid orderId);
     }
     public class OrderRepository : IOrderRepository
     {
@@ -59,6 +60,12 @@ namespace MealzNow.Db.Repositories
                 Console.WriteLine(ex.Message);
                 throw;
             }
+        }
+
+        public async Task<Order> GetOrderById(Guid orderId)
+        {
+            return await _mealzNowDataBaseContext.Orders
+                .FirstAsync(o => o.Id == orderId);
         }
 
     }

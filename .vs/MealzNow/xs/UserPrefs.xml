@@ -1,41 +1,37 @@
 ﻿<Properties StartupConfiguration="{648C035B-9E6B-4A97-93E9-BA81EC58E9DB}|Default" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.ItemProperties.MealzNow.DataBaseManagement PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.MealzNow.MobApi PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MealzNow.Core/Dto/FranchiseDto.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="MealzNow.Db/Repositories/ProductRepository.cs">
     <Files>
-      <File FileName="MealzNow.DataBaseManagement/Data/Franchise.json" Line="692" Column="26" />
-      <File FileName="MealzNow.DataBaseManagement/Seeder/DataSeeder.cs" Line="42" Column="14" />
-      <File FileName="MealzNow.DataBaseManagement/Program.cs" Line="1" Column="1" />
-      <File FileName="MealzNow.Db/Models/Franchise.cs" Line="179" Column="19" />
-      <File FileName="MealzNow.Core/Dto/FranchiseDto.cs" Line="135" Column="1" />
+      <File FileName="MealzNow.DataBaseManagement/Data/Franchise.json" />
+      <File FileName="MealzNow.DataBaseManagement/Seeder/DataSeeder.cs" />
+      <File FileName="MealzNow.DataBaseManagement/Program.cs" />
+      <File FileName="MealzNow.Db/Models/Franchise.cs" />
+      <File FileName="MealzNow.Core/Dto/FranchiseDto.cs" />
+      <File FileName="MealzNow.Core/Dto/ProductDto.cs" />
+      <File FileName="MealzNow.Db/Models/Product.cs" />
+      <File FileName="MealzNow.DataBaseManagement/Data/Products.json" />
+      <File FileName="MealzNow.Core/Dto/CategoryDto.cs" Line="30" Column="37" />
+      <File FileName="MealzNow.Db/Repositories/ProductRepository.cs" Line="83" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MealzNow">
-            <Node name="MealzNow.Core" expanded="True">
-              <Node name="Dto" expanded="True">
-                <Node name="FranchiseDto.cs" selected="True" />
-              </Node>
-              <Node name="Enum" expanded="True" />
-              <Node name="RequestModels" expanded="True" />
-            </Node>
-            <Node name="MealzNow.DataBaseManagement">
-              <Node name="appsettings.json" expanded="True" />
-            </Node>
             <Node name="MealzNow.Db" expanded="True">
-              <Node name="Models" expanded="True" />
-              <Node name="Repositories" expanded="True" />
+              <Node name="Repositories" expanded="True">
+                <Node name="ProductRepository.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MealzNow.MobApi PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.MealzNow.DataBaseManagement PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations />
 </Properties>

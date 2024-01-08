@@ -24,7 +24,11 @@ namespace MealzNow.Db.Repositories
             if (customer == null)
                 return null;
 
-            if (await _mealzNowDataBaseContext.Customers.AnyAsync(c => c.ContactNumber == customer.ContactNumber && !c.IsDeleted))
+            var existingCustomers = await _mealzNowDataBaseContext.Customers
+                                          .Where(c => c.ContactNumber == customer.ContactNumber)
+                                          .ToListAsync();
+
+            if (existingCustomers.Any(c => !c.IsDeleted))
                 return null;
 
             customer.VerificationCode = GeneatePin();

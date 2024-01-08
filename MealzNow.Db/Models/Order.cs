@@ -40,6 +40,8 @@ namespace MealzNow.Db.Models
         public CustomerOrderPromo CustomerOrderPromo { get; set; } = null!;
 
         public CustomerOrderPayment CustomerOrderPayment { get; set; } = null!;
+
+        public List<CustomerDevice> CustomerDevice { get; set; } = new List<CustomerDevice>();
     }
 
     public class CustomerDetails : BaseEntity

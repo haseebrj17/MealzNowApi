@@ -186,6 +186,10 @@
               "target": "Package",
               "version": "[1.0.1, )"
             },
+            "Expo.Server.SDK": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
             "Microsoft.Azure.Functions.Worker.Extensions.Http": {
               "target": "Package",
               "version": "[3.1.0, )"

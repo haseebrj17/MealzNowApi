@@ -1,5 +1,6 @@
 ﻿using System.Net.Mail;
 using AutoMapper;
+using Azure;
 using Azure.Communication.Sms;
 using MealzNow.Core;
 using MealzNow.Core.Dto;
@@ -52,18 +53,45 @@ namespace MealzNow.Services.Services
 
         private async Task SendSms(Customer customer)
         {
-            try
+            var connectionString = "endpoint=https://foodsnowcs.switzerland.communication.azure.com/;accesskey=I0YaWzdEMfzRNEqHdEyL3JFxDvEmg67/jllqoz1OEI1SelvCL1PkV/VO6jXk2Cfka3WZKhPsypfpOxpBNEBGAw==";
+            var smsClient = new SmsClient(connectionString);
+            bool isSent = false;
+            int retryCount = 0;
+
+            while (!isSent && retryCount < 2)
             {
-                var connectionString = "endpoint=https://foodsnowcs.switzerland.communication.azure.com/;accesskey=I0YaWzdEMfzRNEqHdEyL3JFxDvEmg67/jllqoz1OEI1SelvCL1PkV/VO6jXk2Cfka3WZKhPsypfpOxpBNEBGAw==";
-                var smsClient = new SmsClient(connectionString);
-                var sendResult = await smsClient.SendAsync(
-                    from: "MealzNow",
-                    to: customer.ContactNumber,
-                    message: customer.VerificationCode);
+                try
+                {
+                    var sendResult = await smsClient.SendAsync(
+                        from: "BytezNow",
+                        to: customer.ContactNumber,
+                        message: customer.VerificationCode);
+
+                    if (sendResult.Value.Successful)
+                    {
+                        _logger.LogInformation($"SMS sent successfully. Sms id: {sendResult.Value.MessageId}");
+                        isSent = true;
+                    }
+                    else
+                    {
+                        _logger.LogWarning($"Failed to send SMS. Error: {sendResult.Value.ErrorMessage}");
+                    }
+                }
+                catch (RequestFailedException ex)
+                {
+                    _logger.LogError($"Request failed: {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError($"Unexpected error: {ex.Message}");
+                }
+
+                retryCount++;
             }
-            catch (Exception ex)
+
+            if (!isSent)
             {
-                _logger.LogError(ex, "Error occurred while sending SMS to {PhoneNumber}", customer.ContactNumber);
+                _logger.LogError("Failed to send SMS after retrying.");
             }
         }
 

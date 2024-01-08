@@ -10,6 +10,7 @@
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Azure.Communication.Sms": "1.0.1",
+          "Expo.Server.SDK": "1.0.2",
           "MealzNow.Core": "1.0.0",
           "MealzNow.Db": "1.0.0",
           "Microsoft.Azure.Functions.Worker.Extensions.Http": "3.1.0",
@@ -73,6 +74,17 @@
           "lib/net5.0/Azure.Core.dll": {
             "assemblyVersion": "1.19.0.0",
             "fileVersion": "1.1900.21.45105"
+          }
+        }
+      },
+      "Expo.Server.SDK/1.0.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/netcoreapp2.2/Expo.Server.SDK.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
           }
         }
       },
@@ -849,6 +861,13 @@
       "sha512": "sha512-lcDjG635DPE4fU5tqSueVMmzrx0QrIfPuY0+y6evHN5GanQ0GB+/4nuMHMmoNPwEow6OUPkJu4cZQxfHJQXPdA==",
       "path": "azure.core/1.19.0",
       "hashPath": "azure.core.1.19.0.nupkg.sha512"
+    },
+    "Expo.Server.SDK/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Dp1zvR2w5Mh9gdxXhYXVELaDjcXVPF5BmuvwjbzxBXAzqJyx0utdyPUcaCEH9CNjchG7zXcDQZ/Ox4DPObK8dQ==",
+      "path": "expo.server.sdk/1.0.2",
+      "hashPath": "expo.server.sdk.1.0.2.nupkg.sha512"
     },
     "Microsoft.Azure.Cosmos/3.30.1": {
       "type": "package",
