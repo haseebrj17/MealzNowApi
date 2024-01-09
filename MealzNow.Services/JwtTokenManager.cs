@@ -17,7 +17,7 @@ namespace MealzNow.Services
     {
         private readonly string JwtValidIssuer = "https://mealznow.azurewebsites.net";
         private readonly string JwtValidAudience = "https://mealznow.azurewebsites.net";
-        private readonly string JwtSecret = "5ef415806dc3415aa408416a2baad940";
+        private readonly string JwtSecret = "J7ZWLBSYF7LX76FLB0JC4";
         public string GenerateToken(MealzNowUsers user)
         {
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtSecret));
