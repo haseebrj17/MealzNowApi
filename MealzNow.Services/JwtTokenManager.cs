@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using MealzNow.Core.Dto;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -17,7 +18,7 @@ namespace MealzNow.Services
     {
         private readonly string JwtValidIssuer = "https://mealznow.azurewebsites.net";
         private readonly string JwtValidAudience = "https://mealznow.azurewebsites.net";
-        private readonly string JwtSecret = "J7ZWLBSYF7LX76FLB0JC4";
+        private readonly string JwtSecret = "2B757F3F930742D88A220E2N2I8B2M1R";
         public string GenerateToken(MealzNowUsers user)
         {
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtSecret));
