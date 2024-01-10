@@ -7,7 +7,7 @@ namespace MealzNow.Db.Repositories
     {
         Task<Customer> AddAddress(Guid customerId, CustomerAddresses newAddress);
         Task<bool> UpdateAddress(Guid customerId, CustomerAddresses updatedAddress);
-        Task<Customer> GetAllAddresses(Guid customerId);
+        Task<List<CustomerAddresses>> GetAllAddresses(Guid customerId);
         Task<CustomerAddresses> GetAddressById(Guid addressId, Guid customerId);
     }
     public class CustomerAddressRepository : ICustomerAddressRepository
@@ -43,13 +43,12 @@ namespace MealzNow.Db.Repositories
             return customer;
         }
 
-        public async Task<Customer> GetAllAddresses(Guid customerId)
+        public async Task<List<CustomerAddresses>> GetAllAddresses(Guid customerId)
         {
             var customer = await _mealzNowDataBaseContext.Customers
-                            .Include(c => c.CustomerAddresses)
-                            .FirstOrDefaultAsync(c => c.Id == customerId);
+                                .FirstOrDefaultAsync(c => c.Id == customerId);
 
-            return customer;
+            return customer?.CustomerAddresses ?? new List<CustomerAddresses>();
         }
 
         public async Task<bool> UpdateAddress(Guid customerId, CustomerAddresses updatedAddress)

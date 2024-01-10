@@ -151,8 +151,6 @@ namespace MealzNow.Api
                 return req.CreateResponse(HttpStatusCode.Unauthorized);
             }
 
-            Console.WriteLine("Heloooooooooo", request);
-
             var data = await _customerService.AddAddress(request);
 
             var response = req.CreateResponse(HttpStatusCode.OK);

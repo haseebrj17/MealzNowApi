@@ -166,20 +166,14 @@ namespace MealzNow.Services.Services
 
         public async Task<List<CustomerAddressDto>> GetAllAddresses(Guid customerId)
         {
-            var customer = await _customerAddressRepository.GetAllAddresses(customerId);
+            var customerAddresses = await _customerAddressRepository.GetAllAddresses(customerId);
 
-            if (customer == null || customer.CustomerAddresses == null)
+            if (customerAddresses == null)
             {
                 return new List<CustomerAddressDto>();
             }
 
-            var addresses = _mapper.Map<List<CustomerAddresses>, List<CustomerAddressDto>>(customer.CustomerAddresses);
-
-            foreach (var address in addresses)
-            {
-                var city = await _cityRepository.GetCityById(address.CityId);
-                address.CityName = city?.Name;
-            }
+            var addresses = _mapper.Map<List<CustomerAddresses>, List<CustomerAddressDto>>(customerAddresses);
 
             return addresses;
         }
