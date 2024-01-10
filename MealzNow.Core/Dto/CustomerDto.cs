@@ -46,6 +46,8 @@ namespace MealzNow.Core.Dto
 
     public class CustomerAddressDto
     {
+        public Guid Id { get; set; }
+
         public string StreetAddress { get; set; } = null!;
 
         public string House { get; set; } = null!;
