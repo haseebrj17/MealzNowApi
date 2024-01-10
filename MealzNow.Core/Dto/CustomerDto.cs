@@ -21,7 +21,7 @@ namespace MealzNow.Core.Dto
 
         public bool IsEmailVerified { get; set; }
 
-        public List<CustomerAddressDto> CustomerAddress { get; set; } = null!;
+        public List<CustomerAddressDto> CustomerAddresses { get; set; } = null!;
 
         public PreferenceDto Preference { get; set; } = null!;
 
@@ -33,9 +33,9 @@ namespace MealzNow.Core.Dto
 
         public CustomerPromoDto CustomerPayment { get; set; } = null!;
 
-        public string? Code { get; set; }
+        public string Code { get; set; } = null!;
 
-        public UserRole? UserRole { get; set; }
+        public UserRole UserRole { get; set; }
 
         public Guid CityId { get; set; }
 
@@ -46,29 +46,29 @@ namespace MealzNow.Core.Dto
 
     public class CustomerAddressDto
     {
-        public string? StreetAddress { get; set; }
+        public string StreetAddress { get; set; } = null!;
 
-        public string? House { get; set; }
+        public string House { get; set; } = null!;
 
-        public string? PostalCode { get; set; }
+        public string PostalCode { get; set; } = null!;
 
-        public string? CityName { get; set; }
+        public string CityName { get; set; } = null!;
 
-        public string? District { get; set; }
+        public string District { get; set; } = null!;
 
-        public string? UnitNumber { get; set; }
+        public string UnitNumber { get; set; } = null!;
 
-        public string? FloorNumber { get; set; }
+        public string FloorNumber { get; set; } = null!;
 
-        public string? StateName { get; set; }
+        public string StateName { get; set; } = null!;
 
-        public string? CountryName { get; set; }
+        public string CountryName { get; set; } = null!;
 
-        public string? Notes { get; set; }
+        public string Notes { get; set; } = null!;
 
         public bool IsDefault { get; set; }
 
-        public string? Tag { get; set; }
+        public string Tag { get; set; } = null!;
 
         public decimal Latitude { get; set; }
 

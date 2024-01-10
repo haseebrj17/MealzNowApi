@@ -13,7 +13,7 @@ namespace MealzNow.Db
         public DbSet<SuperAdmin> SuperAdmins { get; set; }
         public DbSet<FranchiseUser> FranchiseUsers { get; set; }
         public DbSet<Client> Clients { get; set; }
-        public DbSet<Countries> Country { get; set; }
+        public DbSet<Country> Country { get; set; }
         public DbSet<Franchise> Franchises { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -47,26 +47,22 @@ namespace MealzNow.Db
                 });
             });
 
-            modelBuilder.Entity<Countries>(entity =>
+            modelBuilder.Entity<Country>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.ToContainer("Countries").HasPartitionKey(c => c.Id).HasNoDiscriminator();
 
-                entity.OwnsMany(c => c.Country, country =>
+
+
+                entity.OwnsMany(c => c.States, state =>
                 {
-                    country.WithOwner().HasForeignKey("CountriesId");
-                    country.HasKey("Id");
+                    state.WithOwner().HasForeignKey("CountryId");
+                    state.HasKey("Id");
 
-                    country.OwnsMany(c => c.States, state =>
+                    state.OwnsMany(s => s.Cities, city =>
                     {
-                        state.WithOwner().HasForeignKey("CountryId");
-                        state.HasKey("Id");
-
-                        state.OwnsMany(s => s.Cities, city =>
-                        {
-                            city.WithOwner().HasForeignKey("StateId");
-                            city.HasKey("Id");
-                        });
+                        city.WithOwner().HasForeignKey("StateId");
+                        city.HasKey("Id");
                     });
                 });
             });

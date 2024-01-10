@@ -18,12 +18,12 @@ namespace MealzNow.DataBaseManagement.Seeder
         public async Task SeedDataAsync()
         {
             //await SeedAdminAsync();
-            //await SeedCountryAsync();
+            await SeedCountryAsync();
             //await SeedClientAsync();
             //await SeedFranchisesAsync();
             //await SeedFranchisesUserAsync();
             //await SeedCategoriesAsync();
-            await SeedProductsAsync();
+            //await SeedProductsAsync();
             //await SeedPackagesAsync();
         }
 
@@ -78,7 +78,7 @@ namespace MealzNow.DataBaseManagement.Seeder
             if (!countryExist)
             {
                 var jsonData = await File.ReadAllTextAsync("./Data/CountryJson.json");
-                var country = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Countries>>(jsonData);
+                var country = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Country>>(jsonData);
                 if (country != null)
                 {
                     _context.Country.AddRange(country);

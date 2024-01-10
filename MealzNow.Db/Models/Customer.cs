@@ -55,27 +55,27 @@ namespace MealzNow.Db.Models
         [Required]
         public string StreetAddress { get; set; } = null!;
 
-        public string? House { get; set; }
+        public string House { get; set; } = null!;
 
-        public string? PostalCode { get; set; }
+        public string PostalCode { get; set; } = null!;
 
-        public string? CityName { get; set; }
+        public string CityName { get; set; } = null!;
 
-        public string? District { get; set; }
+        public string District { get; set; } = null!;
 
-        public string? UnitNumber { get; set; }
+        public string UnitNumber { get; set; } = null!;
 
-        public string? FloorNumber { get; set; }
+        public string FloorNumber { get; set; } = null!;
 
-        public string? StateName { get; set; }
+        public string StateName { get; set; } = null!;
 
-        public string? CountryName { get; set; }
+        public string CountryName { get; set; } = null!;
 
-        public string? Notes { get; set; }
+        public string Notes { get; set; } = null!;
 
         public bool IsDefault { get; set; }
 
-        public string? Tag { get; set; }
+        public string Tag { get; set; } = null!;
 
         [Required]
         public decimal Latitude { get; set; }

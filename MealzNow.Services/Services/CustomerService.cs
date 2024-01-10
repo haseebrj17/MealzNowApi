@@ -25,10 +25,11 @@ namespace MealzNow.Services.Services
         private readonly ILogger<CustomerService> _logger;
 
         public CustomerService(IMapper mapper, ICustomerRepository customerRepository, ICustomerAddressRepository customerAddressRepository,
-                 ICityRepository _cityRepository, IJwtTokenManager jwtTokenManager, ILogger<CustomerService> logger)
+                 ICityRepository cityRepository, IJwtTokenManager jwtTokenManager, ILogger<CustomerService> logger)
         {
             _mapper = mapper;
             _customerRepository = customerRepository;
+            _cityRepository = cityRepository;
             _customerAddressRepository = customerAddressRepository;
             _jwtTokenManager = jwtTokenManager;
             _logger = logger;
@@ -99,7 +100,7 @@ namespace MealzNow.Services.Services
         {
             var address = _mapper.Map<CustomerAddressDto, CustomerAddresses>(addressDto);
 
-            if (address == null) { return null; }
+            if (address == null) { return null; };
 
             var cityId = await _cityRepository.GetCityIdByName(addressDto.CityName, addressDto.StateName, addressDto.CountryName);
 

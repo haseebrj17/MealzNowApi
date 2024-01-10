@@ -25,29 +25,30 @@ namespace MealzNow.Db.Repositories
 
         public async Task<Guid> AddCity(string cityName, string stateName, string countryName)
         {
-            var countriesData = await _mealzNowDataBaseContext.Country
-                   .Include(c => c.Country)
-                       .ThenInclude(country => country.States)
-                           .ThenInclude(state => state.Cities)
-                   .FirstOrDefaultAsync();
+            var country = await _mealzNowDataBaseContext.Country
+                           .Include(c => c.States)
+                               .ThenInclude(s => s.Cities)
+                           .FirstOrDefaultAsync(c => c.Name.ToLower() == countryName.ToLower())
+                       ?? new Country { Name = countryName };
 
-            if (countriesData == null)
+            if (country.Id == Guid.Empty)
             {
-                countriesData = new Countries { Country = new List<Country> { new Country { Name = countryName } } };
-                await _mealzNowDataBaseContext.Country.AddAsync(countriesData);
+                _mealzNowDataBaseContext.Country.Add(country);
             }
 
-            var state = countriesData.Country.SelectMany(c => c.States).FirstOrDefault(s => s.Name.ToLower() == stateName.ToLower());
-            if (state == null)
+            var state = country.States.FirstOrDefault(s => s.Name.ToLower() == stateName.ToLower())
+                       ?? new State { Name = stateName };
+
+            if (state.Id == Guid.Empty)
             {
-                state = new State { Name = stateName };
-                countriesData.Country.FirstOrDefault()?.States.Add(state);
+                country.States.Add(state);
             }
 
-            var city = state.Cities.FirstOrDefault(c => c.Name.ToLower() == cityName.ToLower());
-            if (city == null)
+            var city = state.Cities.FirstOrDefault(c => c.Name.ToLower() == cityName.ToLower())
+                      ?? new CityName { Name = cityName };
+
+            if (city.Id == Guid.Empty)
             {
-                city = new CityName { Name = cityName };
                 state.Cities.Add(city);
             }
 
@@ -58,13 +59,11 @@ namespace MealzNow.Db.Repositories
         public async Task<Guid?> GetCityIdByName(string cityName, string stateName, string countryName)
         {
             var countriesData = await _mealzNowDataBaseContext.Country
-                .Include(c => c.Country)
-                    .ThenInclude(country => country.States)
-                        .ThenInclude(state => state.Cities)
-                .FirstOrDefaultAsync();
+                .Include(c => c.States)
+                    .ThenInclude(state => state.Cities)
+                .FirstOrDefaultAsync(c => c.Name.ToLower() == countryName.ToLower());
 
-            var country = countriesData?.Country.FirstOrDefault(c => c.Name.ToLower() == countryName.ToLower());
-            var state = country?.States.FirstOrDefault(s => s.Name.ToLower() == stateName.ToLower());
+            var state = countriesData?.States.FirstOrDefault(s => s.Name.ToLower() == stateName.ToLower());
             var city = state?.Cities.FirstOrDefault(c => c.Name.ToLower() == cityName.ToLower());
 
             return city?.Id;
@@ -73,10 +72,8 @@ namespace MealzNow.Db.Repositories
         public async Task<CityName?> GetCityById(Guid cityId)
         {
             var city = await _mealzNowDataBaseContext.Country
-                        .Include(c => c.Country)
-                            .ThenInclude(country => country.States)
+                        .Include(c => c.States)
                                 .ThenInclude(state => state.Cities)
-                        .SelectMany(c => c.Country)
                             .SelectMany(country => country.States)
                                 .SelectMany(state => state.Cities)
                         .FirstOrDefaultAsync(city => city.Id == cityId);

@@ -5,11 +5,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MealzNow.Db.Models
 {
-    public class Countries : BaseEntity
-    {
-        public List<Country> Country { get; set; } = new List<Country>();
-    }
-
     public class Country : BaseEntity
     {
         [Required]

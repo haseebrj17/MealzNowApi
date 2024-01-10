@@ -11,9 +11,6 @@ namespace MealzNow.Services.Mapping
         public AutoMapperProfiles()
         {
 
-            CreateMap<Countries, CountriesDto>();
-            CreateMap<CountriesDto, Countries>();
-
             CreateMap<Country, CountryDto>();
             CreateMap<CountryDto, Country>();
 
