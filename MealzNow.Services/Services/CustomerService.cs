@@ -102,15 +102,6 @@ namespace MealzNow.Services.Services
 
             if (address == null) { return null; };
 
-            var cityId = await _cityRepository.GetCityIdByName(addressDto.CityName, addressDto.StateName, addressDto.CountryName);
-
-            if (cityId == null || cityId == Guid.Empty)
-            {
-                cityId = await _cityRepository.AddCity(addressDto.CityName, addressDto.StateName, addressDto.CountryName);
-            }
-
-            address.CityId = cityId.Value;
-
             var customer = await _customerAddressRepository.AddAddress(addressDto.CustomerId, address);
 
             if (customer == null) { return null; }
