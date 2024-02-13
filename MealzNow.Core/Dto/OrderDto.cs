@@ -136,6 +136,8 @@ namespace MealzNow.Core.Dto
 
     public class ProductByTimingDto
     {
+        public string CompositeId { get; set; } = null!;
+
         [JsonProperty("id")]
         public Guid Id { get; set; }
 

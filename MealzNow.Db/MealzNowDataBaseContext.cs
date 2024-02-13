@@ -124,6 +124,12 @@ namespace MealzNow.Db
                     b.HasKey("Id");
                 });
 
+                entity.OwnsMany(f => f.Discount, b =>
+                {
+                    b.WithOwner().HasForeignKey("FranchiseId");
+                    b.HasKey("Id");
+                });
+
                 entity.OwnsMany(f => f.FranchiseSetting, fs =>
                 {
                     fs.WithOwner().HasForeignKey("FranchiseId");
@@ -234,7 +240,7 @@ namespace MealzNow.Db
                     day.OwnsMany(d => d.ProductByTiming, timing =>
                     {
                         timing.WithOwner().HasForeignKey("DayId");
-                        timing.HasKey("Id");
+                        timing.HasKey(c => c.CompositeId);
                         timing.OwnsMany(t => t.OrderedProductExtraDipping);
                         timing.OwnsMany(t => t.OrderedProductExtraTopping);
                         timing.OwnsOne(t => t.OrderedProductSides);

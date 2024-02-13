@@ -10,5 +10,6 @@ namespace MealzNow.Core.RequestModels
         public OrderStatus? OrderStatus { get; set; }
         public Guid? DayId { get; set; }
         public Guid? ProductByTimingId { get; set; }
+        public Status? Status { get; set; }
     }
 }

@@ -50,6 +50,8 @@ namespace MealzNow.Core.Dto
         public List<FranchiseSettingDto> FranchiseSetting { get; set; } = new List<FranchiseSettingDto>();
 
         public List<ProductOutlineDto> ProductOutline { get; set; } = new List<ProductOutlineDto>();
+
+        public List<DiscountDto> Discount { get; set; } = new List<DiscountDto>();
     }
 
     public class FranchiseTimingDto
@@ -157,4 +159,25 @@ namespace MealzNow.Core.Dto
         public string Icon { get; set; } = null!;
     }
 
+    public class DiscountDto
+    {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
+        public string Name { get; set; } = null!;
+
+        public double Percent { get; set; }
+
+        public string Eligibility { get; set; } = null!;
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+
+        public bool IsActive { get; set; }
+
+        public DiscountType Type { get; set; }
+
+        public string Conditions { get; set; } = null!;
+    }
 }

@@ -21,3 +21,4 @@
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/obj/Debug/net7.0/refint/MealzNow.Db.dll
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/obj/Debug/net7.0/MealzNow.Db.pdb
 /Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/obj/Debug/net7.0/ref/MealzNow.Db.dll
+/Users/haseebrajpoot/Downloads/Programming/MealzNowApi/MealzNow.Db/obj/Debug/net7.0/MealzNow.Db.sourcelink.json

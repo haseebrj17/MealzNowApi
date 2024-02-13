@@ -179,5 +179,54 @@ namespace MealzNow.Services.Services
 
             return _mapper.Map<Franchise, FranchiseDto>(franchise);
         }
+
+        public async Task<bool> UpdateDishStatus(Guid Id, Enums.Status status, Guid loggedInUserId)
+        {
+            var updateSuccess = await _franchiseRepository.UpdateDishStatus(Id, status, loggedInUserId);
+
+            return updateSuccess;
+        }
+
+        public async Task<bool> UpdateBrandStatus(Guid Id, Enums.Status status, Guid loggedInUserId)
+        {
+            var updateSuccess = await _franchiseRepository.UpdateBrandStatus(Id, status, loggedInUserId);
+
+            return updateSuccess;
+        }
+
+        public async Task<bool> UpdateFranchiseStatus(Guid Id, Enums.Status status, Guid loggedInUserId)
+        {
+            var updateSuccess = await _franchiseRepository.UpdateFranchiseStatus(Id, status, loggedInUserId);
+
+            return updateSuccess;
+        }
+
+        public async Task<bool> UpdateSubCategoryStatus(Guid Id, Guid BrandId, Enums.Status status, Guid loggedInUserId)
+        {
+            var updateSuccess = await _franchiseRepository.UpdateSubCategoryStatus(Id, BrandId, status, loggedInUserId);
+
+            return updateSuccess;
+        }
+
+        public async Task<bool> UpdateCategoryStatus(Guid Id, Enums.Status status, Guid loggedInUserId)
+        {
+            var updateSuccess = await _franchiseRepository.UpdateCategoryStatus(Id, status, loggedInUserId);
+
+            return updateSuccess;
+        }
+
+        public async Task<bool> UpdateToppingStatus(Guid Id, Guid DishId, Enums.Status status, Guid loggedInUserId)
+        {
+            var updateSuccess = await _franchiseRepository.UpdateToppingStatus(Id, DishId, status, loggedInUserId);
+
+            return updateSuccess;
+        }
+
+        public async Task<bool> UpdateDippingStatus(Guid Id, Guid DishId, Enums.Status status, Guid loggedInUserId)
+        {
+            var updateSuccess = await _franchiseRepository.UpdateDippingStatus(Id, DishId, status, loggedInUserId);
+
+            return updateSuccess;
+        }
     }
 }

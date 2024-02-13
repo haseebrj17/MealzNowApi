@@ -65,6 +65,8 @@ namespace MealzNow.Db.Models
 
         [Required]
         public List<ProductOutline> ProductOutline { get; set; } = new List<ProductOutline>();
+
+        public List<Discount> Discount { get; set; } = new List<Discount>();
     }
 
     public class FranchiseTiming : BaseEntity
@@ -200,5 +202,24 @@ namespace MealzNow.Db.Models
         public string Name { get; set; } = null!;
 
         public string Icon { get; set; } = null!;
+    }
+
+    public class Discount : BaseEntity
+    {
+        public string Name { get; set; } = null!;
+
+        public double Percent { get; set; }
+
+        public string Eligibility { get; set; } = null!;
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+
+        public bool IsActive { get; set; }
+
+        public DiscountType Type { get; set; }
+
+        public string Conditions { get; set; } = null!;
     }
 }

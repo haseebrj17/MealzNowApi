@@ -46,5 +46,22 @@
             Delivery = 1,
             PickUp = 2
         }
+
+        public enum Status
+        {
+            Active = 1,
+            InActive = 0
+        }
+
+        public enum DiscountType
+        {
+            Percentage = 1,
+            FixedAmount = 2,
+            BuyOneGetOne = 3,
+            Seasonal = 4,
+            Volume = 5,
+            FirstTimeCustomer = 6,
+            Loyalty = 7
+        }
     }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MealzNow.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98dbb082c5a2be4a277cac137095c6052e336c65")]
 [assembly: System.Reflection.AssemblyProductAttribute("MealzNow.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MealzNow.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -14,6 +14,13 @@ namespace MealzNow.Db.Repositories
         Task<FranchiseUser?> UserLogin(string email, string password);
         Task<Franchise?> GetFranchiseDetailByUser(string email);
         Task<Franchise> GetFranchiseSettingById(Guid franchiseId);
+        Task<bool> UpdateDishStatus(Guid id, Status status, Guid loggedInUserId);
+        Task<bool> UpdateBrandStatus(Guid id, Status status, Guid loggedInUserId);
+        Task<bool> UpdateFranchiseStatus(Guid id, Status status, Guid loggedInUserId);
+        Task<bool> UpdateSubCategoryStatus(Guid id, Guid BrandId, Status status, Guid loggedInUserId);
+        Task<bool> UpdateCategoryStatus(Guid id, Status status, Guid loggedInUserId);
+        Task<bool> UpdateDippingStatus(Guid id, Guid DishId, Status status, Guid loggedInUserId);
+        Task<bool> UpdateToppingStatus(Guid id, Guid DishId, Status status, Guid loggedInUserId);
         Task<Franchise> GetFranchisById(Guid franchiseId);
     }
     public class FranchiseRepository : IFranchiseRepository
@@ -140,6 +147,139 @@ namespace MealzNow.Db.Repositories
             if (user == null) return null;
 
             return user;
+        }
+
+        public async Task<bool> UpdateDishStatus(Guid id, Status status, Guid loggedInUserId)
+        {
+            var dish = await _mealzNowDataBaseContext.Products.FirstAsync(p => p.Id == id);
+
+            if (dish != null)
+            {
+                dish.IsActive = status == Status.Active;
+
+                dish.UpdatedById = loggedInUserId;
+
+                _mealzNowDataBaseContext.Products.Update(dish);
+
+                await _mealzNowDataBaseContext.SaveChangesAsync();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> UpdateBrandStatus(Guid id, Status status, Guid loggedInUserId)
+        {
+            var brand = await _mealzNowDataBaseContext.Categories.FirstAsync(p => p.Id == id);
+
+            if (brand != null)
+            {
+                brand.IsActive = status == Status.Active;
+
+                brand.UpdatedById = loggedInUserId;
+
+                _mealzNowDataBaseContext.Categories.Update(brand);
+
+                await _mealzNowDataBaseContext.SaveChangesAsync();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> UpdateFranchiseStatus(Guid id, Status status, Guid loggedInUserId)
+        {
+            var franchise = await _mealzNowDataBaseContext.Franchises.FirstAsync(p => p.Id == id);
+
+            if (franchise != null)
+            {
+                franchise.IsActive = status == Status.Active;
+
+                franchise.UpdatedById = loggedInUserId;
+
+                _mealzNowDataBaseContext.Franchises.Update(franchise);
+
+                await _mealzNowDataBaseContext.SaveChangesAsync();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> UpdateSubCategoryStatus(Guid id, Guid BrandId, Status status, Guid loggedInUserId)
+        {
+            var brand = await _mealzNowDataBaseContext.Categories
+                .Include(c => c.SubCategory)
+                .FirstOrDefaultAsync(p => p.Id == BrandId);
+
+            var subCategory = brand?.SubCategory.FirstOrDefault(sc => sc.Id == id);
+
+            if (subCategory != null)
+            {
+                subCategory.IsActive = status == Status.Active;
+                subCategory.UpdatedById = loggedInUserId;
+
+                await _mealzNowDataBaseContext.SaveChangesAsync();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> UpdateCategoryStatus(Guid id, Status status, Guid loggedInUserId)
+        {
+            var category = await _mealzNowDataBaseContext.Categories
+                .FirstOrDefaultAsync(c => c.Id == id && !c.IsBrand);
+
+            if (category != null)
+            {
+                category.IsActive = status == Status.Active;
+                category.UpdatedById = loggedInUserId;
+
+                await _mealzNowDataBaseContext.SaveChangesAsync();
+
+                return true;
+            }
+
+            return false;
+        }
+        public async Task<bool> UpdateDippingStatus(Guid id, Guid DishId, Status status, Guid loggedInUserId)
+        {
+            var dish = await _mealzNowDataBaseContext.Products
+                .FirstOrDefaultAsync(d => d.Id == DishId);
+
+            if (dish != null)
+            {
+                dish.ShowExtraDipping = status == Status.Active;
+                dish.UpdatedById = loggedInUserId;
+
+                await _mealzNowDataBaseContext.SaveChangesAsync();
+
+                return true;
+            }
+
+            return false;
+        }
+        public async Task<bool> UpdateToppingStatus(Guid id, Guid DishId, Status status, Guid loggedInUserId)
+        {
+            var dish = await _mealzNowDataBaseContext.Products
+                            .FirstOrDefaultAsync(d => d.Id == DishId);
+
+            if (dish != null)
+            {
+                dish.ShowExtraTopping = status == Status.Active;
+                dish.UpdatedById = loggedInUserId;
+
+                await _mealzNowDataBaseContext.SaveChangesAsync();
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

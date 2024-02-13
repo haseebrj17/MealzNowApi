@@ -155,6 +155,8 @@ namespace MealzNow.Db.Models
 
     public class ProductByTiming : BaseEntity
     {
+        public string CompositeId { get; set; } = null!;
+
         public bool Fulfilled { get; set; } = false;
 
         [Required]
