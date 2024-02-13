@@ -1,0 +1,52 @@
+﻿{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "haseebrajpoot",
+  "classifications": [],
+  "description": "",
+  "name": "N-Tier-Architecture",
+  "defaultName": "MealzNow.MobApi",
+  "identity": "MyTemplate.MealzNow.MobApi.CSharp",
+  "groupIdentity": "MyTemplate.MealzNow.MobApi",
+  "tags": {
+    "language": "C#",
+    "type": "project",
+    "vsmac-category": "cloud/general/general"
+  },
+  "shortName": "MealzNow.MobApi",
+  "sourceName": "MealzNow.MobApi",
+  "guids": [
+    "{1E3722C8-9E86-44CB-AE95-F7AC65BB5CB0}",
+    "{648C035B-9E6B-4A97-93E9-BA81EC58E9DB}",
+    "{8C8647E6-40FB-4EAA-8C03-F46F15EDA6D6}",
+    "{420AF5FC-E127-4010-946F-A92400DB905B}",
+    "{D658B875-D4EE-4370-B731-326F70610803}"
+  ],
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            ".vs/**/*"
+          ]
+        }
+      ]
+    }
+  ],
+  "primaryOutputs": [
+    {
+      "path": "MealzNow.Core/MealzNow.Core.csproj"
+    },
+    {
+      "path": "MealzNow.DataBaseManagement/MealzNow.DataBaseManagement.csproj"
+    },
+    {
+      "path": "MealzNow.Db/MealzNow.Db.csproj"
+    },
+    {
+      "path": "MealzNow.MobApi/MealzNow.MobApi.csproj"
+    },
+    {
+      "path": "MealzNow.Services/MealzNow.Services.csproj"
+    }
+  ]
+}
